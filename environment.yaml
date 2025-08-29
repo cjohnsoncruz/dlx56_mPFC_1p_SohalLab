@@ -21,20 +21,14 @@ dependencies:
 
   # ML / utils
   - scikit-learn=1.5.2
-  - joblib=1.4.2
-  - tqdm=4.67.1
-  - optuna=4.2.1
-
+ 
   # Notebook execution stack
   - nbclient=0.8.0
   - nbformat=5.10.4
   - ipykernel=6.29.5
   - pyzmq=25.1.2
   - tornado  # leave unpinned to resolve compat on Windows
-
-  # Optional metapackage if you want the CLI tools (not strictly required for your runner)
-  - jupyter
-
+ 
   - pip
   - pip:
       # pip-only
