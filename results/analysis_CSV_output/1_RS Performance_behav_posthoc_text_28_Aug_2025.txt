@@ -1,0 +1,5 @@
+Comparing RS_TTC of groups in geno_day level: WT VEH 15.500 +/- 1.742, Het VEH 26.429 +/- 1.510. WT VEH vs Het VEH MWU test statistic 4.5, p = 0.00756. WT VEH n=8, Het VEH n=7. full pvalue: 7.556E-03
+Comparing RS_TTC of groups in geno_day level: WT VEH 15.500 +/- 1.742, WT CLNZ 16.250 +/- 0.861. WT VEH vs WT CLNZ MWU test statistic 19.0, p = 0.18567. WT VEH n=8, WT CLNZ n=8. full pvalue: 1.857E-01
+Comparing RS_TTC of groups in geno_day level: WT CLNZ 16.250 +/- 0.861, Het VEH 26.429 +/- 1.510. WT CLNZ vs Het VEH MWU test statistic 0.0, p = 0.00143. WT CLNZ n=8, Het VEH n=7. full pvalue: 1.432E-03
+Comparing RS_TTC of groups in geno_day level: Het VEH 26.429 +/- 1.510, Het CLNZ 18.429 +/- 1.478. Het VEH vs Het CLNZ MWU test statistic 46.0, p = 0.00716. Het VEH n=7, Het CLNZ n=7. full pvalue: 7.162E-03
+Comparing RS_TTC of groups in geno_day level: Het VEH 26.429 +/- 1.510, Het postCLNZ 18.857 +/- 1.945. Het VEH vs Het postCLNZ MWU test statistic 43.5, p = 0.01746. Het VEH n=7, Het postCLNZ n=7. full pvalue: 1.746E-02

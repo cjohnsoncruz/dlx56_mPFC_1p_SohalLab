@@ -1,0 +1,6 @@
+Comparing DB_index of groups in Late_IA level: WT VEH 1.137 +/- 0.174, Het VEH 1.194 +/- 0.168. WT VEH vs Het VEH robust_cohen_d test statistic 0.3, p = 0.36957. WT VEH n=1000, Het VEH n=1000. full pvalue: 3.696E-01
+Comparing DB_index of groups in Late_IA level: Het VEH 1.194 +/- 0.168, Het CLNZ 0.970 +/- 0.114. Het VEH vs Het CLNZ robust_cohen_d test statistic 1.6, p = 0.05914. Het VEH n=1000, Het CLNZ n=1000. full pvalue: 5.914E-02
+Comparing DB_index of groups in Late_IA level: Het VEH 1.194 +/- 0.168, Het postCLNZ 1.074 +/- 0.148. Het VEH vs Het postCLNZ robust_cohen_d test statistic 0.8, p = 0.22274. Het VEH n=1000, Het postCLNZ n=1000. full pvalue: 2.227E-01
+Comparing DB_index of groups in Early_RS_Correct level: WT VEH 0.989 +/- 0.129, Het VEH 1.145 +/- 0.141. WT VEH vs Het VEH robust_cohen_d test statistic 1.2, p = 0.12438. WT VEH n=1000, Het VEH n=1000. full pvalue: 1.244E-01
+Comparing DB_index of groups in Early_RS_Correct level: Het VEH 1.145 +/- 0.141, Het CLNZ 1.000 +/- 0.125. Het VEH vs Het CLNZ robust_cohen_d test statistic 1.1, p = 0.13836. Het VEH n=1000, Het CLNZ n=1000. full pvalue: 1.384E-01
+Comparing DB_index of groups in Early_RS_Correct level: Het VEH 1.145 +/- 0.141, Het postCLNZ 0.967 +/- 0.130. Het VEH vs Het postCLNZ robust_cohen_d test statistic 1.3, p = 0.09380. Het VEH n=1000, Het postCLNZ n=1000. full pvalue: 9.380E-02

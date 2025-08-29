@@ -1,0 +1,44 @@
+##paper_plot.mplstyle for Johnson-Cruz et all 2024 
+font.family: sans-serif
+font.sans-serif: Arial, Helvetica, sans-serif
+font.serif: Times New Roman, Times, serif
+font.monospace: Courier New, Courier, monospace
+pdf.use14corefonts: True
+pdf.fonttype:42
+svg.fonttype: none
+ps.fonttype: 42
+font.size: 6
+axes.labelsize: 6.
+axes.titlesize: 6.
+xtick.labelsize: 6
+ytick.labelsize: 6
+axes.titlepad: 5.0
+axes.linewidth: 0.5
+grid.linewidth: 0.5
+lines.linewidth: 0.85 ## default- 0.75
+lines.markersize: 2.0
+patch.linewidth: 0.75
+xtick.major.width: 0.5
+ytick.major.width: 0.5
+xtick.minor.width: 0.25
+ytick.minor.width: 0.25
+xtick.major.size: 3
+ytick.major.pad: 2 #default- 3.5 # distance to major tick label in points
+ytick.major.size: 3
+xtick.minor.size: 2
+ytick.minor.size: 2
+axes.spines.top:False 
+axes.spines.right:False
+figure.constrained_layout.use: False
+savefig.dpi: 300
+figure.dpi: 150
+savefig.bbox:tight
+savefig.transparent: False
+legend.fontsize: 5
+legend.title_fontsize: 5
+legend.labelspacing:0.2  #vert space between labels
+legend.markerscale:1
+legend.borderpad:0.1 #border between axes and legend 
+legend.columnspacing:0.05
+legend.handletextpad : 0.1 #legend line/marker and text gap 
+scatter.edgecolors: black

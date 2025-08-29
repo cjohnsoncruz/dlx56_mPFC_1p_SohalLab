@@ -1,0 +1,6 @@
+Comparing accuracy of groups in Early_RS_Correct level: WT VEH 0.972 +/- 0.005, Het VEH 0.952 +/- 0.006. WT VEH vs Het VEH robust_cohen_d test statistic 3.7, p = 0.00011. WT VEH n=1000, Het VEH n=1000. full pvalue: 1.066E-04
+Comparing accuracy of groups in Early_RS_Correct level: Het VEH 0.952 +/- 0.006, Het CLNZ 0.965 +/- 0.005. Het VEH vs Het CLNZ robust_cohen_d test statistic 2.3, p = 0.01008. Het VEH n=1000, Het CLNZ n=1000. full pvalue: 1.008E-02
+Comparing accuracy of groups in Early_RS_Correct level: Het VEH 0.952 +/- 0.006, Het postCLNZ 0.977 +/- 0.004. Het VEH vs Het postCLNZ robust_cohen_d test statistic 5.0, p = 0.00000. Het VEH n=1000, Het postCLNZ n=1000. full pvalue: 3.696E-07
+Comparing accuracy of groups in Late_IA level: WT VEH 0.970 +/- 0.005, Het VEH 0.966 +/- 0.005. WT VEH vs Het VEH robust_cohen_d test statistic 0.9, p = 0.18331. WT VEH n=1000, Het VEH n=1000. full pvalue: 1.833E-01
+Comparing accuracy of groups in Late_IA level: Het VEH 0.966 +/- 0.005, Het CLNZ 0.969 +/- 0.005. Het VEH vs Het CLNZ robust_cohen_d test statistic 0.6, p = 0.28556. Het VEH n=1000, Het CLNZ n=1000. full pvalue: 2.856E-01
+Comparing accuracy of groups in Late_IA level: Het VEH 0.966 +/- 0.005, Het postCLNZ 0.969 +/- 0.006. Het VEH vs Het postCLNZ robust_cohen_d test statistic 0.6, p = 0.27740. Het VEH n=1000, Het postCLNZ n=1000. full pvalue: 2.774E-01

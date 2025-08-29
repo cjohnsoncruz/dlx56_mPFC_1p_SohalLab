@@ -1,0 +1,37 @@
+,category_compared_within,group_1,group_2,group_1_n,group_2_n,group_1_mean,group_1_sem,group_2_mean,group_2_sem,test_name,stat_result,pvalue,group_1_order_pos,group_2_order_pos,categorical_subgroup,hue_group_1_locs,hue_group_2_locs,g1_num_loc,g2_num_loc,g1_cat_loc,g2_cat_loc,max_group_loc_val,numeric_var,hue_var,x_category_var,hue_is_x_axis,date_tag,fig_name,fig_num
+0,Early_IA_Correct_x_Early_RS_Correct,WT VEH,WT CLNZ,"(1,)","(1,)",1.3889,,0.7851,,chi_squared,"[1.2187408311338601, 0.2696079060173082]",0.2696079060173082,[0],[1],"('WT VEH', 'WT CLNZ')","[[0.         1.38888889]
+ [0.         1.38888889]]","[[1.         0.78508342]
+ [1.         0.78508342]]",1.3888888888888888,0.7850834151128557,0.0,1.0,1.3888888888888888,percent_total_overlap,geno_day,geno_day,True,28_Aug_2025,Supplement- VEH v CLNZ for Het & WT- ensemble proportion overlap,2_s
+1,Early_IA_Correct_x_Early_RS_Correct,Het VEH,Het CLNZ,"(1,)","(1,)",3.6613,,1.5012,,chi_squared,"[6.839713271415623, 0.008915314781994182]",0.008915314781994182,[2],[3],"('Het VEH', 'Het CLNZ')","[[2.         3.66132723]
+ [2.         3.66132723]]","[[3.         1.50115473]
+ [3.         1.50115473]]",3.6613272311212817,1.5011547344110854,2.0,3.0,3.6613272311212817,percent_total_overlap,geno_day,geno_day,True,28_Aug_2025,Supplement- VEH v CLNZ for Het & WT- ensemble proportion overlap,2_s
+2,Early_IA_Correct_x_Early_RS_Correct,WT VEH,Het VEH,"(1,)","(1,)",1.3889,,3.6613,,chi_squared,"[9.184335543466123, 0.0024409513009903704]",0.0024409513009903704,[0],[2],"('WT VEH', 'Het VEH')","[[0.         1.38888889]
+ [0.         1.38888889]]","[[2.         3.66132723]
+ [2.         3.66132723]]",1.3888888888888888,3.6613272311212817,0.0,2.0,3.6613272311212817,percent_total_overlap,geno_day,geno_day,True,28_Aug_2025,Supplement- VEH v CLNZ for Het & WT- ensemble proportion overlap,2_s
+0,Early_IA_Error_x_Early_RS_Error,WT VEH,WT CLNZ,"(1,)","(1,)",0.6481,,0.6869,,chi_squared,"[0.0, 1.0]",1.0,[0],[1],"('WT VEH', 'WT CLNZ')","[[0.         0.64814815]
+ [0.         0.64814815]]","[[1.         0.68694799]
+ [1.         0.68694799]]",0.6481481481481481,0.6869479882237487,0.0,1.0,0.6869479882237487,percent_total_overlap,geno_day,geno_day,True,28_Aug_2025,Supplement- VEH v CLNZ for Het & WT- ensemble proportion overlap,2_s
+1,Early_IA_Error_x_Early_RS_Error,Het VEH,Het CLNZ,"(1,)","(1,)",1.373,,1.1547,,chi_squared,"[0.035253716118265735, 0.8510650052474029]",0.8510650052474029,[2],[3],"('Het VEH', 'Het CLNZ')","[[2.         1.37299771]
+ [2.         1.37299771]]","[[3.         1.15473441]
+ [3.         1.15473441]]",1.3729977116704806,1.1547344110854503,2.0,3.0,1.3729977116704806,percent_total_overlap,geno_day,geno_day,True,28_Aug_2025,Supplement- VEH v CLNZ for Het & WT- ensemble proportion overlap,2_s
+2,Early_IA_Error_x_Early_RS_Error,WT VEH,Het VEH,"(1,)","(1,)",0.6481,,1.373,,chi_squared,"[1.8919673157209405, 0.16898019474792686]",0.16898019474792686,[0],[2],"('WT VEH', 'Het VEH')","[[0.         0.64814815]
+ [0.         0.64814815]]","[[2.         1.37299771]
+ [2.         1.37299771]]",0.6481481481481481,1.3729977116704806,0.0,2.0,1.3729977116704806,percent_total_overlap,geno_day,geno_day,True,28_Aug_2025,Supplement- VEH v CLNZ for Het & WT- ensemble proportion overlap,2_s
+0,Early_IA_Correct_x_Late_IA,WT VEH,WT CLNZ,"(1,)","(1,)",2.1296,,1.6683,,chi_squared,"[0.358055334831322, 0.5495882412926699]",0.5495882412926699,[0],[1],"('WT VEH', 'WT CLNZ')","[[0.         2.12962963]
+ [0.         2.12962963]]","[[1.         1.66830226]
+ [1.         1.66830226]]",2.1296296296296298,1.6683022571148183,0.0,1.0,2.1296296296296298,percent_total_overlap,geno_day,geno_day,True,28_Aug_2025,Supplement- VEH v CLNZ for Het & WT- ensemble proportion overlap,2_s
+1,Early_IA_Correct_x_Late_IA,Het VEH,Het CLNZ,"(1,)","(1,)",5.6064,,2.7714,,chi_squared,"[7.338732179299311, 0.006748441836990629]",0.006748441836990629,[2],[3],"('Het VEH', 'Het CLNZ')","[[2.         5.60640732]
+ [2.         5.60640732]]","[[3.         2.77136259]
+ [3.         2.77136259]]",5.606407322654462,2.771362586605081,2.0,3.0,5.606407322654462,percent_total_overlap,geno_day,geno_day,True,28_Aug_2025,Supplement- VEH v CLNZ for Het & WT- ensemble proportion overlap,2_s
+2,Early_IA_Correct_x_Late_IA,WT VEH,Het VEH,"(1,)","(1,)",2.1296,,5.6064,,chi_squared,"[14.308561403457878, 0.00015515760530983294]",0.00015515760530983294,[0],[2],"('WT VEH', 'Het VEH')","[[0.         2.12962963]
+ [0.         2.12962963]]","[[2.         5.60640732]
+ [2.         5.60640732]]",2.1296296296296298,5.606407322654462,0.0,2.0,5.606407322654462,percent_total_overlap,geno_day,geno_day,True,28_Aug_2025,Supplement- VEH v CLNZ for Het & WT- ensemble proportion overlap,2_s
+0,Late_IA_x_Early_RS_Correct,WT VEH,WT CLNZ,"(1,)","(1,)",2.037,,1.1776,,chi_squared,"[1.8524156346493794, 0.17350270294060355]",0.17350270294060355,[0],[1],"('WT VEH', 'WT CLNZ')","[[0.         2.03703704]
+ [0.         2.03703704]]","[[1.         1.17762512]
+ [1.         1.17762512]]",2.037037037037037,1.1776251226692835,0.0,1.0,2.037037037037037,percent_total_overlap,geno_day,geno_day,True,28_Aug_2025,Supplement- VEH v CLNZ for Het & WT- ensemble proportion overlap,2_s
+1,Late_IA_x_Early_RS_Correct,Het VEH,Het CLNZ,"(1,)","(1,)",3.3181,,2.194,,chi_squared,"[1.5530010621132355, 0.21269294913198356]",0.21269294913198356,[2],[3],"('Het VEH', 'Het CLNZ')","[[2.        3.3180778]
+ [2.        3.3180778]]","[[3.         2.19399538]
+ [3.         2.19399538]]",3.318077803203661,2.1939953810623556,2.0,3.0,3.318077803203661,percent_total_overlap,geno_day,geno_day,True,28_Aug_2025,Supplement- VEH v CLNZ for Het & WT- ensemble proportion overlap,2_s
+2,Late_IA_x_Early_RS_Correct,WT VEH,Het VEH,"(1,)","(1,)",2.037,,3.3181,,chi_squared,"[2.486418492477585, 0.11483277526461376]",0.11483277526461376,[0],[2],"('WT VEH', 'Het VEH')","[[0.         2.03703704]
+ [0.         2.03703704]]","[[2.        3.3180778]
+ [2.        3.3180778]]",2.037037037037037,3.318077803203661,0.0,2.0,3.318077803203661,percent_total_overlap,geno_day,geno_day,True,28_Aug_2025,Supplement- VEH v CLNZ for Het & WT- ensemble proportion overlap,2_s

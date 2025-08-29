@@ -1,0 +1,19 @@
+,category_compared_within,group_1,group_2,group_1_n,group_2_n,group_1_mean,group_1_sem,group_2_mean,group_2_sem,test_name,stat_result,pvalue,group_1_order_pos,group_2_order_pos,categorical_subgroup,tick_text,tick_pos,hue_group_1_locs,hue_group_2_locs,g1_num_loc,g2_num_loc,g1_cat_loc,g2_cat_loc,g_1_child_x,g_1_child_y,y_is_nonnan,y_is_2_elem,g_2_child_x,g_2_child_y,max_group_loc_val,numeric_var,hue_var,x_category_var,hue_is_x_axis,date_tag,fig_name,fig_num
+0,Early RS Error,WT VEH,Het VEH,"(1000,)","(1000,)",43.8725,1.8506,47.7079,1.71,robust_cohen_d,[2.15264e+00 1.56700e-02 1.00000e-04],0.015673521651548783,[1],[1],Early RS Error,Early RS Error,"(1, 0)","[[-0.25       11.61140625]
+ [ 0.75       43.87984375]]","[[-0.08333333 76.252875  ]
+ [ 0.91666667 47.75934375]]",47.15625,50.81249999999999,0.75,0.9166666666666666,[0.75 0.75],[40.53125 47.15625],True,True,[0.92 0.92],[44.65625 50.8125 ],50.81249999999999,value,geno_day,actual,False,28_Aug_2025,CCG single class pred- Train Correct test Error- Early_RS_Error ensemble,4
+1,Early RS Error,Het VEH,Het CLNZ,"(1000,)","(1000,)",47.7079,1.71,75.1115,2.076,robust_cohen_d,[1.440902e+01 0.000000e+00 1.000000e-04],0.0,[1],[1],Early RS Error,Early RS Error,"(1, 0)","[[-0.08333333 76.252875  ]
+ [ 0.91666667 47.75934375]]","[[ 0.08333333 61.46340625]
+ [ 1.08333333 75.06121875]]",50.81249999999999,78.94140625,0.9166666666666666,1.0833333333333333,[0.92 0.92],[44.65625 50.8125 ],True,True,[1.08 1.08],[71.15625    78.94140625],78.94140625,value,geno_day,actual,False,28_Aug_2025,CCG single class pred- Train Correct test Error- Early_RS_Error ensemble,4
+2,Early RS Error,Het VEH,Het postCLNZ,"(1000,)","(1000,)",47.7079,1.71,39.0442,2.2918,robust_cohen_d,[4.28487e+00 1.00000e-05 1.00000e-04],9.142226312319757e-06,[1],[1],Early RS Error,Early RS Error,"(1, 0)","[[-0.08333333 76.252875  ]
+ [ 0.91666667 47.75934375]]","[[ 0.25      50.5908125]
+ [ 1.25      39.068625 ]]",50.81249999999999,43.09375,0.9166666666666666,1.25,[0.92 0.92],[44.65625 50.8125 ],True,True,[1.25 1.25],[35.02734375 43.09375   ],50.81249999999999,value,geno_day,actual,False,28_Aug_2025,CCG single class pred- Train Correct test Error- Early_RS_Error ensemble,4
+3,Early IA Error,WT VEH,Het VEH,"(1000,)","(1000,)",11.6145,1.2647,78.3209,7.8173,robust_cohen_d,[1.191288e+01 0.000000e+00 1.000000e-04],0.0,[0],[0],Early IA Error,Early IA Error,"(0, 0)","[[-0.25       11.61140625]
+ [ 0.75       43.87984375]]","[[-0.08333333 76.252875  ]
+ [ 0.91666667 47.75934375]]",13.781249999999998,85.75,-0.25,-0.08333333333333334,[-0.25 -0.25],[ 9.46875 13.78125],True,True,[-0.08 -0.08],[56.58203125 85.75      ],85.75,value,geno_day,actual,False,28_Aug_2025,CCG single class pred- Train Correct test Error- Early_RS_Error ensemble,4
+4,Early IA Error,Het VEH,Het CLNZ,"(1000,)","(1000,)",78.3209,7.8173,61.4748,2.0345,robust_cohen_d,[2.94936e+00 1.59000e-03 1.00000e-04],0.0015921505629302724,[0],[0],Early IA Error,Early IA Error,"(0, 0)","[[-0.08333333 76.252875  ]
+ [ 0.91666667 47.75934375]]","[[ 0.08333333 61.46340625]
+ [ 1.08333333 75.06121875]]",85.75,65.15625,-0.08333333333333334,0.08333333333333331,[-0.08 -0.08],[56.58203125 85.75      ],True,True,[0.08 0.08],[57.6875  65.15625],85.75,value,geno_day,actual,False,28_Aug_2025,CCG single class pred- Train Correct test Error- Early_RS_Error ensemble,4
+5,Early IA Error,Het VEH,Het postCLNZ,"(1000,)","(1000,)",78.3209,7.8173,50.6534,1.8334,robust_cohen_d,[4.87307e+00 0.00000e+00 1.00000e-04],5.493885775198493e-07,[0],[0],Early IA Error,Early IA Error,"(0, 0)","[[-0.08333333 76.252875  ]
+ [ 0.91666667 47.75934375]]","[[ 0.25      50.5908125]
+ [ 1.25      39.068625 ]]",85.75,53.96875000000001,-0.08333333333333334,0.25,[-0.08 -0.08],[56.58203125 85.75      ],True,True,[0.25 0.25],[47.125   53.96875],85.75,value,geno_day,actual,False,28_Aug_2025,CCG single class pred- Train Correct test Error- Early_RS_Error ensemble,4
