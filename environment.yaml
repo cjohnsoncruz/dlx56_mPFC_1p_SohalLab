@@ -11,11 +11,12 @@ dependencies:
 
   # Stats
   - scipy=1.14.1
-  - statsmodels=0.14.4
+  # - statsmodels=0.14.4
   - pingouin=0.5.5
 
   # I/O
   - openpyxl=3.1.5
+  - pyarrow=12.0.1
 
   # ML / utils
   - scikit-learn=1.5.2
@@ -31,4 +32,3 @@ dependencies:
   - pip:
       # pip-only
       - mat73
-     
