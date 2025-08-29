@@ -1,16 +1,14 @@
 # dlx56_mPFC_1p_SohalLab
-Code used to create data visualizations published in "Circuit inhibition promotes the dynamic reorganization of prefrontal task encoding to support cognitive flexibility".
+Code used to create data visualizations published in "Circuit inhibition promotes the dynamic reorganization of prefrontal task encoding to support cognitive flexibility", currently accessable as a preprint on bioarxiv: https://www.biorxiv.org/content/10.1101/2025.08.09.669414v1 .
 
 ## Overview
-This repository contains Jupyter notebooks and Python utilities to reproduce the analyses and figures for the manuscript.
-
- The workflow can be executed either by running the notebooks directly or by using a script runner that executes them programmatically.
+This repo contains Jupyter notebooks and Python utilities to reproduce the analyses and figures generated for the manuscript, using saved datasets located in /data/. The workflow can be executed either by running the notebooks directly or by using a script runner that executes them programmatically.
 
 Key components:
-- Notebooks under `code/` that generate Figures 1–7 and Supplementary Figures.
+- Notebooks under `code/` that generates and saves .png files of panels used in Figures 1–7 and Supplementary Figures 1-2.
 - Shared plotting/analysis utilities under `code/Function .py Storage/`.
 - A script runner `code/main.py` that executes all figure notebooks headlessly and saves the executed copies under `results/`.
-- Data samples in `data/` for testing and demonstration.
+- Data used to generate the figures, in `data/`.
 
 ## Repository structure
 - `code/`
@@ -64,9 +62,8 @@ Git ignores `results/` contents by default (see `.gitignore`). If you need the f
 The `data/` directory contains sample files used by notebooks (e.g., `.parquet`, `.xlsx`, `.csv`, `.mat`). For full analyses, ensure the expected inputs are present or update paths in the notebooks accordingly.
 
 ## Reproducibility notes
-- Windows async: `code/main.py` sets a Windows selector event loop policy for compatibility with notebook execution.
-- Paths: All save paths were updated to be repository-relative to avoid reliance on Google Drive letters.
-- Determinism: Some analyses may involve randomness (e.g., resampling). Seed control is not enforced globally unless specified inside notebooks/utilities.
+- Paths: All save paths are repository-relative.
+- Determinism: Some analyses may involve randomness (e.g., resampling). Seed control is specified inside notebooks but not enforced globally.
 
 ## Troubleshooting
 - Figures not appearing in expected folders:
