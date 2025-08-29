@@ -205,3 +205,8 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Project outputs (figures, executed notebooks, CSVs, etc.)
+/results/
+# Keep a placeholder so the directory exists
+!/results/.gitkeep
