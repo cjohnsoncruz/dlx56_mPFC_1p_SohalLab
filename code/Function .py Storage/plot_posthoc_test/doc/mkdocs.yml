@@ -1,0 +1,30 @@
+site_name: Plot Posthoc Test
+site_author: Carlos Johnson-Cruz
+site_description: "Documentation for Plot Posthoc Test (Under Development)"
+theme:
+  name: material
+# Repository and Deploy Settings
+repo_name: plot_posthoc_test
+repo_url: https://github.com/cjohnsoncruz/plot_posthoc_test
+nav: 
+  - Home: index.md
+  - Usage: usage.md
+  - API: api.md
+  - Changelog: changelog.md
+  - License: license.md
+  - GitHub: https://github.com/cjohnsoncruz/plot_posthoc_test
+
+# Plugins
+markdown_extensions:
+- pymdownx.highlight:
+    default_lang: python
+plugins:
+  - search  # Enables the search bar
+  - mkdocstrings  # Automatically pulls docstrings for API docs
+  # - autorefs  # Enables automatic cross-referencing between pages
+
+extra:
+  mkdocstrings:
+    default_handler: python
+    options:
+      paths: ["../../src"]  # Tells MkDocs to look two levels up for Python modules
