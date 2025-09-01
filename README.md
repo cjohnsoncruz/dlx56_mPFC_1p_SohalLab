@@ -73,7 +73,7 @@ This will:
 - Save figures to `results/fig_{N}/<date>/...` and `results/supp_fig_{N}/<date>/...` corresponding to where they are located in the manuscript.
 - Ensure relative paths inside notebooks resolve to `code/`.
 
-Runtime tested using conda environment on Windows 11 with Python 3.10.12. main.py successfully executed all notebooks in < 5 minutes.
+Runtime tested using conda environment on Windows 11 with Python 3.10.12. main.py successfully executed all notebooks in ~ 5 minutes.
 ## Results save locations
 - Executed notebooks: `results/executed_notebooks/`
 - Figures: under `results/fig_{N}/<date>/...` and `results/supp_fig_{N}/<date>/...`
