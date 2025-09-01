@@ -8,6 +8,7 @@ dependencies:
   - pandas=1.5.2
   - matplotlib=3.7.0
   - seaborn=0.12.1
+  - matplotlib-venn=0.11.10
 
   # Stats
   - scipy=1.14.1

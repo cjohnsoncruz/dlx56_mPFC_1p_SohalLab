@@ -1,8 +1,20 @@
 # dlx56_mPFC_1p_SohalLab
 Code used to create data visualizations published in "Circuit inhibition promotes the dynamic reorganization of prefrontal task encoding to support cognitive flexibility", currently accessable as a preprint on bioarxiv: https://www.biorxiv.org/content/10.1101/2025.08.09.669414v1 .
 
+[![bioRxiv](https://img.shields.io/badge/bioRxiv-preprint-orange?style=flat)](https://www.biorxiv.org/content/10.1101/2025.08.09.669414v1)
+
+## Contents
+- [Overview](#overview)
+- [Repository structure](#repository-structure)
+- [Environment setup](#environment-setup)
+- [Running the workflow](#running-the-workflow)
+- [Results save locations](#results-save-locations)
+- [Data locations](#data-locations)
+- [Reproducibility notes](#reproducibility-notes)
+- [Troubleshooting](#troubleshooting)
+
 ## Overview
-This repo contains Jupyter notebooks and Python utilities to reproduce the analyses and figures generated from saved datasets located in /data/. Workflow can be executed either by running the notebooks directly or (preferrably) by using a script *main.py* that executes them programmatically.
+This repo contains Jupyter notebooks and Python utilities to reproduce the analyses/figures of "Circuit inhibition promotes the dynamic reorganization of prefrontal task encoding to support cognitive flexibility", using saved datasets located in /data/. Workflow can be executed either by 1) running the Jupyter notebooks directly or 2) (preferrably) by using a script *main.py* that executes them programmatically.
 
 Key components:
 - Notebooks under `code/` that generates and saves .png files of panels used in Figures 1–7 and Supplementary Figures 1-2.
@@ -27,7 +39,7 @@ Key components:
 Use Python 3.10.x (tested with 3.10.12). Create and activate a virtual environment, then install from `requirements.txt`.
 Has been verified on Windows 11 only.
 
-Windows (PowerShell):
+Windows (PowerShell, tested):
 ```powershell
 py -3.10 -m venv .venv
 .\.venv\Scripts\Activate.ps1
@@ -35,7 +47,7 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-macOS/Linux:
+macOS/Linux (not tested):
 ```bash
 python3.10 -m venv .venv
 source .venv/bin/activate
@@ -57,9 +69,11 @@ python .\code\main.py
 ```
 This will:
 - Execute each figure notebook with `nbclient`.
-- Save executed notebooks to `results/executed_notebooks/`.
+- Save executed notebooks to `results/executed_notebooks/` to verify the notebook was completely executed.
+- Save figures to `results/fig_{N}/<date>/...` and `results/supp_fig_{N}/<date>/...` corresponding to where they are located in the manuscript.
 - Ensure relative paths inside notebooks resolve to `code/`.
 
+Runtime tested using conda environment on Windows 11 with Python 3.10.12. main.py successfully executed all notebooks in < 5 minutes.
 ## Results save locations
 - Executed notebooks: `results/executed_notebooks/`
 - Figures: under `results/fig_{N}/<date>/...` and `results/supp_fig_{N}/<date>/...`
@@ -69,11 +83,11 @@ This will:
 Git ignores `results/` contents by default (see `.gitignore`). If you need the folder present in a fresh clone, add an empty `results/.gitkeep`.
 
 ## Data locations
-The `data/` directory contains sample files used by notebooks (e.g., `.parquet`, `.xlsx`, `.csv`, `.mat`). For full analyses, ensure the expected inputs are present or update paths in the notebooks accordingly.
+The `data/` directory contains the necessary data required for notebooks to replicate figures (e.g., `.parquet`, `.xlsx`, `.csv`, `.mat`). For full analyses, ensure the expected files are present or update paths in the notebooks accordingly.
 
 ## Reproducibility notes
 - All save paths are repository-relative.
-- Some analyses may involve randomness (e.g., using permutation testing). Seeds are set inside notebooks but not enforced globally.
+- Some analyses may involve randomness (e.g., using permutation testing). Seeds are set inside notebooks.
 
 ## Troubleshooting
 - Figures not appearing in expected folders:
@@ -85,4 +99,4 @@ The `data/` directory contains sample files used by notebooks (e.g., `.parquet`,
 - Git ignores outputs:
   - `results/` is ignored; commit only curated artifacts if necessary by moving/copying them outside `results/`.
 
-See `LICENSE` for the main project license
+See `LICENSE` for the main MIT license.

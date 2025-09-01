@@ -2,7 +2,7 @@
 import importlib, sys
 pkgs = [
     "numpy","pandas","matplotlib","seaborn","scipy","statsmodels","pingouin",
-    "openpyxl","h5py","mat73","scikit_learn","joblib","tqdm","optuna",
+    "openpyxl","h5py","mat73","scikit_learn","joblib","tqdm","optuna", "matplotlib_venn",
     "torch","torchvision","jupyter","nbclient","nbformat","ipykernel","tornado","zmq",
 ]
 for name in pkgs:
