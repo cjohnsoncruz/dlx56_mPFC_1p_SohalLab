@@ -210,3 +210,5 @@ __marimo__/
 /results/
 # Keep a placeholder so the directory exists
 !/results/.gitkeep
+code/print_module_version.py
+code/patch_notebooks_fstrings.py
