@@ -1,0 +1,69 @@
+# analysis_config.yaml 
+num_shuffles: 1000
+percentile: 95.0
+drop_low_value_peak_events: true
+cutoff_filter: 0.15
+peak_event_cutoff_percentile: 90.0
+
+trial_section_names:
+  - pre_outcome
+  - post_outcome
+  - ITI
+
+phase_division_types:
+  - simple
+  - complex
+
+task_phase_names:
+  - Early_IA_Error
+  - Early_IA_Correct
+  - Late_IA
+  - Early_RS_Error
+  - Early_RS_Correct
+  - Late_RS
+
+simple_phase_names:
+  - IA_Error
+  - IA_Correct
+  - RS_Error
+  - RS_Correct
+
+feature_type_names:
+  - correct_error
+  - IA_RS
+  - task_phase
+  
+# Options
+phase_is_solo_vector: true
+shuffle_to_use: circle
+num_shuffles: 1000
+
+early_division_criteria_types:
+  - count
+  - first_2
+early_criteria_type: count
+early_criteria_value: 5
+
+trial_section_divisions: []
+
+corr_vector_is_triangular: true
+
+# Processing parameters
+seconds_before_post_to_keep: 5
+time_series_bin_size: 0.25
+corr_time_series_bin_size: 0.5
+percentile: 95
+threshold_with_shuffle: true
+min_baseline_len: 12000
+
+# Spike modulation parameters
+final_thresh: 2.5
+final_thresh2: 12.5
+final_thresh3: 20
+final_thresh4_abs: 0.01
+
+drop_low_value_peak_events: false
+drop_low_act_cell_in_dataset_obj: false
+low_act_thresh_in_obj_init: 0.005
+cutoff_filter: bimodality
+peak_event_cutoff_percentile: 1
