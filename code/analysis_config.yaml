@@ -67,3 +67,9 @@ drop_low_act_cell_in_dataset_obj: false
 low_act_thresh_in_obj_init: 0.005
 cutoff_filter: bimodality
 peak_event_cutoff_percentile: 1
+
+use_dff_not_spikes: false
+zscore_dff: false
+zscore_dff_to_baseline: false
+spike_decay_frac_of_peak_cutoff: false
+end_event_at_drop_frac_of_diff: false

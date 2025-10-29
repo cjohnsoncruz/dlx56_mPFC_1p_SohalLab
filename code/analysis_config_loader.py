@@ -89,6 +89,7 @@ class AnalysisConfig:
         ]
         self.num_section_phase_pairs_simple = len(self.simple_all_phase_pair_names)
 
+
     def get_num_phase_pairs(self, phase_type: str) -> int:
         if phase_type == "simple":
             return self.num_section_phase_pairs_simple
