@@ -6,6 +6,10 @@ __pycache__/
 # C extensions
 *.so
 
+#results folder
+/results/
+# Keep a placeholder so the directory exists
+!/results/.gitkeep
 # Distribution / packaging
 .Python
 build/
