@@ -216,3 +216,8 @@ __marimo__/
 !/results/.gitkeep
 code/print_module_version.py
 code/patch_notebooks_fstrings.py
+
+# MATLAB dataset files and processed outputs
+*dataset_object.mat
+*post_outcome_main*
+*WT_CLNZ*

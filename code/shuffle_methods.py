@@ -1,0 +1,142 @@
+# code for shuffling dataframes
+import numpy as np
+import pandas as pd
+import numba
+
+
+# OPTIMIZATION 1: Numba-accelerated column rolling
+from numba import jit, prange
+
+@jit(nopython=True, parallel=True)
+def random_roll_columns_numba(matrix, shifts):
+    """
+    Fast column rolling using Numba JIT compilation.
+    
+    Parameters:
+    matrix: (n_frames, n_cells) array
+    shifts: (n_cells,) array of shift amounts for each cell
+    
+    Returns:
+    (n_frames, n_cells) array with each column circularly shifted
+    """
+    n_frames, n_cells = matrix.shape
+    result = np.empty_like(matrix)
+    
+    # Parallel loop over cells
+    for cell in prange(n_cells):
+        shift = shifts[cell]
+        for frame in range(n_frames):
+            result[frame, cell] = matrix[(frame - shift) % n_frames, cell]
+    
+    return result
+
+def random_roll_columns_fast(matrix, max_shift=None, random_seed=None):
+    """
+    Wrapper for numba-accelerated rolling that matches original API.
+    """
+    if random_seed is not None:
+        rng = np.random.default_rng(random_seed)
+    else:
+        rng = np.random.default_rng()
+    
+    n_rows, n_cols = matrix.shape
+    if max_shift is None:
+        max_shift = n_rows - 1
+    
+    # Generate shifts (positive-only, matching MATLAB)
+    shifts = rng.integers(1, max_shift + 1, size=n_cols)
+    
+    # Call numba-accelerated function
+    return random_roll_columns_numba(matrix, shifts)
+
+def get_mean_postoutcome_stage_activity(input_df, cell_col, label_col='task_stage', section_col = 'trial_section', post_outcome_label='post_outcome'):
+    """ For groupby operation that returns mean activity for post-outcome stage of each cell in each section """
+    mean_section_stage_act = input_df.groupby(by = [label_col, section_col])[cell_col].mean() #325 ms
+    return mean_section_stage_act.loc[(slice(None),post_outcome_label),:]    
+
+# old unoptimized version for reference
+def create_shuffled_df_old(args):
+    """Helper function for parallel processing"""
+    df, cell_col, random_seed = args
+    roll_data = random_roll_columns(df[cell_col].values, random_seed= random_seed)
+    rolled_df = pd.DataFrame(roll_data, columns=cell_col, index=df.index).join(df.drop(columns = cell_col))
+    mean_section_stage_act = get_mean_postoutcome_stage_activity(rolled_df, cell_col)
+    #new- 11.8.25- add shuffle seed record 
+    mean_section_stage_act['shuffle_seed'] = random_seed
+    return mean_section_stage_act
+
+# 1s per shuffle is current speed 
+
+# OPTIMIZATION shuffle: Numpy-only shuffle processing (FIXED to match OLD output structure)
+def create_shuffled_df_optimized(args):
+    """Optimized version matching OLD output structure."""
+    df, cell_col, random_seed = args
+    
+    # Extract numpy arrays once
+    cell_data = df[cell_col].values
+    
+    # Roll using fast numba version
+    rolled = random_roll_columns_fast(cell_data, random_seed=random_seed)
+    
+    # Create rolled DataFrame
+    rolled_df = pd.DataFrame(rolled, columns=cell_col, index=df.index)
+    rolled_df['task_stage'] = df['task_stage']
+    rolled_df['trial_section'] = df['trial_section']
+    
+    # Use same groupby logic as OLD
+    mean_section_stage_act = rolled_df[
+        rolled_df['trial_section'] == 'post_outcome'
+    ].groupby(by=['task_stage', 'trial_section'])[cell_col].mean()
+    
+    # Add shuffle seed as a COLUMN (not row)
+    mean_section_stage_act['shuffle_seed'] = random_seed
+    
+    return mean_section_stage_act
+
+# random_roll_columns, non optimzed with Numba
+def random_roll_columns(matrix, max_shift=None, random_seed=None):
+    if random_seed is not None:
+        rng = np.random.default_rng(random_seed)
+    else:
+        rng = np.random.default_rng()
+    
+    n_rows, n_cols = matrix.shape
+    if max_shift is None:
+        max_shift = n_rows - 1  # Match MATLAB: num_cols - 1
+    
+    # Generate POSITIVE-ONLY shifts from 1 to max_shift (matching MATLAB's randi)
+    shifts = rng.integers(1, max_shift + 1, size=n_cols)  # 1 to max_shift inclusive
+    
+    # Apply shifts with wrapping
+    rows = np.arange(n_rows)[:, np.newaxis]
+    shifted_indices = (rows - shifts) % n_rows
+    return matrix[shifted_indices, np.arange(n_cols)]
+
+def random_roll_columns_OLD(matrix, max_shift=None, random_seed=None):
+    """
+    Roll each column up or down by a random amount.
+    Parameters:
+    matrix (np.ndarray): 2D input array (rows × columns)
+    max_shift (int, optional): Maximum shift amount. If None, uses row count.
+    random_seed (int, optional): For reproducible results.
+    
+    Returns:
+    np.ndarray: Matrix with each column rolled independently.
+    """
+    if random_seed is not None:
+        rng = np.random.default_rng(random_seed)
+    else:
+        rng = np.random.default_rng()
+    
+    n_rows, n_cols = matrix.shape
+    if max_shift is None:
+        max_shift = n_rows
+    
+    # Generate one random shift per column
+    shifts = rng.integers(-max_shift, max_shift + 1, size=n_cols)
+    # Create row indices for each column
+    rows = np.arange(n_rows)[:, np.newaxis]  # Column vector of row indices    
+    # Apply shifts with wrapping
+    shifted_indices = (rows - shifts) % n_rows #if the shift size is > than the number of rows, it will wrap 
+    # Use advanced indexing to get the rolled matrix
+    return matrix[shifted_indices, np.arange(n_cols)]
