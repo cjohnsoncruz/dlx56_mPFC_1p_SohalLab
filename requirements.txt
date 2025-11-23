@@ -28,3 +28,4 @@ tornado
 
 # pip-only
 mat73
+umap-learn==0.5.3

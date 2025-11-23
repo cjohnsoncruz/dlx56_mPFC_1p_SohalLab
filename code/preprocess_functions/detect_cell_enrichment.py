@@ -23,7 +23,10 @@ def get_cell_ensemble_info_per_subject(raster_dataframes, all_subject_shuffles, 
 ## main enrichment analysis function
 def get_cell_stage_enrichment(all_shuffle_means, raster_df, cell_col, n_shuf_per_subject):
     ## code for enrichment analysis: given N shuffles, find the 95th percentile value for each cell at each task stage
-    cell_threshold = all_shuffle_means.groupby('task_stage')[cell_col].agg(lambda x: np.percentile(x, 95)) #empirical?
+    # Replace inf values with NaN to avoid invalid value warnings in percentile calculation
+    all_shuffle_means = all_shuffle_means.replace([np.inf, -np.inf], np.nan)
+
+    cell_threshold = all_shuffle_means.groupby('task_stage')[cell_col].agg(lambda x: np.nanpercentile(x, 95)) #empirical?
 
     #get real raster mean activity data (DESPARSIFY if necessary)
     for col in cell_col:
