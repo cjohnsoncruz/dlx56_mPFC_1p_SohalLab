@@ -564,8 +564,8 @@ def get_ID_enriched_units_by_phase(df_with_enrichment, ID_col, bool_col_tseries_
     enrich_unit_ID_by_name_df['num_enriched_units'] = enrich_unit_ID_by_name_df[ID_col].apply(lambda x: len(x))
     return enrich_unit_ID_by_name_df
 
-def get_trial_num_in_phase_by_dataset(tseries_df):
-    trial_list_by_dataset = tseries_df.groupby(['name', 'geno_day','task_phase_vec'])['trial_num'].unique().reset_index()
+def get_trial_num_in_phase_by_dataset(tseries_df, name_col = 'name', phase_col = 'task_phase_vec', trial_num_col = 'trial_num'):
+    trial_list_by_dataset = tseries_df.groupby([name_col, 'geno_day',phase_col])[trial_num_col].unique().reset_index()
     trial_list_by_dataset['count_of_trials'] =trial_list_by_dataset.trial_num.apply(lambda x: len(x))
     return trial_list_by_dataset
 

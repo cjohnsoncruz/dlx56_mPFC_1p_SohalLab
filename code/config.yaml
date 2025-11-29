@@ -1,0 +1,119 @@
+# Configuration file for preprocessing pipeline
+# Extracted from: preprocess matlab data v5_no_tseries_tests.ipynb
+
+# Data paths and source information
+data:
+  # Root directories
+  root_dir: "c:\\Users\\13car\\Dropbox\\local_github_repos_personal\\dlx56_mPFC_1p_SohalLab\\code"
+  data_dir: "c:\\Users\\13car\\Dropbox\\local_github_repos_personal\\dlx56_mPFC_1p_SohalLab\\data"
+  results_dir: "C:\\Users\\13car\\Dropbox\\local_github_repos_personal\\dlx56_mPFC_1p_SohalLab\\results"
+
+  # Source dataset location with date
+  source_dataset_date: "24-Nov-2024_hour_19"
+  source_dataset_location: "C:\\Users\\13car\\Dropbox\\local_github_repos_personal\\dlx56_mPFC_1p_SohalLab\\data\\dataset_objects_24-Nov-2024_hour_19"
+
+  # Data types available
+  data_types: ['spikes', 'dff']
+  data_type_used: 'dff'  # Index 1 of data_types list
+
+# Preprocessing parameters
+preprocessing:
+  # Gaussian smoothing applied to DFF data
+  gaussian_sigma: 1
+  gaussian_truncate: 1.0  # Kernel extends only 1*sigma on each side
+
+  # Normalization method: 'min_max', 'baseline_zscore', or 'none'
+  normalization: 'baseline_zscore'
+
+  # Post-outcome period truncation
+  post_outcome_duration: 15  # seconds
+  truncate_post_outcome: true
+
+  # Cell filtering
+  drop_inactive_cells: true  # Remove cells with 0 activity in post_outcome period
+
+# Shuffle generation parameters
+shuffles:
+  # Run shuffle generation (set to false to load existing shuffles)
+  run_shuffles: false
+
+  # Number of shuffles per subject
+  n_shuffles_per_subject: 5000
+
+  # Random seed for reproducibility
+  base_seed: 42
+
+  # Parallel processing (n_cores will be calculated as total_cpu_physical - 2)
+  cores_to_leave_free: 2  # Leave 2 cores free for system
+  # Note: actual n_cores will be determined at runtime
+
+  # Chunk size for enrichment detection stability analysis
+  chunk_size: 1000  # Shuffles per chunk
+
+# Time-series generation parameters
+timeseries:
+  # Frame information (20 fps imaging)
+  fps: 20  # frames per second
+
+  # Window extraction from trials
+  pre_frames: 60   # frames before outcome (60 frames = 3 seconds at 20 fps)
+  post_frames: 300  # frames after outcome (300 frames = 15 seconds at 20 fps)
+
+  # Binning parameters
+  window_to_bin: 5  # n frames to average over
+  bin_size: 0.25    # in seconds (window_to_bin / fps = 5/20 = 0.25)
+
+  # Bins to drop from time-series
+  n_start_timebins_to_drop: 8  # Drop from start of time-series
+  n_end_timebins_to_drop: 0    # Drop from end of time-series
+
+  # Time-series rotation/shifting
+  n_sec_to_rotate: 0  # No rotation applied
+
+  # Normalization
+  normalize_data: true
+
+# UMAP analysis parameters
+umap:
+  n_neighbors: 15
+  min_dist: 0.1  # Note: 0.2 is also used in some places in the notebook
+  metric: 'hamming'  # For binary enrichment data
+  random_state: 42
+
+# Subject list (all 35 subjects - Reversal Shifting sessions)
+subjects:
+  - "10_3_HET_RS1"
+  - "10_3_HET_RS2"
+  - "10_3_HET_RS3"
+  - "13_3_HET_RS1"
+  - "13_3_HET_RS2"
+  - "13_3_HET_RS3"
+  - "13_4_WT_RS1"
+  - "13_4_WT_RS2"
+  - "13_5_HET_RS1"
+  - "13_5_HET_RS2"
+  - "13_5_HET_RS3"
+  - "13_6_WT_RS1"
+  - "13_6_WT_RS2"
+  - "13_8_HET_RS1"
+  - "13_8_HET_RS2"
+  - "13_8_HET_RS3"
+  - "14_2_WT_RS1"
+  - "14_2_WT_RS2"
+  - "15_1_HET_RS1"
+  - "15_1_HET_RS2"
+  - "15_1_HET_RS3"
+  - "5_3_WT_RS1"
+  - "5_3_WT_RS2"
+  - "6_2_WT_RS1"
+  - "6_2_WT_RS2"
+  - "7_2_WT_RS1"
+  - "7_4_WT_RS1"
+  - "7_5_WT_RS1"
+  - "7_5_WT_RS2"
+  - "7_6_HET_RS1"
+  - "7_6_HET_RS2"
+  - "7_6_HET_RS3"
+  - "9_3_HET_RS1"
+  - "9_3_HET_RS2"
+  - "9_3_HET_RS3"

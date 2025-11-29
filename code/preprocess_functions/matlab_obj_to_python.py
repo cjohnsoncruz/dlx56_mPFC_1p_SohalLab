@@ -1,7 +1,98 @@
-# matlab_loading.py contains functions for loading and checking MATLAB .mat files
+# matlab_obj_to_python.py contains functions for loading and checking MATLAB .mat files
 ## Matlab file handling functions:
 import h5py
+import pandas as pd
+from pathlib import Path
+import numpy as np
+from trial_detection import return_trial_num_at_frame, build_phase_masks, get_trial_stage_map
 
+## TASK STAGE ANNOTATION FUNCTIONS for python originating dfs
+def add_task_stage_to_raster_df(raster_df, analysis_config):
+    """ Joins all the trial stage functions into one function for ease of use (function imported elsewhere).2s per raster 
+    #workflow: 
+        # 1) Call "trial num at frame" function
+        # 2. Add trial number to raster_df
+        # 3. drop frames that are not in a trial
+        # 4. Add task stage to raster_df based off trial number at frame
+    """
+    stage_names = analysis_config.task_phase_names
+    # 1. Transform frame label vector into trial vector
+    labels = raster_df['labels']
+    trial_num_at_frame, _, num_trials = return_trial_num_at_frame(labels)
+    raster_df.loc[:, 'trial_num'] = trial_num_at_frame 
+
+    # 2. Add trial number to raster_df
+    # Or filter in-place and drop:
+    raster_df.drop(raster_df[raster_df['trial_num'] == 0].index, inplace=True) # raster_df = raster_df[raster_df['trial_num'] > 0].copy() #  dropping trial_num == 0
+    # 4. Add task stage to raster_df based off trial number at frame
+    stage_dict = build_phase_masks(labels,analysis_config)
+    #5. map trial num to stage
+    trial_stage_map = get_trial_stage_map(stage_dict, stage_names, num_trials)
+    raster_df.loc[:, 'task_stage'] = raster_df['trial_num'].map(trial_stage_map)
+    return raster_df
+
+def label_frame_sections_df(df: pd.DataFrame, label_col: str,*, 
+                            section_names=("pre_outcome", "post_outcome", "ITI"),
+                            ):
+    """    Vectorized: assign each frame one of {pre_outcome, post_outcome, ITI}. Tie-breaks at 4 (IA) and 11 (RS) go to post_outcome (overwrite order).
+    Inputs:
+    df : DataFrame with one row per frame
+    label_col : name of column holding per-frame integer labels
+    section_names : (pre_outcome, post_outcome, ITI)
+
+    Returns:    pd.Series (object) of section names aligned to df.index """
+    pre_outcome, post_outcome, iti = section_names
+    labels = df[label_col].to_numpy()
+    out = np.full(labels.shape[0], None, dtype=object)
+
+    # IA ranges (2–8)
+    ia_pre  = (labels >= 2)  & (labels <= 4)     # pre_outcome
+    ia_post = (labels >= 4)  & (labels <= 7)     # post_outcome (overwrites label==4)
+    ia_iti  = (labels == 8)                      # ITI
+
+    # RS ranges (9–15)
+    rs_pre  = (labels >= 9)  & (labels <= 11)    # pre_outcome
+    rs_post = (labels >= 11) & (labels <= 14)    # post_outcome (overwrites label==11)
+    rs_iti  = (labels == 15)                     # ITI
+
+    # Overwrite order preserves “boundary goes to later section”:
+    out[ia_pre  | rs_pre]  = pre_outcome
+    out[ia_post | rs_post] = post_outcome
+    out[ia_iti  | rs_iti]  = iti    
+    return out
+
+def truncate_post_outcome_to_15s(raster_df, fps=20, max_seconds=15, truncate_post = True):
+    """     Truncate post_outcome periods to first 15 seconds (300 frames at 20fps). Modifies task_stage labels for frames beyond truncation.    """
+    max_frames = fps * max_seconds  # 300 frames
+    
+    raster_df['truncated_post'] =  truncate_post # New column to indicate truncation
+    if truncate_post: 
+        # For each trial's post_outcome section
+        post_outcome_mask = raster_df['trial_section'] == 'post_outcome'
+        
+        for trial in raster_df['trial_num'].unique():
+            if trial <= 0:
+                continue
+                
+            # Get post_outcome frames for this trial
+            trial_post = raster_df[post_outcome_mask & (raster_df['trial_num'] == trial)]
+            if len(trial_post) == 0:
+                continue
+                
+            # Get frame indices (they're sorted)
+            frame_indices = trial_post.index
+            
+            # Mark frames beyond first 300 as truncated
+            if len(frame_indices) > max_frames:
+                frames_to_truncate = frame_indices[max_frames:]
+                raster_df.loc[frames_to_truncate, 'task_stage'] = 'truncated_post_outcome'
+        
+    return raster_df
+
+
+## POST-IMPORT ANNOTATION FUNCTIONS- 
+
+## RAW FILE IMPORT AND CHECKING FUNCTIONS
 def check_corrupted_files(loaded_objects, failed_files):
     # Optional Investigate corrupted files
     if len(failed_files) == 0:

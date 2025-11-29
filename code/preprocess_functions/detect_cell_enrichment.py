@@ -9,7 +9,8 @@ def get_cell_ensemble_info_per_subject(raster_dataframes, all_subject_shuffles, 
     all_subject_ensemble_info = []
     for subject_name, raster_df in raster_dataframes.items():
         print(f"Processing subject: {subject_name}")
-        cell_col = [c for c in raster_df.columns if 'cell' in c]
+        # After (only columns starting with 'cell_')
+        cell_col = [c for c in raster_df.columns if c.startswith('cell_')]
         all_shuffle_means = all_subject_shuffles[subject_name]
         subject_ensemble_info = get_cell_stage_enrichment(all_shuffle_means, raster_df, cell_col, n_shuf_per_subject)
         all_subject_ensemble_info.append(subject_ensemble_info)
