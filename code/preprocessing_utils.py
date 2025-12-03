@@ -30,8 +30,8 @@ def dataset_obj_to_df(dataset_obj, config, analysis_config,
     if datatype == 'dff': # C = smoothdata(C, 2, 'gaussian', [1,1]);
         input_data = gaussian_filter1d(input_data, sigma=1, axis=0, truncate=1.0) #truncate=1.0 means the kernel extends only 1*sigma on each side
     #validate inputs
-        if normalize not in normalize_options:
-            raise ValueError(f"Normalization option '{normalize}' not recognized. Choose from {normalize_options}.")    
+    if normalize not in normalize_options:
+        raise ValueError(f"Normalization option '{normalize}' not recognized. Choose from {normalize_options}.")    
     
     #setup dataset df 
     dtype_for_datatype = {'raster': 'Sparse[int]', 'dff' : 'float32'}
@@ -46,9 +46,9 @@ def dataset_obj_to_df(dataset_obj, config, analysis_config,
     raster_df['labels'] = raster_df['labels'].astype('Int16')
     cell_cols = [col for col in raster_df.columns if col.startswith('cell_')]
     
-    #to avoid NaN, compute baseline activity first
+    #(Only applicable to DFF, due to binary raster sparsity) to avoid NaN, compute baseline activity first.
     baseline_mask = raster_df['labels'] == 1  # Assuming label '1' indicates baseline period
-    if normalize != 'none':
+    if (datatype == 'dff') & (normalize != 'none'):
         baseline_data = raster_df.loc[baseline_mask, cell_cols]
         baseline_mean = baseline_data.mean()
         baseline_std = baseline_data.std()
