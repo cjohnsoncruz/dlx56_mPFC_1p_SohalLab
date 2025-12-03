@@ -18,7 +18,9 @@ from matlab_obj_to_python import load_matlab_object,  truncate_post_outcome_to_1
 # ==============================================================================
 
 def dataset_obj_to_df(dataset_obj, config, analysis_config,
-                      datatype:str = 'raster', normalize:str = 'none'):
+                      datatype:str = 'raster',
+                        normalize:str = 'none',
+                        drop_inactive_cells = None):
      # Create DataFrame from raster (cells × frames)
     normalize_options = ['min_max', 'baseline_zscore', 'none'] #could add zscore later
     #new- v5 11.21.25, allow datatype argument ('raster' or 'dff')
@@ -52,7 +54,8 @@ def dataset_obj_to_df(dataset_obj, config, analysis_config,
         baseline_std = baseline_data.std()
 
     # Add metadata columns
-    drop_inactive_cells = config['preprocessing']['drop_inactive_cells']     #OPTIONAL- drop cells that are never active
+    if drop_inactive_cells == None:
+        drop_inactive_cells = config['preprocessing']['drop_inactive_cells']     #OPTIONAL- drop cells that are never active
     #cell Id is represented as col name 
     raster_df= raster_df.assign(**{'normalized': normalize, 'datatype': datatype,
                       'subject_name': dataset_obj['name'],
@@ -72,7 +75,7 @@ def dataset_obj_to_df(dataset_obj, config, analysis_config,
         selection_mask = raster_df['trial_section'] == 'post_outcome' # print( raster_df.loc[selection_mask, cell_cols].sum() )
         active_cells = raster_df.loc[selection_mask, cell_cols].sum() > 0
         inactive_cells =  raster_df.loc[selection_mask, cell_cols].sum() == 0
-        # print(f" Dropping cells with 0 activity {inactive_cells.index[inactive_cells].tolist()}")
+        print(f" Dropping cells with 0 activity {inactive_cells.index[inactive_cells].tolist()}")
         raster_df = raster_df.loc[:, active_cells.index[active_cells].tolist() + metadata_cols]
     
     #optiional normalization/zscore
