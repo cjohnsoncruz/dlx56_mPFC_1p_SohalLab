@@ -6,6 +6,9 @@ __pycache__/
 # C extensions
 *.so
 
+# Claude Code documentation
+*claude*.md
+
 #results folder
 /results/
 # Keep a placeholder so the directory exists

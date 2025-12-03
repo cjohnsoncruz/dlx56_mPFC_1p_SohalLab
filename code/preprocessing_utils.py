@@ -22,7 +22,6 @@ def dataset_obj_to_df(dataset_obj, config, analysis_config,
      # Create DataFrame from raster (cells × frames)
     normalize_options = ['min_max', 'baseline_zscore', 'none'] #could add zscore later
     #new- v5 11.21.25, allow datatype argument ('raster' or 'dff')
-    print(f"Processing {datatype} of {dataset_obj['name']}: {dataset_obj[datatype].nbytes} bytes")
     
     input_data = dataset_obj[datatype]
     #smooth data with gaussian filter if dff
@@ -53,8 +52,7 @@ def dataset_obj_to_df(dataset_obj, config, analysis_config,
         baseline_std = baseline_data.std()
 
     # Add metadata columns
-    #OPTIONAL- drop cells that are never active
-    drop_inactive_cells = config['preprocessing']['drop_inactive_cells']
+    drop_inactive_cells = config['preprocessing']['drop_inactive_cells']     #OPTIONAL- drop cells that are never active
     #cell Id is represented as col name 
     raster_df= raster_df.assign(**{'normalized': normalize, 'datatype': datatype,
                       'subject_name': dataset_obj['name'],
@@ -74,15 +72,14 @@ def dataset_obj_to_df(dataset_obj, config, analysis_config,
         selection_mask = raster_df['trial_section'] == 'post_outcome' # print( raster_df.loc[selection_mask, cell_cols].sum() )
         active_cells = raster_df.loc[selection_mask, cell_cols].sum() > 0
         inactive_cells =  raster_df.loc[selection_mask, cell_cols].sum() == 0
-        print(f" Dropping cells with 0 activity {inactive_cells.index[inactive_cells].tolist()}")
+        # print(f" Dropping cells with 0 activity {inactive_cells.index[inactive_cells].tolist()}")
         raster_df = raster_df.loc[:, active_cells.index[active_cells].tolist() + metadata_cols]
     
     #optiional normalization/zscore
-    #run min max normalization on baseline_dff
     cell_cols = [col for col in raster_df.columns if col.startswith('cell_')]
     activity_data = raster_df[cell_cols]
 
-    if normalize == 'min_max':
+    if normalize == 'min_max':     #run min max normalization on baseline_dff
         min_vals = activity_data.min()
         max_vals = activity_data.max()
         normalized_dff = (raster_df[cell_cols] - min_vals) / (max_vals - min_vals)
@@ -91,6 +88,8 @@ def dataset_obj_to_df(dataset_obj, config, analysis_config,
     if normalize == 'baseline_zscore':
         zscored_dff = (raster_df[cell_cols] - baseline_mean[cell_cols]) / baseline_std[cell_cols]
         raster_df[cell_cols] = zscored_dff
+
+    print(f"Processed {datatype} of {dataset_obj['name']}: {dataset_obj[datatype].nbytes} bytes")
     return raster_df
 
 def transform_all_datasets(loaded_objects:List[Dict[str, Any]], config, analysis_config,
