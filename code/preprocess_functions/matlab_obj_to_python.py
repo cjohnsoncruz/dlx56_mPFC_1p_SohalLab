@@ -31,10 +31,21 @@ def add_task_stage_to_raster_df(raster_df, analysis_config):
     raster_df.loc[:, 'task_stage'] = raster_df['trial_num'].map(trial_stage_map)
     return raster_df
 
-def label_frame_sections_df(df: pd.DataFrame, label_col: str,*, 
+def label_frame_sections_df(df: pd.DataFrame, label_col: str,*,
                             section_names=("pre_outcome", "post_outcome", "ITI"),
                             ):
-    """    Vectorized: assign each frame one of {pre_outcome, post_outcome, ITI}. Tie-breaks at 4 (IA) and 11 (RS) go to post_outcome (overwrite order).
+    """    Vectorized: assign each frame one of {pre_outcome, post_outcome, ITI}.
+
+    Label assignments match MATLAB's slice_trim_raster behavior:
+    - IA pre_outcome: labels 2, 3, 4 (MATLAB: 2 <= labels <= 4)
+    - IA post_outcome: labels 5, 6, 7 (MATLAB: 4 <= labels <= 7, but 4 is also in pre)
+    - RS pre_outcome: labels 9, 10, 11 (MATLAB: 9 <= labels <= 11)
+    - RS post_outcome: labels 12, 13, 14 (MATLAB: 11 <= labels <= 14, but 11 is also in pre)
+
+    Note: MATLAB includes boundary labels (4, 11) in BOTH sections. Since Python
+    requires mutually exclusive categories, we assign boundary labels to pre_outcome
+    to match MATLAB's pre-outcome extraction for time-series analysis.
+
     Inputs:
     df : DataFrame with one row per frame
     label_col : name of column holding per-frame integer labels
@@ -45,20 +56,20 @@ def label_frame_sections_df(df: pd.DataFrame, label_col: str,*,
     labels = df[label_col].to_numpy()
     out = np.full(labels.shape[0], None, dtype=object)
 
-    # IA ranges (2–8)
-    ia_pre  = (labels >= 2)  & (labels <= 4)     # pre_outcome
-    ia_post = (labels >= 4)  & (labels <= 7)     # post_outcome (overwrites label==4)
+    # IA ranges (2–8) - label 4 goes to pre_outcome to match MATLAB
+    ia_pre  = (labels >= 2)  & (labels <= 4)     # pre_outcome: labels 2, 3, 4
+    ia_post = (labels >= 5)  & (labels <= 7)     # post_outcome: labels 5, 6, 7
     ia_iti  = (labels == 8)                      # ITI
 
-    # RS ranges (9–15)
-    rs_pre  = (labels >= 9)  & (labels <= 11)    # pre_outcome
-    rs_post = (labels >= 11) & (labels <= 14)    # post_outcome (overwrites label==11)
+    # RS ranges (9–15) - label 11 goes to pre_outcome to match MATLAB
+    rs_pre  = (labels >= 9)  & (labels <= 11)    # pre_outcome: labels 9, 10, 11
+    rs_post = (labels >= 12) & (labels <= 14)    # post_outcome: labels 12, 13, 14
     rs_iti  = (labels == 15)                     # ITI
 
-    # Overwrite order preserves “boundary goes to later section”:
+    # No overlap now, order doesn't matter
     out[ia_pre  | rs_pre]  = pre_outcome
     out[ia_post | rs_post] = post_outcome
-    out[ia_iti  | rs_iti]  = iti    
+    out[ia_iti  | rs_iti]  = iti
     return out
 
 def truncate_post_outcome_to_15s(raster_df, fps=20, max_seconds=15, truncate_post = True):

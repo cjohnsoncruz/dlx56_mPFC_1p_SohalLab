@@ -160,83 +160,80 @@ from preprocess_data import hyper_param_dict, bin_rotate_timeseries, get_numeric
 from helper_functions import annotate_csv, run_min_max_norm_on_timeseries
 
 
-# #OLD code
-def extract_trial_windows(df, 
-                         pre_frames=100,      # Changed from 60 to match MATLAB's 5 seconds
-                         post_frames=300,     # Matches MATLAB's 15 seconds
-                         trim_pre_to=300):    # New: trim pre-outcome to 300 frames first (like MATLAB)
+def extract_trial_windows(df,
+                         pre_frames=100,      # 5 seconds at 20Hz
+                         post_frames=300,     # 15 seconds at 20Hz
+                         trim_pre_to=300):    # Trim pre-outcome to 300 frames first (like MATLAB)
     """
-    Extract trial windows matching MATLAB's behavior.
-    
-    MATLAB flow:
-    1. Slice by labels to get pre_outcome frames
-    2. Trim to last 300 frames (15 seconds)
-    3. Take last 100 frames (5 seconds) for joining with post
-    
+    Extract trial windows matching MATLAB's slice_trim_raster behavior.
+
+    Uses RAW LABELS (not trial_section) to match MATLAB exactly:
+    - IA pre: labels 2-4, IA post: labels 4-7 (label 4 in BOTH)
+    - RS pre: labels 9-11, RS post: labels 11-14 (label 11 in BOTH)
+
     Parameters:
     -----------
     df : pd.DataFrame
-        DataFrame with frame-level data, must have 'trial_section' column
+        DataFrame with frame-level data, must have 'labels' column
     pre_frames : int
         Number of pre-outcome frames to keep (default 100 = 5 seconds at 20Hz)
-    post_frames : int  
+    post_frames : int
         Number of post-outcome frames to keep (default 300 = 15 seconds at 20Hz)
     trim_pre_to : int
         First trim pre-outcome to this many frames before extracting final pre_frames
-        (default 300 = 15 seconds, matches MATLAB's trim_params.trial_len)
-    
+
     Returns:
     --------
     pd.DataFrame with trial windows extracted
     """
-    print(f"using new extract trial window code:")
-    # Validation: Check monotonicity within each trial
     grouped = df.groupby(['subject_name', 'session', 'trial_num'])
-    
-    for trial_id, trial_data in grouped:
-        frame_nums = trial_data.index.str.extract(r'frame_(\d+)')[0].astype(int)
-        if not frame_nums.is_monotonic_increasing:
-            raise ValueError(f"Non-monotonic indices in trial {trial_id}")
-    
+
     full_frame_range = list(range(-pre_frames, 0)) + list(range(1, post_frames + 1))
     trial_windows = []
-    
+    #note, missing ITI but we don't need that necessarily (8 or 15 for RS)
     for trial_id, trial_data in grouped:
-        # Step 1: Get pre-outcome section (all frames)
-        pre_all = trial_data[trial_data['trial_section'] == 'pre_outcome']
-        
-        # Step 2: Trim to last 'trim_pre_to' frames (matches MATLAB's trim to 300)
+        labels = trial_data['labels']
+
+        # Determine if IA or RS trial based on labels present
+        is_rs_trial = (labels >= 9).any()
+
+        if is_rs_trial:
+            # RS: pre=9-11, post=11-14 (MATLAB includes 11 in both)
+            pre_all = trial_data[(labels >= 9) & (labels <= 11)]
+            post_all = trial_data[(labels >= 11) & (labels <= 14)]
+        else:
+            # IA: pre=2-4, post=4-7 (MATLAB includes 4 in both)
+            pre_all = trial_data[(labels >= 2) & (labels <= 4)]
+            post_all = trial_data[(labels >= 4) & (labels <= 7)]
+
+        # Trim pre to last trim_pre_to, then take last pre_frames
         pre_trimmed = pre_all.tail(trim_pre_to)
-        
-        # Step 3: From trimmed pre, take last 'pre_frames' frames (matches MATLAB's last 100)
         pre = pre_trimmed.tail(pre_frames)
-        
-        # Step 4: Get post-outcome frames (first N frames)
-        post = trial_data[trial_data['trial_section'] == 'post_outcome'].head(post_frames)
-        
+
+        # Take first post_frames from post
+        post = post_all.head(post_frames)
+
         # Create frame indices
         n_pre = len(pre)
         n_post = len(post)
         pre_indices = list(range(-n_pre, 0))
         post_indices = list(range(1, n_post + 1))
-        
-        # Add indices before concatenating (avoids fragmentation)
+
+        # Add indices before concatenating
         pre_with_idx = pre.assign(trial_window_frame=pre_indices)
         post_with_idx = post.assign(trial_window_frame=post_indices)
-        
-        # Concatenate
+
+        # Concatenate and reindex
         combined = pd.concat([pre_with_idx, post_with_idx], ignore_index=True)
-        
-        # Reindex to full range - automatically pads with NaN for truncated trials
         combined = combined.set_index('trial_window_frame').reindex(full_frame_range).reset_index()
-        
-        # Forward-fill metadata (they're constant within trial)
+
+        # Forward-fill metadata
         metadata = ['subject_name', 'session', 'trial_num', 'geno', 'task_stage', 'normalized', 'datatype']
         for col in [c for c in metadata if c in combined.columns]:
             combined[col] = combined[col].ffill()
-        
+
         trial_windows.append(combined)
-    
+
     return pd.concat(trial_windows, ignore_index=True)
 
 # def extract_trial_windows(df, pre_frames=60, #default=60
