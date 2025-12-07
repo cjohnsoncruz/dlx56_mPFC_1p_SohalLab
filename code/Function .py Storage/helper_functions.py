@@ -498,7 +498,8 @@ def add_unique_ID_col_to_trial_series_df(trial_tseries_df, numeric_col, dataset_
     trial_tseries_df.loc[:,numeric_col] = trial_tseries_df.loc[:, numeric_col].astype(float)
     return trial_tseries_df
 
-def run_min_max_norm_on_timeseries(run_norm, timeseries_df, name_unitID_list, numeric_col,max_val_col_name):
+def run_min_max_norm_on_timeseries(run_norm, timeseries_df,
+                                    name_unitID_list, numeric_col,max_val_col_name):
     #get max event rate by unit
     if run_norm:
         groupby_list = name_unitID_list + ['task_phase_vec', 'trial_num']

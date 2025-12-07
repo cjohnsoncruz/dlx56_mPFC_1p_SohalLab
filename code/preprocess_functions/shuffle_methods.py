@@ -65,32 +65,92 @@ def create_shuffled_df_old(args):
     mean_section_stage_act['shuffle_seed'] = random_seed
     return mean_section_stage_act
 
-# 1s per shuffle is current speed 
+# 1s per shuffle is current speed
+
+def prepare_shuffle_data(df, cell_col):
+    """
+    Pre-convert sparse data to dense ONCE before parallel processing.
+    Call this once per subject, then pass the result to create_shuffled_df_preconverted.
+
+    Returns:
+        tuple: (cell_data, task_stage, trial_section, index, cell_col)
+    """
+    cell_data = df[cell_col].values
+    # Handle Sparse arrays: convert to dense numpy array with numeric dtype
+    if cell_data.dtype == object:
+        try:
+            cell_data = df[cell_col].sparse.to_dense().to_numpy(dtype=np.float64)
+        except AttributeError:
+            cell_data = cell_data.astype(np.float64)
+
+    return (
+        cell_data,
+        df['task_stage'].values,
+        df['trial_section'].values,
+        df.index,
+        cell_col
+    )
+
+def create_shuffled_df_preconverted(args):
+    """
+    Optimized shuffle using pre-converted dense data.
+    Use with prepare_shuffle_data() for best performance.
+
+    Args:
+        args: tuple of (prepared_data, random_seed) where prepared_data is from prepare_shuffle_data()
+    """
+    prepared_data, random_seed = args
+    cell_data, task_stage, trial_section, index, cell_col = prepared_data
+
+    # Roll using fast numba version (no conversion needed - already dense)
+    rolled = random_roll_columns_fast(cell_data, random_seed=random_seed)
+
+    # Create rolled DataFrame with metadata as Series (preserves index alignment)
+    rolled_df = pd.DataFrame(rolled, columns=cell_col, index=index)
+    rolled_df['task_stage'] = pd.Series(task_stage, index=index)
+    rolled_df['trial_section'] = pd.Series(trial_section, index=index)
+
+    # Use same groupby logic as OLD
+    mean_section_stage_act = rolled_df[
+        rolled_df['trial_section'] == 'post_outcome'
+    ].groupby(by=['task_stage', 'trial_section'])[cell_col].mean()
+
+    # Add shuffle seed as a COLUMN (not row)
+    mean_section_stage_act['shuffle_seed'] = random_seed
+
+    return mean_section_stage_act
 
 # OPTIMIZATION shuffle: Numpy-only shuffle processing (FIXED to match OLD output structure)
 def create_shuffled_df_optimized(args):
     """Optimized version matching OLD output structure."""
     df, cell_col, random_seed = args
-    
-    # Extract numpy arrays once
+
+    # Extract numpy arrays once - convert sparse to dense if needed
     cell_data = df[cell_col].values
-    
+    # Handle Sparse arrays: convert to dense numpy array with numeric dtype
+    if cell_data.dtype == object:
+        try:
+            cell_data = df[cell_col].sparse.to_dense().to_numpy(dtype=np.float64)
+        except AttributeError:
+            # Fallback: convert object array directly
+            cell_data = cell_data.astype(np.float64)
+
     # Roll using fast numba version
     rolled = random_roll_columns_fast(cell_data, random_seed=random_seed)
-    
+
     # Create rolled DataFrame
     rolled_df = pd.DataFrame(rolled, columns=cell_col, index=df.index)
     rolled_df['task_stage'] = df['task_stage']
     rolled_df['trial_section'] = df['trial_section']
-    
+
     # Use same groupby logic as OLD
     mean_section_stage_act = rolled_df[
         rolled_df['trial_section'] == 'post_outcome'
     ].groupby(by=['task_stage', 'trial_section'])[cell_col].mean()
-    
+
     # Add shuffle seed as a COLUMN (not row)
     mean_section_stage_act['shuffle_seed'] = random_seed
-    
+
     return mean_section_stage_act
 
 # random_roll_columns, non optimzed with Numba

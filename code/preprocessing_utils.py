@@ -52,7 +52,7 @@ def dataset_obj_to_df(dataset_obj, config, analysis_config,
     if (datatype == 'dff') & (normalize != 'none'):
         baseline_data = raster_df.loc[baseline_mask, cell_cols]
         baseline_mean = baseline_data.mean()
-        baseline_std = baseline_data.std()
+        baseline_std = baseline_data.std().replace(0, np.nan)
 
     # Add metadata columns
     if drop_inactive_cells == None:
@@ -161,7 +161,7 @@ from helper_functions import annotate_csv, run_min_max_norm_on_timeseries
 
 
 def extract_trial_windows(df,
-                         pre_frames=100,      # 5 seconds at 20Hz
+                         pre_frames=101,      # 101 frames to match MATLAB CSV columns (-f_1 to -f_101)
                          post_frames=300,     # 15 seconds at 20Hz
                          trim_pre_to=300):    # Trim pre-outcome to 300 frames first (like MATLAB)
     """
@@ -176,7 +176,7 @@ def extract_trial_windows(df,
     df : pd.DataFrame
         DataFrame with frame-level data, must have 'labels' column
     pre_frames : int
-        Number of pre-outcome frames to keep (default 100 = 5 seconds at 20Hz)
+        Number of pre-outcome frames to keep (default 101 to match MATLAB CSV columns -f_1 to -f_101)
     post_frames : int
         Number of post-outcome frames to keep (default 300 = 15 seconds at 20Hz)
     trim_pre_to : int
@@ -236,50 +236,6 @@ def extract_trial_windows(df,
 
     return pd.concat(trial_windows, ignore_index=True)
 
-# def extract_trial_windows(df, pre_frames=60, #default=60
-#                             post_frames= 300, #default= 300
-#                             ) -> pd.DataFrame:
-#     """Extract last N pre-outcome and M post-outcome frames for each trial, padded to consistent length."""
-    
-#     # Validation: Check monotonicity within each trial
-#     grouped = df.groupby(['subject_name', 'session', 'trial_num'])
-    
-#     for trial_id, trial_data in grouped:
-#         frame_nums = trial_data.index.str.extract(r'frame_(\d+)')[0].astype(int)
-#         if not frame_nums.is_monotonic_increasing:
-#             raise ValueError(f"Non-monotonic indices in trial {trial_id}")
-    
-#     full_frame_range = list(range(-pre_frames, 0)) + list(range(1, post_frames + 1))
-#     trial_windows = []
-    
-#     for trial_id, trial_data in grouped:
-#         pre = trial_data[trial_data['trial_section'] == 'pre_outcome'].tail(pre_frames)
-#         post = trial_data[trial_data['trial_section'] == 'post_outcome'].head(post_frames)
-        
-#         # Create frame indices
-#         n_pre = len(pre)
-#         n_post = len(post)
-#         pre_indices = list(range(-n_pre, 0))
-#         post_indices = list(range(1, n_post + 1))
-        
-#         # Add indices before concatenating (avoids fragmentation)
-#         pre_with_idx = pre.assign(trial_window_frame=pre_indices)
-#         post_with_idx = post.assign(trial_window_frame=post_indices)
-        
-#         # Concatenate
-#         combined = pd.concat([pre_with_idx, post_with_idx], ignore_index=True)
-        
-#         # Reindex to full range - automatically pads with NaN for truncated trials
-#         combined = combined.set_index('trial_window_frame').reindex(full_frame_range).reset_index()
-        
-#         # Forward-fill metadata (they're constant within trial)
-#         metadata = ['subject_name', 'session', 'trial_num', 'geno', 'task_stage', 'normalized', 'datatype']
-#         for col in [c for c in metadata if c in combined.columns]:
-#             combined[col] = combined[col].ffill()
-        
-#         trial_windows.append(combined)
-    
-#     return pd.concat(trial_windows, ignore_index=True)
 
 def pivot_trial_windows(windowed_df, 
                         samples_col = 'trial_window_frame',
@@ -350,19 +306,51 @@ def create_subject_trial_tseries_df(input_df: pd.DataFrame,
         print("Missing config input!")  
     # extract trial windows from df, removing excess frames
     #old, head dependent version:
-    # trim_df = extract_trial_windows(input_df, pre_frames=config['timeseries']['pre_frames'], post_frames= config['timeseries']['post_frames'])
     # CHANGE TO:
     trim_df = extract_trial_windows(input_df,
-                                    pre_frames=100,      # 5 seconds to match MATLAB
+                                    pre_frames=101,      # 5 seconds to match MATLAB
                                     post_frames=300,     # 15 seconds (already correct)
                                     trim_pre_to=300)     # Trim pre first (like MATLAB)
     
+    print(f"Using {len([c for c in trim_df.columns if "-F_" in c])} pre-outcome frames")
     #reshape df into long format: one row per trial-cell, columns = time-series frames
     outcome_post = pivot_trial_windows(trim_df).rename(columns={'task_stage': stage_col})
     outcome_post['neuron_id'] = outcome_post['subject_name'] + '-' + outcome_post[cell_col].str.replace('cell_','') 
     outcome_post =outcome_post.drop([x for x in cols_to_drop if x in outcome_post], axis = 1).dropna(subset = [stage_col])
     annotate_csv(outcome_post, 'subject_name')
+# Debug: Check column ordering before binning
+# Run this after create_subject_trial_tseries_df but before bin_rotate_timeseries
 
+    # Get frame columns
+    fr_col = outcome_post.columns[outcome_post.columns.str.contains('f_')]
+    neg_frames = fr_col[fr_col.str.contains('-')].tolist()
+    pos_frames = fr_col[~fr_col.str.contains('-')].tolist()
+
+    print("=== COLUMN ORDERING CHECK ===")
+    print(f"Total frame cols: {len(fr_col)}")
+    print(f"Pre-outcome (neg) cols: {len(neg_frames)}")
+    print(f"Post-outcome (pos) cols: {len(pos_frames)}")
+
+    print(f"\nFirst 5 neg_frames: {neg_frames[:5]}")
+    print(f"Last 5 neg_frames: {neg_frames[-5:]}")
+    print(f"\nFirst 5 pos_frames: {pos_frames[:5]}")
+    print(f"Last 5 pos_frames: {pos_frames[-5:]}")
+
+    # Check what's at the boundary
+    print(f"\n=== BOUNDARY CHECK ===")
+    print(f"Last neg frame (index {len(neg_frames)-1}): {neg_frames[-1]}")
+    print(f"First pos frame (index {len(neg_frames)}): {pos_frames[0]}")
+
+    # After concatenation, what indices would these have?
+    combined = neg_frames + pos_frames
+    print(f"\n=== BINNING BOUNDARY ===")
+    print(f"Index 99: {combined[99]}")
+    print(f"Index 100: {combined[100]}")
+    print(f"Index 101: {combined[101]}")
+    print(f"Index 102: {combined[102]}")
+    print(f"Index 103: {combined[103]}")
+    print(f"Index 104: {combined[104]}")
+    print(f"\nBin 20 (index 100-104) would contain: {combined[100:105]}")
     ## begin preprocess- bin and rotate timeseries 
     outcome_post = bin_rotate_timeseries(outcome_post, window_size = window_to_bin, rotate_by = n_sec_to_rotate)
     outcome_post = outcome_post.join(ens_matrix, on='neuron_id', how='left', rsuffix='_ens') #join dff timeseries with ensemble info
