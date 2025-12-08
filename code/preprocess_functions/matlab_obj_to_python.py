@@ -104,7 +104,7 @@ def truncate_post_outcome_to_15s(raster_df, fps=20, max_seconds=15, truncate_pos
 ## POST-IMPORT ANNOTATION FUNCTIONS- 
 
 ## RAW FILE IMPORT AND CHECKING FUNCTIONS
-def check_corrupted_files(loaded_objects, failed_files):
+def check_corrupted_files(source_dataset_location, loaded_objects, failed_files):
     # Optional Investigate corrupted files
     if len(failed_files) == 0:
         print("No failed files to investigate.")
@@ -113,7 +113,7 @@ def check_corrupted_files(loaded_objects, failed_files):
     for fname in failed_files:
         filepath = source_dataset_location / fname
         
-        print(f"\n📁 {fname}")
+        print(f"\n {fname}")
         
         if not filepath.exists():
             print("   File does not exist!")
