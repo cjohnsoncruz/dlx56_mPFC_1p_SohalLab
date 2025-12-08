@@ -8,11 +8,12 @@ def get_cell_ensemble_info_per_subject(raster_dataframes, all_subject_shuffles, 
     """ Loops through all subjects and computes cell ensemble enrichment info """
     all_subject_ensemble_info = []
     for subject_name, raster_df in raster_dataframes.items():
-        print(f"Processing subject: {subject_name}")
-        # After (only columns starting with 'cell_')
-        cell_col = [c for c in raster_df.columns if c.startswith('cell_')]
+        # Removed external cell col detection After (only columns starting with 'cell_')
         all_shuffle_means = all_subject_shuffles[subject_name]
-        subject_ensemble_info = get_cell_stage_enrichment(all_shuffle_means, raster_df, cell_col, n_shuf_per_subject)
+        print(f"Processing subject: {subject_name}| "
+              f"{len([c for c in raster_df.columns if c.startswith('cell_')])} raster cells |"
+                 f"{len([c for c in all_shuffle_means.columns if c.startswith('cell_')])} shuffle cells")
+        subject_ensemble_info = get_cell_stage_enrichment(all_shuffle_means, raster_df, n_shuf_per_subject)
         all_subject_ensemble_info.append(subject_ensemble_info)
     all_ensembles = pd.concat(all_subject_ensemble_info).reset_index(drop=True)
     #add metadata
@@ -22,13 +23,19 @@ def get_cell_ensemble_info_per_subject(raster_dataframes, all_subject_shuffles, 
     
     return all_ensembles
 ## main enrichment analysis function
-def get_cell_stage_enrichment(all_shuffle_means, raster_df, cell_col, n_shuf_per_subject):
+def get_cell_stage_enrichment(all_shuffle_means, raster_df, n_shuf_per_subject):
     ## code for enrichment analysis: given N shuffles, find the 95th percentile value for each cell at each task stage
     # Replace inf values with NaN to avoid invalid value warnings in percentile calculation
+    # Use intersection of cell columns from both dataframes to handle mismatches
+    raster_cells = set(c for c in raster_df.columns if c.startswith('cell_'))
+    shuffle_cells = set(c for c in all_shuffle_means.columns if c.startswith('cell_'))
+    cell_col = sorted(raster_cells & shuffle_cells)  # intersection, sorted for consistency
+    if len(cell_col) == 0:
+        raise ValueError("No common cell columns between raster_df and all_shuffle_means")
+    if len(cell_col) < len(raster_cells):
+        print(f"  Warning: Using {len(cell_col)}/{len(raster_cells)} cells (intersection of raster and shuffle data)")
     all_shuffle_means = all_shuffle_means.replace([np.inf, -np.inf], np.nan)
-
     cell_threshold = all_shuffle_means.groupby('task_stage')[cell_col].agg(lambda x: np.nanpercentile(x, 95)) #empirical?
-
     #get real raster mean activity data (DESPARSIFY if necessary)
     for col in cell_col:
         if isinstance(raster_df[col], pd.SparseDtype):
