@@ -1,7 +1,73 @@
 # code for shuffling dataframes
+## imports 
 import numpy as np
 import pandas as pd
 import numba
+from preprocessing_utils import read_shuffle_parquet_from_folder
+import time
+from datetime import datetime
+from pathlib import Path
+from typing import List, Any, Dict
+
+
+## functions for saving shuffle info:
+## create info df + save
+def log_shuffle_run(results_dir: Path, shuffle_storage_folder: Path, 
+                    n_shuf_per_subject: int, n_subjects: int, base_seed: int, shuffle_type = None) -> None:
+    """Log a completed shuffle run to the run log CSV.
+    Parameters:
+    - results_dir: Directory containing the run log
+    - shuffle_storage_folder: Folder where shuffle parquet files were saved
+    - n_shuf_per_subject: Number of shuffles per subject
+    - n_subjects: Number of subjects processed
+    - base_seed: Random seed used
+    """
+    shuffle_run_log_path = results_dir / "shuffle_run_log.csv"
+
+    #find shuffle type from name of save
+
+    run_info = {'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+                "shuffle_type": str(shuffle_type),
+                'shuffle_folder': str(shuffle_storage_folder),
+                'n_shuffles_per_subject': n_shuf_per_subject,
+                'n_subjects': n_subjects,
+                'base_seed': base_seed}
+    # Load existing log or create new one
+    if shuffle_run_log_path.exists():
+        run_log_df = pd.read_csv(shuffle_run_log_path)
+        run_log_df = pd.concat([run_log_df, pd.DataFrame([run_info])], ignore_index=True)
+    else:
+        run_log_df = pd.DataFrame([run_info])
+    # Save updated log
+    run_log_df.to_csv(shuffle_run_log_path, index=False)
+    print(f"Saved latest shuffle run to {shuffle_run_log_path}")
+
+## function to read the saved log csv and determine the right folder to pick from 
+def get_latest_shuffle_folder(results_dir, shuffle_type):
+    """Get most recent shuffle folder for 'dff' or 'raster'."""
+    log = pd.read_csv(results_dir / "shuffle_run_log.csv")
+    log['type'] = log['shuffle_folder'].apply(lambda x: "dff" if "dff" in x else "raster" if "raster" in x else None)
+    latest = log[log['type'] == shuffle_type].iloc[-1]
+    return Path(latest['shuffle_folder']) 
+
+## loading saved info df
+def load_latest_shuffle_run(results_dir: Path, shuffle_storage_folder= None, shuffle_type_to_load = 'raster'):
+    """    Load shuffles from the most recent run in the log.
+    Parameters:
+        results_dir: Directory containing the run log
+        shuffle_storage_folder=
+    Returns:
+    - shuffle_storage_folder: Path to the shuffle folder
+    - all_subject_shuffles: Loaded shuffle data
+    - latest_run: Series with run metadata (timestamp, n_shuffles, etc.)
+    """
+    #new- v7- add check for what data type
+    shuffle_storage_folder = get_latest_shuffle_folder(results_dir, shuffle_type_to_load)
+    ## given last function folder 
+    # Load all parquet files from that folder
+    print(f" Loading from folder: {shuffle_storage_folder}")
+    all_subject_shuffles = read_shuffle_parquet_from_folder(shuffle_storage_folder)
+    return shuffle_storage_folder, all_subject_shuffles
 
 
 # OPTIMIZATION 1: Numba-accelerated column rolling

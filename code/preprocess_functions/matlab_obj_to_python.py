@@ -6,6 +6,32 @@ from pathlib import Path
 import numpy as np
 from trial_detection import return_trial_num_at_frame, build_phase_masks, get_trial_stage_map
 
+def load_all_matlab_objects(source_dir, pattern="object", verbose=True, expected_count=35):
+    """Load all MATLAB object files from a directory."""
+    #load files: 
+    files = [f for f in source_dir.glob('**/*') if pattern in f.name]
+    
+    if verbose:
+        print(f"Found {len(files)} files in {source_dir}")
+    if expected_count:
+        assert len(files) == expected_count, f"Expected {expected_count}, found {len(files)}"
+    
+    loaded, failed = [], []
+    for i, f in enumerate(files):
+        if (obj := load_matlab_object(f)) is None:
+            failed.append(f.name)
+        else:
+            loaded.append(obj)
+            if verbose:
+                print(f"Loading {i+1}/{len(files)}: {obj['name']}: {obj['raster'].shape[0]} cells × {obj['raster'].shape[1]} frames")
+    
+    if verbose:
+        print(f"\nLoaded {len(loaded)}/{len(files)} files")
+    if failed:
+        check_corrupted_files(source_dir, loaded, failed)
+    
+    return loaded
+
 ## TASK STAGE ANNOTATION FUNCTIONS for python originating dfs
 def add_task_stage_to_raster_df(raster_df, analysis_config):
     """ Joins all the trial stage functions into one function for ease of use (function imported elsewhere).2s per raster 
@@ -97,12 +123,10 @@ def truncate_post_outcome_to_15s(raster_df, fps=20, max_seconds=15, truncate_pos
             if len(frame_indices) > max_frames:
                 frames_to_truncate = frame_indices[max_frames:]
                 raster_df.loc[frames_to_truncate, 'task_stage'] = 'truncated_post_outcome'
-        
     return raster_df
 
 
 ## POST-IMPORT ANNOTATION FUNCTIONS- 
-
 ## RAW FILE IMPORT AND CHECKING FUNCTIONS
 def check_corrupted_files(source_dataset_location, loaded_objects, failed_files):
     # Optional Investigate corrupted files
