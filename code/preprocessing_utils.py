@@ -292,6 +292,7 @@ def create_subject_trial_tseries_df(input_df: pd.DataFrame,
                                     stage_col = 'task_phase_vec',
                                     stage_names = None,
                                     config = None, 
+                                    debug = False
                                     ) -> pd.DataFrame:
     """ Create trial-cell time-series DataFrame for one subject, with ensemble info joined. For python native created dfs
     Inputs:
@@ -310,7 +311,8 @@ def create_subject_trial_tseries_df(input_df: pd.DataFrame,
     trim_df = extract_trial_windows(input_df,
                                     pre_frames=101,      # 5 seconds to match MATLAB
                                     post_frames=300,     # 15 seconds (already correct)
-                                    trim_pre_to=300)     # Trim pre first (like MATLAB)
+                                    trim_pre_to=300,
+                                    )     # Trim pre first (like MATLAB)
     
     print(f"Using {len([c for c in trim_df.columns if "-F_" in c])} pre-outcome frames")
     #reshape df into long format: one row per trial-cell, columns = time-series frames
@@ -318,39 +320,32 @@ def create_subject_trial_tseries_df(input_df: pd.DataFrame,
     outcome_post['neuron_id'] = outcome_post['subject_name'] + '-' + outcome_post[cell_col].str.replace('cell_','') 
     outcome_post =outcome_post.drop([x for x in cols_to_drop if x in outcome_post], axis = 1).dropna(subset = [stage_col])
     annotate_csv(outcome_post, 'subject_name')
-# Debug: Check column ordering before binning
-# Run this after create_subject_trial_tseries_df but before bin_rotate_timeseries
-
+    # Run this after create_subject_trial_tseries_df but before bin_rotate_timeseries
     # Get frame columns
     fr_col = outcome_post.columns[outcome_post.columns.str.contains('f_')]
     neg_frames = fr_col[fr_col.str.contains('-')].tolist()
     pos_frames = fr_col[~fr_col.str.contains('-')].tolist()
-
-    print("=== COLUMN ORDERING CHECK ===")
-    print(f"Total frame cols: {len(fr_col)}")
-    print(f"Pre-outcome (neg) cols: {len(neg_frames)}")
-    print(f"Post-outcome (pos) cols: {len(pos_frames)}")
-
-    print(f"\nFirst 5 neg_frames: {neg_frames[:5]}")
-    print(f"Last 5 neg_frames: {neg_frames[-5:]}")
-    print(f"\nFirst 5 pos_frames: {pos_frames[:5]}")
-    print(f"Last 5 pos_frames: {pos_frames[-5:]}")
-
-    # Check what's at the boundary
-    print(f"\n=== BOUNDARY CHECK ===")
-    print(f"Last neg frame (index {len(neg_frames)-1}): {neg_frames[-1]}")
-    print(f"First pos frame (index {len(neg_frames)}): {pos_frames[0]}")
-
-    # After concatenation, what indices would these have?
     combined = neg_frames + pos_frames
-    print(f"\n=== BINNING BOUNDARY ===")
-    print(f"Index 99: {combined[99]}")
-    print(f"Index 100: {combined[100]}")
-    print(f"Index 101: {combined[101]}")
-    print(f"Index 102: {combined[102]}")
-    print(f"Index 103: {combined[103]}")
-    print(f"Index 104: {combined[104]}")
-    print(f"\nBin 20 (index 100-104) would contain: {combined[100:105]}")
+    
+    #DEBUG-
+    if debug:    
+        print("=== COLUMN ORDERING CHECK ===")
+        print(f"Pre-outcome (neg) cols: {len(neg_frames)}")
+        print(f"Post-outcome (pos) cols: {len(pos_frames)}")
+
+        print(f"\nFirst 5 neg_frames: {neg_frames[:5]}")
+        print(f"Last 5 neg_frames: {neg_frames[-5:]}")
+        print(f"\nFirst 5 pos_frames: {pos_frames[:5]}")
+        print(f"Last 5 pos_frames: {pos_frames[-5:]}")
+
+        #DEBUG- Check what's at the boundary
+        print(f"\n=== BOUNDARY CHECK ===")
+        print(f"Last neg frame (index {len(neg_frames)-1}): {neg_frames[-1]}")
+        print(f"First pos frame (index {len(neg_frames)}): {pos_frames[0]}")
+
+        print(f"\n=== BINNING BOUNDARY ===")
+        print(f"\nBin 20 (index 100-104) would contain: {combined[100:105]}")
+
     ## begin preprocess- bin and rotate timeseries 
     outcome_post = bin_rotate_timeseries(outcome_post, window_size = window_to_bin, rotate_by = n_sec_to_rotate)
     outcome_post = outcome_post.join(ens_matrix, on='neuron_id', how='left', rsuffix='_ens') #join dff timeseries with ensemble info
