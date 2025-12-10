@@ -348,7 +348,7 @@ def create_subject_trial_tseries_df(input_df: pd.DataFrame,
 
     ## begin preprocess- bin and rotate timeseries 
     outcome_post = bin_rotate_timeseries(outcome_post, window_size = window_to_bin, rotate_by = n_sec_to_rotate)
-    outcome_post = outcome_post.join(ens_matrix, on='neuron_id', how='left', rsuffix='_ens') #join dff timeseries with ensemble info
+    outcome_post = outcome_post.join(ens_matrix, on='neuron_id', how='left', rsuffix='_ens') #join  timeseries with ensemble info
     #drop time-series not belonging to any task stage , aka the 0 task stage 
     outcome_post['any_enrichment']= outcome_post[stage_names].sum(axis = 1)
     outcome_post = outcome_post[outcome_post[stage_col].isin(stage_names)]

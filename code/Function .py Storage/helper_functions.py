@@ -484,10 +484,14 @@ def save_file_to_drive(fig_name, file_format,storage_file_path):
     """storage path is predefined. figure name and file format are string inputs """
     plt.savefig(os.path.join(storage_file_path,fig_name), format = file_format,dpi=300, bbox_inches='tight')
 
-def get_unit_max_event_rate_of_all_trials(timeseries_df, group_by_list, numeric_col, name_unitID_list, max_val_col_name):
+def get_unit_max_event_rate_of_all_trials(timeseries_df,
+                                           group_by_list,
+                                             numeric_col,
+                                               name_unitID_list,
+                                                 max_val_col_name):
     #TO- get the max event rate recorded for a neuron, across all trials. standard inputs:
         # group_by_list: list  ['name', 'neuron_ID', 'task_phase_vec', 'trial_num'] # numeric_col: usual list of cols with tseries data in them
-        # name_unitID_list: list with dataset name + unit name, eg. ['name', 'neuron_ID'] # max_val_col_name: name of column to store the max trial value in, e.g.  "max_trial_val"
+        # name_unitID_list: list with dataset name + unit name, eg. ['name', 'neuron_ID'] # max_val_col_name: name of column to store the max trial value, of the ENTIRE recording, pre norm in, e.g.  "max_trial_val"
     max_event_rate_df= timeseries_df.groupby(by = group_by_list)[numeric_col].max().max(axis = 1).reset_index().rename({0: max_val_col_name}, axis = 1)# canonical line:  timeseries_df.groupby(by = ['name', 'neuron_ID', 'task_phase_vec', 'trial_num'])[numeric_col].max().max(axis = 1).reset_index().rename({0: "max_trial_val"}, axis = 1)
     max_event_rate_df = max_event_rate_df.groupby(by = name_unitID_list)[max_val_col_name].max().reset_index() #OG line: max_event_rate_df.groupby(by = ['name', 'neuron_ID'])['max_trial_val'].max().reset_index()
     return max_event_rate_df
@@ -499,11 +503,24 @@ def add_unique_ID_col_to_trial_series_df(trial_tseries_df, numeric_col, dataset_
     return trial_tseries_df
 
 def run_min_max_norm_on_timeseries(run_norm, timeseries_df,
-                                    name_unitID_list, numeric_col,max_val_col_name):
+                                    name_unitID_list,
+                                    numeric_col,
+                                    max_val_col_name = 'max_trial_val'):
+    '''
+    Docstring for run_min_max_norm_on_timeseries
+    
+    :param run_norm: Description
+    :param timeseries_df: Description
+    :param name_unitID_list: list of [subject name col, neuron name col] used in groupby for aggregation
+    :param numeric_col: Description
+    :param max_val_col_name: str that sets the name for the maximal event rate reached by that cell, which is defined in *max_e_rate*
+    '''
+
     #get max event rate by unit
     if run_norm:
         groupby_list = name_unitID_list + ['task_phase_vec', 'trial_num']
         max_e_rate = get_unit_max_event_rate_of_all_trials(timeseries_df, groupby_list, numeric_col, name_unitID_list, max_val_col_name)
+
         if max_val_col_name not in timeseries_df.columns:    #merge timeseries with max event rate by unit record
             nonzero_max_vals = max_e_rate.loc[(max_e_rate[max_val_col_name] > 0),:]
             normed_ts_df = timeseries_df.merge(nonzero_max_vals, how = 'left', on = name_unitID_list) 
