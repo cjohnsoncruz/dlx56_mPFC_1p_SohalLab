@@ -512,7 +512,7 @@ def run_min_max_norm_on_timeseries(run_norm, timeseries_df,
     :param run_norm: Description
     :param timeseries_df: Description
     :param name_unitID_list: list of [subject name col, neuron name col] used in groupby for aggregation
-    :param numeric_col: Description
+    :param numeric_col: list of cols containing time info 
     :param max_val_col_name: str that sets the name for the maximal event rate reached by that cell, which is defined in *max_e_rate*
     '''
 

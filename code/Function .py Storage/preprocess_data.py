@@ -91,7 +91,8 @@ def get_normed_trial_tseries( stage_enriched_csv_path,act_tseries_path, hyper_pa
     normed_trial_tseries_df = cmi.hf.run_min_max_norm_on_timeseries(norm_data, trial_tseries_df_raw, ['name', 'unique_ID'], numeric_col, 'max_trial_val') #min_max_norm = True
     normed_trial_tseries_df.to_csv(save_name)
     #get mean of each trial
-    normed_trial_tseries_df['mean_rate'] =normed_trial_tseries_df[[c for c in numeric_col if '-' not in c]].mean(axis = 1) #mean rate is post outcome only
+    cols_to_get_mean = [c for c in numeric_col]
+    normed_trial_tseries_df['mean_rate'] =normed_trial_tseries_df[cols_to_get_mean].mean(axis = 1) #mean rate is post outcome only
     normed_trial_tseries_df['active_in_trial'] =normed_trial_tseries_df['mean_rate']>0
     #OPTIONAL- drop N bins from start and M bins from end of time-series
     normed_trial_tseries_df = drop_end_bins_of_trials(normed_trial_tseries_df,numeric_col,  n_end_timebins_to_drop = hyper_param_dict['n_post_end_bin_to_drop'] )
