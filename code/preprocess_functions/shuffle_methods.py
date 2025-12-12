@@ -177,10 +177,7 @@ def create_shuffled_df_preconverted(args):
     rolled_df['trial_section'] = pd.Series(trial_section, index=index)
 
     # Use same groupby logic as OLD
-    mean_section_stage_act = rolled_df[
-        rolled_df['trial_section'] == 'post_outcome'
-    ].groupby(by=['task_stage', 'trial_section'])[cell_col].mean()
-
+    mean_section_stage_act = rolled_df[rolled_df['trial_section'] == 'post_outcome'].groupby(by=['task_stage', 'trial_section'])[cell_col].mean()
     # Add shuffle seed as a COLUMN (not row)
     mean_section_stage_act['shuffle_seed'] = random_seed
 
