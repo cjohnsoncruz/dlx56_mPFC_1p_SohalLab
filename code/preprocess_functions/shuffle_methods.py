@@ -46,7 +46,7 @@ def log_shuffle_run(results_dir: Path, shuffle_storage_folder: Path,
 def get_latest_shuffle_folder(results_dir, shuffle_type):
     """Get most recent shuffle folder for 'dff' or 'raster'."""
     log = pd.read_csv(results_dir / "shuffle_run_log.csv")
-    log['type'] = log['shuffle_folder'].apply(lambda x: "dff" if "dff" in x else "raster" if "raster" in x else None)
+    log['type'] = log['shuffle_folder'].apply(lambda x: "dff" if "dff" in x else "raster" if "raster_none_" in x else None)
     latest = log[log['type'] == shuffle_type].iloc[-1]
     return Path(latest['shuffle_folder']) 
 

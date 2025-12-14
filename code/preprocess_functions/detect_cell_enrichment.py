@@ -15,6 +15,7 @@ def get_cell_ensemble_info_per_subject(raster_dataframes, all_subject_shuffles, 
                  f"{len([c for c in all_shuffle_means.columns if c.startswith('cell_')])} shuffle cells")
         subject_ensemble_info = get_cell_stage_enrichment(all_shuffle_means, raster_df, n_shuf_per_subject)
         all_subject_ensemble_info.append(subject_ensemble_info)
+
     all_ensembles = pd.concat(all_subject_ensemble_info).reset_index(drop=True)
     #add metadata
     all_ensembles['neuron_id'] = all_ensembles['subject_name'] + '-' + all_ensembles['cell'].str.replace('cell_','')
@@ -56,10 +57,11 @@ def get_cell_stage_enrichment(all_shuffle_means, raster_df, n_shuf_per_subject):
         # print(f"checking {stage}")
         real_values = real_mean_activity.loc[stage, cell_col] #get % of shuffle greater than or equal to real
         comparison = group[cell_col] >= real_values      # broadcast columnwise
-        counts = comparison.sum()                         # count True per cell
+        counts = comparison.sum() + 1                         # count True per cell
         counts.name = stage                               # label this row
         counts_per_cell.append(counts)
-    shuf_percentile = pd.DataFrame(counts_per_cell)/n_shuf_per_subject
+    print('using exact p-value')
+    shuf_percentile = pd.DataFrame(counts_per_cell) /(n_shuf_per_subject + 1)
 
     #get boolean mask of enriched cells
     enriched_cells = (real_mean_activity > cell_threshold)
