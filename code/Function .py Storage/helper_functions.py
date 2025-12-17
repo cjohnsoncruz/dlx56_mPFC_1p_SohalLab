@@ -575,10 +575,10 @@ def get_phase_enriched_units(df_with_enrichment, phase_to_get):
     enriched_rows = df_with_enrichment[phase_to_get] > 0    #do I just get rows?
     return df_with_enrichment[enriched_rows]
 
-def get_ID_enriched_units_by_phase(df_with_enrichment, ID_col, bool_col_tseries_enriched):
+def get_ID_enriched_units_by_phase(df_with_enrichment, ID_col, bool_col_tseries_enriched = 'enriched_in_phase',  subj_name_col = 'name'):
     #bool_col_tsewries_enriched is a boolean col of df_with_enrichment that says if cell N in trial X from phase P is enriched in phase P
     df_only_enrich_in_curr_phase_tseries = df_with_enrichment[df_with_enrichment[bool_col_tseries_enriched]] #index into tseries df with bool col
-    enrich_unit_ID_by_name_df = df_only_enrich_in_curr_phase_tseries.groupby(['name', 'geno_day','task_phase_vec'])[ID_col].unique().reset_index()
+    enrich_unit_ID_by_name_df = df_only_enrich_in_curr_phase_tseries.groupby([subj_name_col, 'geno_day','task_phase_vec'])[ID_col].unique().reset_index()
     enrich_unit_ID_by_name_df['num_enriched_units'] = enrich_unit_ID_by_name_df[ID_col].apply(lambda x: len(x))
     return enrich_unit_ID_by_name_df
 

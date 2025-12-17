@@ -207,15 +207,15 @@ def drop_start_bins_of_trials(trial_tseries,numeric_col,  n_start_timebins_to_dr
     return trial_tseries.drop(pre_cols_to_drop, axis = 1)
 
 
-def get_subject_stage_info_df(trial_tseries):
+def get_subject_stage_info_df(trial_tseries, subj_name_col = 'name', cell_id_name_col = 'unique_ID'):
     #TO- create output DF with information about the # of enrihced units by stage, number of trials per stage, etc
-    # get subj level dfs 
-    trial_list_by_dataset = cmi.hf.get_trial_num_in_phase_by_dataset(trial_tseries)
-    e_unique_ID_subj = cmi.hf.get_ID_enriched_units_by_phase(trial_tseries, 'unique_ID', 'enriched_in_phase')
-    n_units_by_subject =  trial_tseries.groupby(by = ['geno_day', 'name'])['unique_ID'].nunique().reset_index().rename({'unique_ID': 'num_units'}, axis = 1)
+    # get subj level dfs s
+    trial_list_by_dataset = cmi.hf.get_trial_num_in_phase_by_dataset(trial_tseries, name_col = subj_name_col)
+    e_unique_ID_subj = cmi.hf.get_ID_enriched_units_by_phase(trial_tseries, cell_id_name_col, bool_col_tseries_enriched= 'enriched_in_phase', subj_name_col= subj_name_col)
+    n_units_by_subject =  trial_tseries.groupby(by = ['geno_day', subj_name_col])[cell_id_name_col].nunique().reset_index().rename({cell_id_name_col: 'num_units'}, axis = 1)
     #merge all subj level dfs
-    subject_stage_info_df = e_unique_ID_subj.merge(n_units_by_subject, on = ['geno_day', 'name'], how = 'left').merge(
-        trial_list_by_dataset, on = ['geno_day', 'name', 'task_phase_vec'], how = 'left')
+    subject_stage_info_df = e_unique_ID_subj.merge(n_units_by_subject, on = ['geno_day', subj_name_col], how = 'left').merge(
+        trial_list_by_dataset, on = ['geno_day', subj_name_col, 'task_phase_vec'], how = 'left')
     subject_stage_info_df['over_5'] = subject_stage_info_df.apply(lambda x: [y > 5 for y in x['trial_num']], axis = 1)
     return subject_stage_info_df
 
