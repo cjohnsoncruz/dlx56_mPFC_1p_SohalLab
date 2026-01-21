@@ -39,7 +39,7 @@ def get_cell_stage_enrichment(all_shuffle_means, raster_df, n_shuf_per_subject):
     cell_threshold = all_shuffle_means.groupby('task_stage')[cell_col].agg(lambda x: np.nanpercentile(x, 95)) #empirical?
     #get real raster mean activity data (DESPARSIFY if necessary)
     for col in cell_col:
-        if isinstance(raster_df[col], pd.SparseDtype):
+        if isinstance(raster_df[col].dtype, pd.SparseDtype):
             raster_df.loc[:, col] = raster_df[col].sparse.to_dense()
         raster_df.loc[:, col] = raster_df[col].astype(float)
             

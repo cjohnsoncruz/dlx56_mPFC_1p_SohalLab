@@ -505,7 +505,8 @@ def add_unique_ID_col_to_trial_series_df(trial_tseries_df, numeric_col, dataset_
 def run_min_max_norm_on_timeseries(run_norm, timeseries_df,
                                     name_unitID_list,
                                     numeric_col,
-                                    max_val_col_name = 'max_trial_val'):
+                                    max_val_col_name = 'max_trial_val_all_time',
+                                    min_max_norm_type = 'nonneg'):
     '''
     Docstring for run_min_max_norm_on_timeseries
     
@@ -599,10 +600,10 @@ def get_trial_IDs_and_total_num(dict_of_trials):
     num_trials= len(trial_IDs)
     return trial_IDs, num_trials
 
-def get_num_trials_by_type_in_subject(timeseries_df, task_phase_col):
-    trial_type_by_subj = timeseries_df.groupby(['name', 'geno_day', 'trial_num'])[task_phase_col].first().reset_index()
-    trial_type_by_subj = trial_type_by_subj.groupby(['name', 'geno_day'])[task_phase_col].value_counts().to_frame().rename({task_phase_col: "count"}, axis = 1).reset_index()
-    trial_type_by_subj = trial_type_by_subj.pivot_table(index = ['name', 'geno_day'], values = 'count', columns = "task_phase_vec").reset_index()
+def get_num_trials_by_type_in_subject(timeseries_df, task_phase_col, name_col = 'name'):
+    trial_type_by_subj = timeseries_df.groupby([name_col, 'geno_day', 'trial_num'])[task_phase_col].first().reset_index()
+    trial_type_by_subj = trial_type_by_subj.groupby([name_col, 'geno_day'])[task_phase_col].value_counts().to_frame().rename({task_phase_col: "count"}, axis = 1).reset_index()
+    trial_type_by_subj = trial_type_by_subj.pivot_table(index = [name_col, 'geno_day'], values = 'count', columns = "task_phase_vec").reset_index()
     return trial_type_by_subj
 
 def get_num_enriched_units_by_phase_by_subj(cell_period_active, unit_ID_col):
@@ -713,3 +714,35 @@ def drop_partial_bin(input_df, n_input_frames, win_n):
         input_df.iloc[:,-2] = input_df.iloc[:,-2:].mean(axis = 1)
         input_df = input_df.iloc[:,:-1]
     return input_df
+
+
+## decode score packaging funcs
+def package_decode_scores_common(output_runs: list,
+                                  hyper_param_dict: dict,
+                                  trial_df_filename) -> pd.DataFrame:
+    """Perform common transformations on decode score outputs before saving.
+
+    Concatenates output runs and adds metadata columns common to all decode types:
+    - timebin_size: from hyper_param_dict['bin_size']
+    - run_end_time: current datetime
+    - dataset_folder_name: string of trial_df_filename
+
+    Parameters
+    ----------
+    output_runs : list
+        List of DataFrames from parallel SVM runs to concatenate
+    hyper_param_dict : dict
+        Dictionary containing 'bin_size' key
+    trial_df_filename : str or Path
+        Path to the source trial data file
+
+    Returns
+    -------
+    pd.DataFrame
+        Concatenated DataFrame with metadata columns added
+    """
+    decode_scores = pd.concat(output_runs)
+    decode_scores['timebin_size'] = hyper_param_dict['bin_size']
+    decode_scores['run_end_time'] = datetime.now()
+    decode_scores['dataset_folder_name'] = str(trial_df_filename)
+    return decode_scores
