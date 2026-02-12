@@ -3,7 +3,8 @@
     "allow": [
       "Bash(python:*)",
       "Bash(where:*)",
-      "Bash(jupyter kernelspec:*)"
+      "Bash(jupyter kernelspec:*)",
+      "Bash(python3:*)"
     ],
     "deny": [],
     "ask": []
