@@ -19,8 +19,8 @@ def run_TSNE_on_mean_activity(input_AVs, tsne_params= None):
     if tsne_params == None:
         tsne_params = {'n_components': 2, "perplexity": 90, "method":'exact', 'init':'pca'}
     tsne_array = TSNE(metric = 'cosine', **tsne_params).fit_transform(input_AVs)
-    tsne_output =input_AVs
-    tsne_output = input_AVs.assign(**{f"dim_{n+1}":tsne_array[:,n] for n in range(tsne_params['n_components'])})
+    tsne_output = input_AVs.copy()
+    tsne_output = tsne_output.assign(**{f"dim_{n+1}":tsne_array[:,n] for n in range(tsne_params['n_components'])})
     return tsne_output
 
 def return_TSNE_on_stage_AV_w_enrich_labels(input_AVs, enrichment_labels, stage_names:list):
