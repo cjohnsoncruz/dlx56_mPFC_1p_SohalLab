@@ -4,7 +4,9 @@
       "Bash(python:*)",
       "Bash(where:*)",
       "Bash(jupyter kernelspec:*)",
-      "Bash(python3:*)"
+      "Bash(python3:*)",
+      "Bash(conda run:*)",
+      "Bash(\"c:/Users/13car/anaconda3/envs/local_colab/python.exe\" -c \"import pandas; print\\(''pandas:'', pandas.__version__\\); import seaborn; print\\(''seaborn:'', seaborn.__version__\\)\")"
     ],
     "deny": [],
     "ask": []
