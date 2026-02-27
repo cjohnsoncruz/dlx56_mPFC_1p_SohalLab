@@ -165,6 +165,11 @@ def save_fig_in_main_fig_dir(fig_obj, fig_name, folder_key, filetypes_to_save,**
     make_folder(save_loc / date_dir)
     for fig_type in filetypes_to_save:
         fig_obj.savefig((save_loc / date_dir / f"{fig_name}{date_tag}.{fig_type}"), **save_args)
+    # also save in date-sorted folder
+    date_sorted_loc = main_fig_save_loc / 'date_sorted_figures' / date_dir
+    make_folder(date_sorted_loc)
+    for fig_type in filetypes_to_save:
+        fig_obj.savefig((date_sorted_loc / f"{fig_name}{date_tag}.{fig_type}"), **save_args)
 
 
 def min_max_normalize(vector: np.ndarray, keep_min: bool = True) -> np.ndarray:
