@@ -8,6 +8,16 @@ import textwrap
 import helper_functions
 import sns_plotting_config as sns_cfg 
 
+
+## FUNCTIONS:
+
+#sub func
+def replace_first_underscore_linebreak(input_string):
+    ''' Requires N underscores with semantically meaningful breakpoint within it. Takes 1st underscore and swaps with \n'''
+    pre_linebreak = input_string.split("_")[0] + "\n" 
+    post_linebreak = " ".join(input_string.split("_")[1:])
+    return pre_linebreak + post_linebreak
+
 def add_ax_outline():
     ''' To- draw red boxes around the extent of axes listed in the figure automatically'''
 # Force layout to finalize
