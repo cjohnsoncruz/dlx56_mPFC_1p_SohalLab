@@ -136,7 +136,8 @@ main_fig_save_loc = Path(__file__).resolve().parents[2] / 'results'
 
 fig_nums = [n+1 for n in range(9)]
 fig_save_dir = {n: main_fig_save_loc / f"fig_{n}" for n in fig_nums}
-supp_fig_save_dir = {f's_{n}': main_fig_save_loc / f"supp_fig_{n}" for n in fig_nums}
+supp_fig_save_dir = {**{f's_{n}': main_fig_save_loc / f"supp_fig_{n}" for n in fig_nums},
+                     **{f'r_{n}': main_fig_save_loc / f"revision_fig_{n}" for n in fig_nums}}
 
 def save_fig_in_main_fig_dir(fig_obj, fig_name, folder_key, filetypes_to_save,**kwargs):
     """ Given a list of strings, dict of folder names, and template to fill, save N figures with N filetypes

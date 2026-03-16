@@ -5,6 +5,7 @@ import matplotlib
 from matplotlib import pyplot as plt
 from matplotlib_venn import venn2
 from collections import defaultdict
+from scipy.stats import chi2_contingency
 
 import seaborn as sns
 import pandas as pd 
@@ -72,8 +73,42 @@ def plot_ensemble_venn(ax_array,
         [v.set_labels[k].set_horizontalalignment(val) for k,val in label_text_align.items()] #equiv to: # labels[0].set_horizontalalignment('right') # labels[1].set_horizontalalignment('center')
 
     return venn_objs
-
+## ###############################################################
 ## utility FUNCTION STORAGE:
+
+def make_premade_comparison_pvalue_df(group_list:list, pvalue_list:list):
+    ''' To, given a known pvalue for a comparison, bundle and overwrite values '''
+    ## zip values together into dict
+    comparison_pval_df = pd.DataFrame([dict(group_1= e[0], group_2 = e[1], pvalue=p) for e,p in zip(group_list, pvalue_list)])
+    return comparison_pval_df
+
+def update_posthoc_pvalues(posthoc_df:pd.DataFrame, comparison_pvalues:pd.DataFrame):
+    #shift index to multiindex of (group1, group2) to streamline accessing
+    post = posthoc_df.set_index(["group_1","group_2"])
+    cmp  = comparison_pvalues.set_index(["group_1","group_2"])["pvalue"]
+    post["pvalue"].update(cmp)
+    #overwrite with updated values
+    updated_posthoc = posthoc_df
+    updated_posthoc["pvalue"] = post["pvalue"].values
+    return updated_posthoc
+
+def compute_ensemble_overlap_chi2(unit_mean_tseries, all_ensemble_pairs, geno_order, stage_names):
+    """Compute overlap crosstabs and chi-squared tests for each ensemble pair."""
+    overlap_tab = []
+
+    for ensemble_to_plot in all_ensemble_pairs:
+        overlap = get_geno_stage_overlap_crosstab(unit_mean_tseries, ensemble_to_plot, geno_order,stage_names)
+        overlap['contingency'] = overlap.apply(lambda x: 
+                                               np.array(
+                                                   [[(x.n_total-x.n_only_in_set_1-x.n_only_in_set_2-x.total_overlap), x.n_only_in_set_1],
+                                                     [x.n_only_in_set_2, x.total_overlap]]
+                                                     ),axis = 1)
+        #contingency table: [total - only_1 - only_2 - both_1_2], only_1], [only_2, both_1_2] # resChi2ContingencyResult-    An object containing attributes:
+        # statistic-float- The test statistic. # pvalue-float The p-value of the test. # dof-int: The degrees of freedom. NaN if method is not None. # expected_freq-ndarray, same shape as observed
+        overlap[['statistic', 'pvalue', 'dof', 'expected_frequency']] = overlap.apply(lambda x: chi2_contingency(x.contingency), axis=1, result_type='expand').values
+        overlap_tab.append(overlap)
+
+    return pd.concat(overlap_tab) 
 
 def get_geno_stage_overlap_crosstab(input_df, 
                                     ensemble_to_plot,

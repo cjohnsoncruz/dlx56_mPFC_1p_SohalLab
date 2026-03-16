@@ -8,6 +8,7 @@ __pycache__/
 
 # Claude Code documentation
 *claude*.md
+.claude/
 
 #results folder
 /results/
