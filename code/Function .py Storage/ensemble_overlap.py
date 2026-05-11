@@ -39,7 +39,7 @@ def plot_save_ensemble_overlap_fig(unit_mean_tseries,
     #     [v.set_labels[k].set_horizontalalignment(val) for k,val in label_text_align.items()] #equiv to: # labels[0].set_horizontalalignment('right') # labels[1].set_horizontalalignment('center')
     # ##save overlap fig
     fig_name = f"Ensemble cell overlap by geno for {'_'.join(ensemble_to_plot)}"
-    helper_functions.save_fig_in_main_fig_dir(fig, fig_name= fig_name, folder_key=fig_num, filetypes_to_save = ['png'])
+    helper_functions.save_fig_in_main_fig_dir(fig, fig_name= fig_name, folder_key=fig_num, filetypes_to_save = ['png',  'svg'])
     return fig, ax_array
 
 def plot_ensemble_venn(ax_array, 
