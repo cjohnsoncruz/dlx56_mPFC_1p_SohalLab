@@ -32,19 +32,12 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 1,
+   "execution_count": 33,
    "id": "07d7b78a-73a4-45ed-b6ea-a4e795234b3c",
    "metadata": {
     "scrolled": true
    },
    "outputs": [
-    {
-     "name": "stderr",
-     "output_type": "stream",
-     "text": [
-      "ERROR: Could not open requirements file: [Errno 2] No such file or directory: 'requirements.txt'\n"
-     ]
-    },
     {
      "name": "stdout",
      "output_type": "stream",
@@ -53,13 +46,11 @@
      ]
     },
     {
-     "data": {
-      "text/plain": [
-       "<Figure size 640x480 with 0 Axes>"
-      ]
-     },
-     "metadata": {},
-     "output_type": "display_data"
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "ERROR: Could not open requirements file: [Errno 2] No such file or directory: 'requirements.txt'\n"
+     ]
     }
    ],
    "source": [
@@ -101,7 +92,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 2,
+   "execution_count": 34,
    "id": "178f2fdb-41ed-4b1b-8983-babfc14d3b41",
    "metadata": {},
    "outputs": [
@@ -129,7 +120,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": 35,
    "id": "cf7be21f-4ea9-4979-bf4b-af297bdfa24a",
    "metadata": {
     "scrolled": true
@@ -222,7 +213,7 @@
        " <DirEntry 'umap'>]"
       ]
      },
-     "execution_count": 3,
+     "execution_count": 35,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -247,26 +238,26 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": 36,
    "id": "9cb77ade-be26-40ac-8f59-1fd7445fab45",
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "[<DirEntry 'analysis_CSV_output'>,\n",
-       " <DirEntry 'revision_fig_1'>,\n",
-       " <DirEntry 'date_sorted_figures'>,\n",
-       " <DirEntry 'supp_fig_4'>,\n",
-       " <DirEntry 'fig_4'>,\n",
-       " <DirEntry 'fig_3'>,\n",
+       "[<DirEntry 'figure_tables'>,\n",
+       " <DirEntry 'analysis_CSV_output'>,\n",
+       " <DirEntry 'supp_fig_1'>,\n",
        " <DirEntry 'supp_fig_2'>,\n",
-       " <DirEntry 'fig_7'>,\n",
-       " <DirEntry 'fig_6'>,\n",
-       " <DirEntry 'fig_5'>]"
+       " <DirEntry 'fig_2'>,\n",
+       " <DirEntry 'date_sorted_figures'>,\n",
+       " <DirEntry 'fig_1'>,\n",
+       " <DirEntry 'supp_fig_4'>,\n",
+       " <DirEntry 'revision_fig_1'>,\n",
+       " <DirEntry 'fig_4'>]"
       ]
      },
-     "execution_count": 4,
+     "execution_count": 36,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -279,7 +270,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 5,
+   "execution_count": 37,
    "id": "0f59c30b-0e75-4074-9de6-946026f21f4d",
    "metadata": {},
    "outputs": [
@@ -296,7 +287,7 @@
        "<DirEntry 'analysis_CSV_output'>"
       ]
      },
-     "execution_count": 5,
+     "execution_count": 37,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -318,7 +309,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 6,
+   "execution_count": 38,
    "id": "0f64c35f-ce93-4674-8e81-cd9254c132e9",
    "metadata": {},
    "outputs": [
@@ -327,7 +318,7 @@
      "output_type": "stream",
      "text": [
       "c:\\Users\\13car\\Dropbox\\local_github_repos_personal\\dlx56_mPFC_1p_SohalLab\\results\\analysis_CSV_output\n",
-      " 886 csv files found in folder\n"
+      " 831 csv files found in folder\n"
      ]
     }
    ],
@@ -342,7 +333,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 7,
+   "execution_count": 39,
    "id": "b184864a-3e91-4b84-9c84-a4e10e54f2c6",
    "metadata": {
     "scrolled": true
@@ -455,7 +446,6 @@
        " '2_F-G_enrichment_counts_by_geno_day_09_Jun_2026.csv',\n",
        " '2_F-G_enrichment_counts_by_geno_day_25_May_2026.csv',\n",
        " '2_s_DFF revision Supplement- VEH v CLNZ for Het & WT- ensemble proportion overlap_ensemble chisquared_02_Apr_2026.csv',\n",
-       " '2_s_DFF revision Supplement- VEH v CLNZ for Het & WT- ensemble proportion overlap_ensemble chisquared_04_Jul_2026.csv',\n",
        " '2_s_DFF revision Supplement- VEH v CLNZ for Het & WT- ensemble proportion overlap_ensemble chisquared_06_Mar_2026.csv',\n",
        " '2_s_DFF revision Supplement- VEH v CLNZ for Het & WT- ensemble proportion overlap_ensemble chisquared_07_Apr_2026.csv',\n",
        " '2_s_DFF revision Supplement- VEH v CLNZ for Het & WT- ensemble proportion overlap_ensemble chisquared_09_Apr_2026.csv',\n",
@@ -700,8 +690,6 @@
        " '3_null_CCG single class pred- Train IA test RS - Early_RS_Correct ensemble_predict_posthoc cohen d_17_Mar_2026.csv',\n",
        " '3_null_CCG single class pred- Train IA test RS - Early_RS_Correct ensemble_predict_posthoc cohen d_19_Mar_2026.csv',\n",
        " '3_null_CCG single class pred- Train IA test RS - Early_RS_Error ensemble_predict_posthoc cohen d_19_Mar_2026.csv',\n",
-       " '3_null_CCG uni-class pred- Train IA test RS - Early_RS_Correct ensemble_predict_posthoc cohen d_01_Jul_2026.csv',\n",
-       " '3_null_CCG uni-class pred- Train IA test RS - Early_RS_Correct ensemble_predict_posthoc cohen d_03_Jul_2026.csv',\n",
        " '3_null_CCG uni-class pred- Train IA test RS - Early_RS_Correct ensemble_predict_posthoc cohen d_04_Jun_2026.csv',\n",
        " '3_null_CCG uni-class pred- Train IA test RS - Early_RS_Correct ensemble_predict_posthoc cohen d_07_Apr_2026.csv',\n",
        " '3_null_CCG uni-class pred- Train IA test RS - Early_RS_Correct ensemble_predict_posthoc cohen d_09_Jun_2026.csv',\n",
@@ -714,8 +702,6 @@
        " '3_null_CCG uni-class pred- Train IA test RS - Early_RS_Correct ensemble_predict_posthoc cohen d_29_Mar_2026.csv',\n",
        " '3_null_CCG uni-class pred- Train IA test RS - Early_RS_Correct ensemble_predict_posthoc cohen d_30_Mar_2026.csv',\n",
        " '3_null_CCG uni-class pred- Train IA test RS - Early_RS_Correct ensemble_predict_posthoc cohen d_31_Mar_2026.csv',\n",
-       " '3_null_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_01_Jul_2026.csv',\n",
-       " '3_null_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_03_Jul_2026.csv',\n",
        " '3_null_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_04_Jun_2026.csv',\n",
        " '3_null_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_07_Apr_2026.csv',\n",
        " '3_null_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_09_Jun_2026.csv',\n",
@@ -725,7 +711,6 @@
        " '3_null_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_26_May_2026.csv',\n",
        " '3_null_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_27_Mar_2026.csv',\n",
        " '3_null_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_28_Mar_2026.csv',\n",
-       " '3_null_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_29_Jun_2026.csv',\n",
        " '3_null_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_29_Mar_2026.csv',\n",
        " '3_null_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_30_Mar_2026.csv',\n",
        " '3_null_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_31_Mar_2026.csv',\n",
@@ -776,8 +761,6 @@
        " '4_CCG single class pred- Train Correct test Error- Early_RS_Error ensemble_predict_posthoc cohen d_29_Jan_2026.csv',\n",
        " '4_CCG single class pred- Train Correct test Error- Early_RS_Error ensemble_predict_posthoc cohen d_31_Jan_2026.csv',\n",
        " '4_null CCGP (early ens) train_correct_test_error_ccgp_all_posthoc cohen d_01_Apr_2026.csv',\n",
-       " '4_null CCGP (early ens) train_correct_test_error_ccgp_all_posthoc cohen d_01_Jul_2026.csv',\n",
-       " '4_null CCGP (early ens) train_correct_test_error_ccgp_all_posthoc cohen d_03_Jul_2026.csv',\n",
        " '4_null CCGP (early ens) train_correct_test_error_ccgp_all_posthoc cohen d_04_Jun_2026.csv',\n",
        " '4_null CCGP (early ens) train_correct_test_error_ccgp_all_posthoc cohen d_07_Apr_2026.csv',\n",
        " '4_null CCGP (early ens) train_correct_test_error_ccgp_all_posthoc cohen d_09_Jun_2026.csv',\n",
@@ -787,7 +770,6 @@
        " '4_null CCGP (early ens) train_correct_test_error_ccgp_all_posthoc cohen d_26_May_2026.csv',\n",
        " '4_null CCGP (early ens) train_correct_test_error_ccgp_all_posthoc cohen d_27_Mar_2026.csv',\n",
        " '4_null CCGP (early ens) train_correct_test_error_ccgp_all_posthoc cohen d_28_Mar_2026.csv',\n",
-       " '4_null CCGP (early ens) train_correct_test_error_ccgp_all_posthoc cohen d_29_Jun_2026.csv',\n",
        " '4_null CCGP (early ens) train_correct_test_error_ccgp_all_posthoc cohen d_29_Mar_2026.csv',\n",
        " '4_null CCGP (early ens) train_correct_test_error_ccgp_all_posthoc cohen d_30_Mar_2026.csv',\n",
        " '4_null CCGP (early ens) train_correct_test_error_ccgp_all_posthoc cohen d_31_Mar_2026.csv',\n",
@@ -800,8 +782,6 @@
        " '4_null_  CCG single class pred- Train Correct test Error- Early_IA_Correct ensemble_predict_posthoc cohen d_19_Mar_2026.csv',\n",
        " '4_null_  CCG single class pred- Train Correct test Error- Early_RS_Error ensemble_predict_posthoc cohen d_19_Mar_2026.csv',\n",
        " '4_null_ CCG uni-class pred- Train Correct test Error- Early_IA_Correct ensemble_predict_posthoc cohen d_01_Apr_2026.csv',\n",
-       " '4_null_ CCG uni-class pred- Train Correct test Error- Early_IA_Correct ensemble_predict_posthoc cohen d_01_Jul_2026.csv',\n",
-       " '4_null_ CCG uni-class pred- Train Correct test Error- Early_IA_Correct ensemble_predict_posthoc cohen d_03_Jul_2026.csv',\n",
        " '4_null_ CCG uni-class pred- Train Correct test Error- Early_IA_Correct ensemble_predict_posthoc cohen d_04_Jun_2026.csv',\n",
        " '4_null_ CCG uni-class pred- Train Correct test Error- Early_IA_Correct ensemble_predict_posthoc cohen d_07_Apr_2026.csv',\n",
        " '4_null_ CCG uni-class pred- Train Correct test Error- Early_IA_Correct ensemble_predict_posthoc cohen d_09_Jun_2026.csv',\n",
@@ -821,8 +801,6 @@
        " '4_null_CCG single class pred- Train Correct test Error- Early_RS_Error ensemble_predict_posthoc cohen d_10_Mar_2026.csv',\n",
        " '4_null_CCG single class pred- Train Correct test Error- Early_RS_Error ensemble_predict_posthoc cohen d_17_Mar_2026.csv',\n",
        " '4_null_CCG single class pred- Train Correct test Error- Early_RS_Error ensemble_predict_posthoc cohen d_19_Mar_2026.csv',\n",
-       " '4_null_CCG uni-class pred- Train Correct test Error- Early_RS_Error ensemble_predict_posthoc cohen d_01_Jul_2026.csv',\n",
-       " '4_null_CCG uni-class pred- Train Correct test Error- Early_RS_Error ensemble_predict_posthoc cohen d_03_Jul_2026.csv',\n",
        " '4_null_CCG uni-class pred- Train Correct test Error- Early_RS_Error ensemble_predict_posthoc cohen d_04_Jun_2026.csv',\n",
        " '4_null_CCG uni-class pred- Train Correct test Error- Early_RS_Error ensemble_predict_posthoc cohen d_07_Apr_2026.csv',\n",
        " '4_null_CCG uni-class pred- Train Correct test Error- Early_RS_Error ensemble_predict_posthoc cohen d_09_Jun_2026.csv',\n",
@@ -858,30 +836,14 @@
        " '4_SVM generalize (early ens) train_correct_test_error accuracy_ccgp_all_posthoc cohen d_26_Jan_2026.csv',\n",
        " '4_SVM generalize (early ens) train_correct_test_error accuracy_ccgp_all_posthoc cohen d_29_Jan_2026.csv',\n",
        " '4_SVM generalize (early ens) train_correct_test_error accuracy_ccgp_all_posthoc cohen d_31_Jan_2026.csv',\n",
-       " '4_s_activity_match_CCGP- Train on Correct trials, Test on Errors_Early stage ens_ _ccgp_all_posthoc cohen d_01_Jul_2026.csv',\n",
-       " '4_s_activity_match_CCGP- Train on Correct trials, Test on Errors_Early stage ens_ _ccgp_all_posthoc cohen d_03_Jul_2026.csv',\n",
        " '4_s_activity_match_CCGP- Train on Correct trials, Test on Errors_Early stage ens_ _ccgp_all_posthoc cohen d_09_Jun_2026.csv',\n",
-       " '4_s_activity_match_CCGP- Train on Correct trials, Test on Errors_Early stages_ _ccgp_all_posthoc cohen d_03_Jul_2026.csv',\n",
-       " '4_s_activity_match_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_01_Jul_2026.csv',\n",
-       " '4_s_activity_match_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_03_Jul_2026.csv',\n",
-       " '4_s_activity_match_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_04_Jul_2026.csv',\n",
        " '4_s_activity_match_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_09_Jun_2026.csv',\n",
-       " '4_s_CCG single class pred- Train IA test RS - whole_pop ensemble_predict_posthoc cohen d_01_Jul_2026.csv',\n",
-       " '4_s_CCG single class pred- Train IA test RS - whole_pop ensemble_predict_posthoc cohen d_03_Jul_2026.csv',\n",
        " '4_s_CCG single class pred- Train IA test RS - whole_pop ensemble_predict_posthoc cohen d_04_Jun_2026.csv',\n",
        " '4_s_CCG single class pred- Train IA test RS - whole_pop ensemble_predict_posthoc cohen d_09_Jun_2026.csv',\n",
        " '4_s_CCG single class pred- Train IA test RS - whole_pop ensemble_predict_posthoc cohen d_26_May_2026.csv',\n",
-       " '4_s_supp_CCG + null 1_class pred-Train_Correct_Test_Error- Early_RS_Error ensemble_supp_predict_posthoc cohen d_01_Jul_2026.csv',\n",
-       " '4_s_supp_CCG + null 1_class pred-Train_Correct_Test_Error- Early_RS_Error ensemble_supp_predict_posthoc cohen d_03_Jul_2026.csv',\n",
        " '4_s_supp_CCG + null 1_class pred-Train_Correct_Test_Error- Early_RS_Error ensemble_supp_predict_posthoc cohen d_09_Jun_2026.csv',\n",
-       " '4_s_supp_CCG + null 1_class pred-Train_Correct_Test_Error-Early_IA_Correct ensemble_supp_predict_posthoc cohen d_01_Jul_2026.csv',\n",
-       " '4_s_supp_CCG + null 1_class pred-Train_Correct_Test_Error-Early_IA_Correct ensemble_supp_predict_posthoc cohen d_03_Jul_2026.csv',\n",
        " '4_s_supp_CCG + null 1_class pred-Train_Correct_Test_Error-Early_IA_Correct ensemble_supp_predict_posthoc cohen d_09_Jun_2026.csv',\n",
-       " '4_s_supp_CCG+null single class pred- Train IA test RS - Early_RS_Correct ensemble_supp_predict_posthoc cohen d_01_Jul_2026.csv',\n",
-       " '4_s_supp_CCG+null single class pred- Train IA test RS - Early_RS_Correct ensemble_supp_predict_posthoc cohen d_03_Jul_2026.csv',\n",
        " '4_s_supp_CCG+null single class pred- Train IA test RS - Early_RS_Correct ensemble_supp_predict_posthoc cohen d_09_Jun_2026.csv',\n",
-       " '5_5C_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_01_Jul_2026.csv',\n",
-       " '5_5C_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_03_Jul_2026.csv',\n",
        " '5_5C_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_03_Mar_2026.csv',\n",
        " '5_5C_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_04_Jun_2026.csv',\n",
        " '5_5C_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_04_Mar_2026.csv',\n",
@@ -911,13 +873,10 @@
        " '5_5C_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_27_Mar_2026.csv',\n",
        " '5_5C_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_28_Mar_2026.csv',\n",
        " '5_5C_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_29_Jan_2026.csv',\n",
-       " '5_5C_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_29_Jun_2026.csv',\n",
        " '5_5C_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_29_Mar_2026.csv',\n",
        " '5_5C_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_30_Mar_2026.csv',\n",
        " '5_5C_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_31_Jan_2026.csv',\n",
        " '5_5C_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_31_Mar_2026.csv',\n",
-       " '5_5D_Early RS Error ensemble time-based classification of Early IA Error v Early RS Error_posthoc acc cohen D_01_Jul_2026.csv',\n",
-       " '5_5D_Early RS Error ensemble time-based classification of Early IA Error v Early RS Error_posthoc acc cohen D_03_Jul_2026.csv',\n",
        " '5_5D_Early RS Error ensemble time-based classification of Early IA Error v Early RS Error_posthoc acc cohen D_04_Jun_2026.csv',\n",
        " '5_5D_Early RS Error ensemble time-based classification of Early IA Error v Early RS Error_posthoc acc cohen D_07_Apr_2026.csv',\n",
        " '5_5D_Early RS Error ensemble time-based classification of Early IA Error v Early RS Error_posthoc acc cohen D_09_Jun_2026.csv',\n",
@@ -929,7 +888,6 @@
        " '5_5D_Early RS Error ensemble time-based classification of Early IA Error v Early RS Error_posthoc acc cohen D_26_May_2026.csv',\n",
        " '5_5D_Early RS Error ensemble time-based classification of Early IA Error v Early RS Error_posthoc acc cohen D_27_Mar_2026.csv',\n",
        " '5_5D_Early RS Error ensemble time-based classification of Early IA Error v Early RS Error_posthoc acc cohen D_28_Mar_2026.csv',\n",
-       " '5_5D_Early RS Error ensemble time-based classification of Early IA Error v Early RS Error_posthoc acc cohen D_29_Jun_2026.csv',\n",
        " '5_5D_Early RS Error ensemble time-based classification of Early IA Error v Early RS Error_posthoc acc cohen D_29_Mar_2026.csv',\n",
        " '5_5D_Early RS Error ensemble time-based classification of Early IA Error v Early RS Error_posthoc acc cohen D_30_Mar_2026.csv',\n",
        " '5_5D_Early RS Error ensemble time-based classification of Early IA Error v Early RS Error_posthoc acc cohen D_31_Mar_2026.csv',\n",
@@ -946,8 +904,6 @@
        " '5_5_H_Autoencoder Early_IA_Error_v_Early_RS_Error DB index by ensembles_posthoc cohen d_25_Feb_2026.csv',\n",
        " '5_5_H_Autoencoder Early_IA_Error_v_Early_RS_Error DB index by ensembles_posthoc cohen d_26_May_2026.csv',\n",
        " '5_5_H_Autoencoder Early_IA_Error_v_Early_RS_Error DB index by ensembles_posthoc cohen d_28_Mar_2026.csv',\n",
-       " '6_6C_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_01_Jul_2026.csv',\n",
-       " '6_6C_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_03_Jul_2026.csv',\n",
        " '6_6C_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_03_Mar_2026.csv',\n",
        " '6_6C_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_04_Jun_2026.csv',\n",
        " '6_6C_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_04_Mar_2026.csv',\n",
@@ -977,13 +933,10 @@
        " '6_6C_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_27_Mar_2026.csv',\n",
        " '6_6C_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_28_Mar_2026.csv',\n",
        " '6_6C_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_29_Jan_2026.csv',\n",
-       " '6_6C_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_29_Jun_2026.csv',\n",
        " '6_6C_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_29_Mar_2026.csv',\n",
        " '6_6C_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_30_Mar_2026.csv',\n",
        " '6_6C_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_31_Jan_2026.csv',\n",
        " '6_6C_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_31_Mar_2026.csv',\n",
-       " '6_6D_Early RS Correct ensemble time-based classification of Early IA Correct v Early RS Correct_posthoc acc cohen D_01_Jul_2026.csv',\n",
-       " '6_6D_Early RS Correct ensemble time-based classification of Early IA Correct v Early RS Correct_posthoc acc cohen D_03_Jul_2026.csv',\n",
        " '6_6D_Early RS Correct ensemble time-based classification of Early IA Correct v Early RS Correct_posthoc acc cohen D_03_Mar_2026.csv',\n",
        " '6_6D_Early RS Correct ensemble time-based classification of Early IA Correct v Early RS Correct_posthoc acc cohen D_04_Jun_2026.csv',\n",
        " '6_6D_Early RS Correct ensemble time-based classification of Early IA Correct v Early RS Correct_posthoc acc cohen D_04_Mar_2026.csv',\n",
@@ -1012,7 +965,6 @@
        " '6_6D_Early RS Correct ensemble time-based classification of Early IA Correct v Early RS Correct_posthoc acc cohen D_27_Mar_2026.csv',\n",
        " '6_6D_Early RS Correct ensemble time-based classification of Early IA Correct v Early RS Correct_posthoc acc cohen D_28_Mar_2026.csv',\n",
        " '6_6D_Early RS Correct ensemble time-based classification of Early IA Correct v Early RS Correct_posthoc acc cohen D_29_Jan_2026.csv',\n",
-       " '6_6D_Early RS Correct ensemble time-based classification of Early IA Correct v Early RS Correct_posthoc acc cohen D_29_Jun_2026.csv',\n",
        " '6_6D_Early RS Correct ensemble time-based classification of Early IA Correct v Early RS Correct_posthoc acc cohen D_29_Mar_2026.csv',\n",
        " '6_6D_Early RS Correct ensemble time-based classification of Early IA Correct v Early RS Correct_posthoc acc cohen D_30_Mar_2026.csv',\n",
        " '6_6D_Early RS Correct ensemble time-based classification of Early IA Correct v Early RS Correct_posthoc acc cohen D_31_Jan_2026.csv',\n",
@@ -1029,8 +981,6 @@
        " '6_6_G_Autoencoder Early_IA_Correct_v_Early_RS_Correct DB index by ensembles_posthoc cohen d_25_Feb_2026.csv',\n",
        " '6_6_G_Autoencoder Early_IA_Correct_v_Early_RS_Correct DB index by ensembles_posthoc cohen d_26_May_2026.csv',\n",
        " '6_6_G_Autoencoder Early_IA_Correct_v_Early_RS_Correct DB index by ensembles_posthoc cohen d_28_Mar_2026.csv',\n",
-       " '7_7_C_SVM classifier accuracy Early_IA_Correct_v_Late_IA by ensemble_posthoc decode acc cohen D_01_Jul_2026.csv',\n",
-       " '7_7_C_SVM classifier accuracy Early_IA_Correct_v_Late_IA by ensemble_posthoc decode acc cohen D_03_Jul_2026.csv',\n",
        " '7_7_C_SVM classifier accuracy Early_IA_Correct_v_Late_IA by ensemble_posthoc decode acc cohen D_03_Mar_2026.csv',\n",
        " '7_7_C_SVM classifier accuracy Early_IA_Correct_v_Late_IA by ensemble_posthoc decode acc cohen D_04_Jun_2026.csv',\n",
        " '7_7_C_SVM classifier accuracy Early_IA_Correct_v_Late_IA by ensemble_posthoc decode acc cohen D_04_Mar_2026.csv',\n",
@@ -1059,7 +1009,6 @@
        " '7_7_C_SVM classifier accuracy Early_IA_Correct_v_Late_IA by ensemble_posthoc decode acc cohen D_27_Mar_2026.csv',\n",
        " '7_7_C_SVM classifier accuracy Early_IA_Correct_v_Late_IA by ensemble_posthoc decode acc cohen D_28_Mar_2026.csv',\n",
        " '7_7_C_SVM classifier accuracy Early_IA_Correct_v_Late_IA by ensemble_posthoc decode acc cohen D_29_Jan_2026.csv',\n",
-       " '7_7_C_SVM classifier accuracy Early_IA_Correct_v_Late_IA by ensemble_posthoc decode acc cohen D_29_Jun_2026.csv',\n",
        " '7_7_C_SVM classifier accuracy Early_IA_Correct_v_Late_IA by ensemble_posthoc decode acc cohen D_29_Mar_2026.csv',\n",
        " '7_7_C_SVM classifier accuracy Early_IA_Correct_v_Late_IA by ensemble_posthoc decode acc cohen D_30_Mar_2026.csv',\n",
        " '7_7_C_SVM classifier accuracy Early_IA_Correct_v_Late_IA by ensemble_posthoc decode acc cohen D_31_Jan_2026.csv',\n",
@@ -1070,8 +1019,6 @@
        " '7_7_D_Autoencoder Early_IA_Correct_v_Late_IA DB index by ensembles_posthoc cohen d_25_Feb_2026.csv',\n",
        " '7_7_D_Autoencoder Early_IA_Correct_v_Late_IA DB index by ensembles_posthoc cohen d_26_May_2026.csv',\n",
        " '7_7_D_Autoencoder Early_IA_Correct_v_Late_IA DB index by ensembles_posthoc cohen d_28_Mar_2026.csv',\n",
-       " '7_7_G_SVM classifier accuracy Late_IA_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_01_Jul_2026.csv',\n",
-       " '7_7_G_SVM classifier accuracy Late_IA_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_03_Jul_2026.csv',\n",
        " '7_7_G_SVM classifier accuracy Late_IA_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_03_Mar_2026.csv',\n",
        " '7_7_G_SVM classifier accuracy Late_IA_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_04_Jun_2026.csv',\n",
        " '7_7_G_SVM classifier accuracy Late_IA_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_04_Mar_2026.csv',\n",
@@ -1099,7 +1046,6 @@
        " '7_7_G_SVM classifier accuracy Late_IA_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_27_Mar_2026.csv',\n",
        " '7_7_G_SVM classifier accuracy Late_IA_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_28_Mar_2026.csv',\n",
        " '7_7_G_SVM classifier accuracy Late_IA_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_29_Jan_2026.csv',\n",
-       " '7_7_G_SVM classifier accuracy Late_IA_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_29_Jun_2026.csv',\n",
        " '7_7_G_SVM classifier accuracy Late_IA_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_29_Mar_2026.csv',\n",
        " '7_7_G_SVM classifier accuracy Late_IA_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_30_Mar_2026.csv',\n",
        " '7_7_G_SVM classifier accuracy Late_IA_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_31_Jan_2026.csv',\n",
@@ -1142,8 +1088,6 @@
        " 's1_delay_vs_postCLNZ_performance_linregress_29_Mar_2026.csv',\n",
        " 's_1_delay_vs_postCLNZ_performance_linregress_06_May_2026.csv',\n",
        " 's_1_delay_vs_postCLNZ_performance_linregress_18_Jun_2026.csv',\n",
-       " 's_2_S2_F_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_01_Jul_2026.csv',\n",
-       " 's_2_S2_F_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_03_Jul_2026.csv',\n",
        " 's_2_S2_F_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_03_Mar_2026.csv',\n",
        " 's_2_S2_F_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_04_Jun_2026.csv',\n",
        " 's_2_S2_F_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_04_Mar_2026.csv',\n",
@@ -1173,13 +1117,10 @@
        " 's_2_S2_F_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_27_Mar_2026.csv',\n",
        " 's_2_S2_F_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_28_Mar_2026.csv',\n",
        " 's_2_S2_F_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_29_Jan_2026.csv',\n",
-       " 's_2_S2_F_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_29_Jun_2026.csv',\n",
        " 's_2_S2_F_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_29_Mar_2026.csv',\n",
        " 's_2_S2_F_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_30_Mar_2026.csv',\n",
        " 's_2_S2_F_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_31_Jan_2026.csv',\n",
        " 's_2_S2_F_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_31_Mar_2026.csv',\n",
-       " 's_2_S2_H_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_01_Jul_2026.csv',\n",
-       " 's_2_S2_H_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_03_Jul_2026.csv',\n",
        " 's_2_S2_H_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_03_Mar_2026.csv',\n",
        " 's_2_S2_H_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_04_Jun_2026.csv',\n",
        " 's_2_S2_H_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_04_Mar_2026.csv',\n",
@@ -1207,7 +1148,6 @@
        " 's_2_S2_H_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_27_Mar_2026.csv',\n",
        " 's_2_S2_H_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_28_Mar_2026.csv',\n",
        " 's_2_S2_H_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_29_Jan_2026.csv',\n",
-       " 's_2_S2_H_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_29_Jun_2026.csv',\n",
        " 's_2_S2_H_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_29_Mar_2026.csv',\n",
        " 's_2_S2_H_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_30_Mar_2026.csv',\n",
        " 's_2_S2_H_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_31_Jan_2026.csv',\n",
@@ -1227,11 +1167,7 @@
        " 's_3_dff_v_spike_ensemble_chi2_results.csv',\n",
        " 's_3_dff_v_spike_ensemble_chi2_source_table.csv',\n",
        " 's_4_activity_match_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_11_May_2026.csv',\n",
-       " 's_4_all neuron CCGP train_correct_test_error_ccgp_all_posthoc cohen d_03_Jul_2026.csv',\n",
-       " 's_4_all neuron CCGP train_IA_test_RS_ccgp_all_posthoc cohen d_03_Jul_2026.csv',\n",
        " 's_4_CCG single class pred- Train IA test RS - whole_pop ensemble_predict_posthoc cohen d_11_May_2026.csv',\n",
-       " 's_4_SVM generalize (whole_pop ens) train_correct_test_error accuracy_ccgp_all_posthoc cohen d_01_Jul_2026.csv',\n",
-       " 's_4_SVM generalize (whole_pop ens) train_correct_test_error accuracy_ccgp_all_posthoc cohen d_03_Jul_2026.csv',\n",
        " 's_4_SVM generalize (whole_pop ens) train_correct_test_error accuracy_ccgp_all_posthoc cohen d_04_Jun_2026.csv',\n",
        " 's_4_SVM generalize (whole_pop ens) train_correct_test_error accuracy_ccgp_all_posthoc cohen d_09_Jun_2026.csv',\n",
        " 's_4_SVM generalize (whole_pop ens) train_correct_test_error accuracy_ccgp_all_posthoc cohen d_11_May_2026.csv',\n",
@@ -1239,7 +1175,7 @@
        " 'WT CLNZ chi squared on ensemble.csv']"
       ]
      },
-     "execution_count": 7,
+     "execution_count": 39,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1258,7 +1194,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 8,
+   "execution_count": 40,
    "id": "271e97b9-c8c9-4617-9966-dfef3b2a02b7",
    "metadata": {},
    "outputs": [],
@@ -1272,7 +1208,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 9,
+   "execution_count": 41,
    "id": "bb970a2c-76ec-470c-8dda-5bc7c70fc97a",
    "metadata": {
     "scrolled": true
@@ -1281,19 +1217,19 @@
     {
      "data": {
       "text/plain": [
-       "['11 May 2026',\n",
-       " '03 Jul 2026',\n",
-       " '03 Jul 2026',\n",
+       "['23 Feb 2026',\n",
+       " '25 Feb 2026',\n",
+       " '26 May 2026',\n",
+       " '28 Mar 2026',\n",
        " '11 May 2026',\n",
-       " '01 Jul 2026',\n",
-       " '03 Jul 2026',\n",
+       " '11 May 2026',\n",
        " '04 Jun 2026',\n",
        " '09 Jun 2026',\n",
        " '11 May 2026',\n",
        " '26 May 2026']"
       ]
      },
-     "execution_count": 9,
+     "execution_count": 41,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1306,7 +1242,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 10,
+   "execution_count": 42,
    "id": "6889dfdb-294b-43ca-a27e-4026582fcb09",
    "metadata": {},
    "outputs": [
@@ -1314,7 +1250,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "2026-07-05 13:54:12.551325\n"
+      "2026-06-18 14:51:09.737535\n"
      ]
     }
    ],
@@ -1333,7 +1269,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 11,
+   "execution_count": 43,
    "id": "2d66afe7-92dd-47a6-a934-e226eb8a775a",
    "metadata": {},
    "outputs": [],
@@ -1351,7 +1287,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 12,
+   "execution_count": 44,
    "id": "9bb576b4-4836-4ede-9895-a34244030271",
    "metadata": {
     "scrolled": true
@@ -1465,7 +1401,6 @@
        " 2: ['2_F-G_enrichment_counts_by_geno_day_09_Jun_2026.csv',\n",
        "  '2_F-G_enrichment_counts_by_geno_day_25_May_2026.csv',\n",
        "  '2_s_DFF revision Supplement- VEH v CLNZ for Het & WT- ensemble proportion overlap_ensemble chisquared_02_Apr_2026.csv',\n",
-       "  '2_s_DFF revision Supplement- VEH v CLNZ for Het & WT- ensemble proportion overlap_ensemble chisquared_04_Jul_2026.csv',\n",
        "  '2_s_DFF revision Supplement- VEH v CLNZ for Het & WT- ensemble proportion overlap_ensemble chisquared_06_Mar_2026.csv',\n",
        "  '2_s_DFF revision Supplement- VEH v CLNZ for Het & WT- ensemble proportion overlap_ensemble chisquared_07_Apr_2026.csv',\n",
        "  '2_s_DFF revision Supplement- VEH v CLNZ for Het & WT- ensemble proportion overlap_ensemble chisquared_09_Apr_2026.csv',\n",
@@ -1710,8 +1645,6 @@
        "  '3_null_CCG single class pred- Train IA test RS - Early_RS_Correct ensemble_predict_posthoc cohen d_17_Mar_2026.csv',\n",
        "  '3_null_CCG single class pred- Train IA test RS - Early_RS_Correct ensemble_predict_posthoc cohen d_19_Mar_2026.csv',\n",
        "  '3_null_CCG single class pred- Train IA test RS - Early_RS_Error ensemble_predict_posthoc cohen d_19_Mar_2026.csv',\n",
-       "  '3_null_CCG uni-class pred- Train IA test RS - Early_RS_Correct ensemble_predict_posthoc cohen d_01_Jul_2026.csv',\n",
-       "  '3_null_CCG uni-class pred- Train IA test RS - Early_RS_Correct ensemble_predict_posthoc cohen d_03_Jul_2026.csv',\n",
        "  '3_null_CCG uni-class pred- Train IA test RS - Early_RS_Correct ensemble_predict_posthoc cohen d_04_Jun_2026.csv',\n",
        "  '3_null_CCG uni-class pred- Train IA test RS - Early_RS_Correct ensemble_predict_posthoc cohen d_07_Apr_2026.csv',\n",
        "  '3_null_CCG uni-class pred- Train IA test RS - Early_RS_Correct ensemble_predict_posthoc cohen d_09_Jun_2026.csv',\n",
@@ -1724,8 +1657,6 @@
        "  '3_null_CCG uni-class pred- Train IA test RS - Early_RS_Correct ensemble_predict_posthoc cohen d_29_Mar_2026.csv',\n",
        "  '3_null_CCG uni-class pred- Train IA test RS - Early_RS_Correct ensemble_predict_posthoc cohen d_30_Mar_2026.csv',\n",
        "  '3_null_CCG uni-class pred- Train IA test RS - Early_RS_Correct ensemble_predict_posthoc cohen d_31_Mar_2026.csv',\n",
-       "  '3_null_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_01_Jul_2026.csv',\n",
-       "  '3_null_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_03_Jul_2026.csv',\n",
        "  '3_null_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_04_Jun_2026.csv',\n",
        "  '3_null_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_07_Apr_2026.csv',\n",
        "  '3_null_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_09_Jun_2026.csv',\n",
@@ -1735,7 +1666,6 @@
        "  '3_null_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_26_May_2026.csv',\n",
        "  '3_null_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_27_Mar_2026.csv',\n",
        "  '3_null_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_28_Mar_2026.csv',\n",
-       "  '3_null_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_29_Jun_2026.csv',\n",
        "  '3_null_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_29_Mar_2026.csv',\n",
        "  '3_null_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_30_Mar_2026.csv',\n",
        "  '3_null_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_31_Mar_2026.csv'],\n",
@@ -1786,8 +1716,6 @@
        "  '4_CCG single class pred- Train Correct test Error- Early_RS_Error ensemble_predict_posthoc cohen d_29_Jan_2026.csv',\n",
        "  '4_CCG single class pred- Train Correct test Error- Early_RS_Error ensemble_predict_posthoc cohen d_31_Jan_2026.csv',\n",
        "  '4_null CCGP (early ens) train_correct_test_error_ccgp_all_posthoc cohen d_01_Apr_2026.csv',\n",
-       "  '4_null CCGP (early ens) train_correct_test_error_ccgp_all_posthoc cohen d_01_Jul_2026.csv',\n",
-       "  '4_null CCGP (early ens) train_correct_test_error_ccgp_all_posthoc cohen d_03_Jul_2026.csv',\n",
        "  '4_null CCGP (early ens) train_correct_test_error_ccgp_all_posthoc cohen d_04_Jun_2026.csv',\n",
        "  '4_null CCGP (early ens) train_correct_test_error_ccgp_all_posthoc cohen d_07_Apr_2026.csv',\n",
        "  '4_null CCGP (early ens) train_correct_test_error_ccgp_all_posthoc cohen d_09_Jun_2026.csv',\n",
@@ -1797,7 +1725,6 @@
        "  '4_null CCGP (early ens) train_correct_test_error_ccgp_all_posthoc cohen d_26_May_2026.csv',\n",
        "  '4_null CCGP (early ens) train_correct_test_error_ccgp_all_posthoc cohen d_27_Mar_2026.csv',\n",
        "  '4_null CCGP (early ens) train_correct_test_error_ccgp_all_posthoc cohen d_28_Mar_2026.csv',\n",
-       "  '4_null CCGP (early ens) train_correct_test_error_ccgp_all_posthoc cohen d_29_Jun_2026.csv',\n",
        "  '4_null CCGP (early ens) train_correct_test_error_ccgp_all_posthoc cohen d_29_Mar_2026.csv',\n",
        "  '4_null CCGP (early ens) train_correct_test_error_ccgp_all_posthoc cohen d_30_Mar_2026.csv',\n",
        "  '4_null CCGP (early ens) train_correct_test_error_ccgp_all_posthoc cohen d_31_Mar_2026.csv',\n",
@@ -1810,8 +1737,6 @@
        "  '4_null_  CCG single class pred- Train Correct test Error- Early_IA_Correct ensemble_predict_posthoc cohen d_19_Mar_2026.csv',\n",
        "  '4_null_  CCG single class pred- Train Correct test Error- Early_RS_Error ensemble_predict_posthoc cohen d_19_Mar_2026.csv',\n",
        "  '4_null_ CCG uni-class pred- Train Correct test Error- Early_IA_Correct ensemble_predict_posthoc cohen d_01_Apr_2026.csv',\n",
-       "  '4_null_ CCG uni-class pred- Train Correct test Error- Early_IA_Correct ensemble_predict_posthoc cohen d_01_Jul_2026.csv',\n",
-       "  '4_null_ CCG uni-class pred- Train Correct test Error- Early_IA_Correct ensemble_predict_posthoc cohen d_03_Jul_2026.csv',\n",
        "  '4_null_ CCG uni-class pred- Train Correct test Error- Early_IA_Correct ensemble_predict_posthoc cohen d_04_Jun_2026.csv',\n",
        "  '4_null_ CCG uni-class pred- Train Correct test Error- Early_IA_Correct ensemble_predict_posthoc cohen d_07_Apr_2026.csv',\n",
        "  '4_null_ CCG uni-class pred- Train Correct test Error- Early_IA_Correct ensemble_predict_posthoc cohen d_09_Jun_2026.csv',\n",
@@ -1831,8 +1756,6 @@
        "  '4_null_CCG single class pred- Train Correct test Error- Early_RS_Error ensemble_predict_posthoc cohen d_10_Mar_2026.csv',\n",
        "  '4_null_CCG single class pred- Train Correct test Error- Early_RS_Error ensemble_predict_posthoc cohen d_17_Mar_2026.csv',\n",
        "  '4_null_CCG single class pred- Train Correct test Error- Early_RS_Error ensemble_predict_posthoc cohen d_19_Mar_2026.csv',\n",
-       "  '4_null_CCG uni-class pred- Train Correct test Error- Early_RS_Error ensemble_predict_posthoc cohen d_01_Jul_2026.csv',\n",
-       "  '4_null_CCG uni-class pred- Train Correct test Error- Early_RS_Error ensemble_predict_posthoc cohen d_03_Jul_2026.csv',\n",
        "  '4_null_CCG uni-class pred- Train Correct test Error- Early_RS_Error ensemble_predict_posthoc cohen d_04_Jun_2026.csv',\n",
        "  '4_null_CCG uni-class pred- Train Correct test Error- Early_RS_Error ensemble_predict_posthoc cohen d_07_Apr_2026.csv',\n",
        "  '4_null_CCG uni-class pred- Train Correct test Error- Early_RS_Error ensemble_predict_posthoc cohen d_09_Jun_2026.csv',\n",
@@ -1868,31 +1791,15 @@
        "  '4_SVM generalize (early ens) train_correct_test_error accuracy_ccgp_all_posthoc cohen d_26_Jan_2026.csv',\n",
        "  '4_SVM generalize (early ens) train_correct_test_error accuracy_ccgp_all_posthoc cohen d_29_Jan_2026.csv',\n",
        "  '4_SVM generalize (early ens) train_correct_test_error accuracy_ccgp_all_posthoc cohen d_31_Jan_2026.csv',\n",
-       "  '4_s_activity_match_CCGP- Train on Correct trials, Test on Errors_Early stage ens_ _ccgp_all_posthoc cohen d_01_Jul_2026.csv',\n",
-       "  '4_s_activity_match_CCGP- Train on Correct trials, Test on Errors_Early stage ens_ _ccgp_all_posthoc cohen d_03_Jul_2026.csv',\n",
        "  '4_s_activity_match_CCGP- Train on Correct trials, Test on Errors_Early stage ens_ _ccgp_all_posthoc cohen d_09_Jun_2026.csv',\n",
-       "  '4_s_activity_match_CCGP- Train on Correct trials, Test on Errors_Early stages_ _ccgp_all_posthoc cohen d_03_Jul_2026.csv',\n",
-       "  '4_s_activity_match_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_01_Jul_2026.csv',\n",
-       "  '4_s_activity_match_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_03_Jul_2026.csv',\n",
-       "  '4_s_activity_match_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_04_Jul_2026.csv',\n",
        "  '4_s_activity_match_CCGP- Train on IA trials, Test on RS trials_Early stage ens_ _ccgp_all_posthoc cohen d_09_Jun_2026.csv',\n",
-       "  '4_s_CCG single class pred- Train IA test RS - whole_pop ensemble_predict_posthoc cohen d_01_Jul_2026.csv',\n",
-       "  '4_s_CCG single class pred- Train IA test RS - whole_pop ensemble_predict_posthoc cohen d_03_Jul_2026.csv',\n",
        "  '4_s_CCG single class pred- Train IA test RS - whole_pop ensemble_predict_posthoc cohen d_04_Jun_2026.csv',\n",
        "  '4_s_CCG single class pred- Train IA test RS - whole_pop ensemble_predict_posthoc cohen d_09_Jun_2026.csv',\n",
        "  '4_s_CCG single class pred- Train IA test RS - whole_pop ensemble_predict_posthoc cohen d_26_May_2026.csv',\n",
-       "  '4_s_supp_CCG + null 1_class pred-Train_Correct_Test_Error- Early_RS_Error ensemble_supp_predict_posthoc cohen d_01_Jul_2026.csv',\n",
-       "  '4_s_supp_CCG + null 1_class pred-Train_Correct_Test_Error- Early_RS_Error ensemble_supp_predict_posthoc cohen d_03_Jul_2026.csv',\n",
        "  '4_s_supp_CCG + null 1_class pred-Train_Correct_Test_Error- Early_RS_Error ensemble_supp_predict_posthoc cohen d_09_Jun_2026.csv',\n",
-       "  '4_s_supp_CCG + null 1_class pred-Train_Correct_Test_Error-Early_IA_Correct ensemble_supp_predict_posthoc cohen d_01_Jul_2026.csv',\n",
-       "  '4_s_supp_CCG + null 1_class pred-Train_Correct_Test_Error-Early_IA_Correct ensemble_supp_predict_posthoc cohen d_03_Jul_2026.csv',\n",
        "  '4_s_supp_CCG + null 1_class pred-Train_Correct_Test_Error-Early_IA_Correct ensemble_supp_predict_posthoc cohen d_09_Jun_2026.csv',\n",
-       "  '4_s_supp_CCG+null single class pred- Train IA test RS - Early_RS_Correct ensemble_supp_predict_posthoc cohen d_01_Jul_2026.csv',\n",
-       "  '4_s_supp_CCG+null single class pred- Train IA test RS - Early_RS_Correct ensemble_supp_predict_posthoc cohen d_03_Jul_2026.csv',\n",
        "  '4_s_supp_CCG+null single class pred- Train IA test RS - Early_RS_Correct ensemble_supp_predict_posthoc cohen d_09_Jun_2026.csv'],\n",
-       " 5: ['5_5C_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_01_Jul_2026.csv',\n",
-       "  '5_5C_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_03_Jul_2026.csv',\n",
-       "  '5_5C_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_03_Mar_2026.csv',\n",
+       " 5: ['5_5C_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_03_Mar_2026.csv',\n",
        "  '5_5C_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_04_Jun_2026.csv',\n",
        "  '5_5C_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_04_Mar_2026.csv',\n",
        "  '5_5C_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_05_Mar_2026.csv',\n",
@@ -1921,13 +1828,10 @@
        "  '5_5C_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_27_Mar_2026.csv',\n",
        "  '5_5C_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_28_Mar_2026.csv',\n",
        "  '5_5C_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_29_Jan_2026.csv',\n",
-       "  '5_5C_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_29_Jun_2026.csv',\n",
        "  '5_5C_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_29_Mar_2026.csv',\n",
        "  '5_5C_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_30_Mar_2026.csv',\n",
        "  '5_5C_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_31_Jan_2026.csv',\n",
        "  '5_5C_SVM classifier accuracy Early_IA_Error_v_Early_RS_Error by ensemble_posthoc decode acc cohen D_31_Mar_2026.csv',\n",
-       "  '5_5D_Early RS Error ensemble time-based classification of Early IA Error v Early RS Error_posthoc acc cohen D_01_Jul_2026.csv',\n",
-       "  '5_5D_Early RS Error ensemble time-based classification of Early IA Error v Early RS Error_posthoc acc cohen D_03_Jul_2026.csv',\n",
        "  '5_5D_Early RS Error ensemble time-based classification of Early IA Error v Early RS Error_posthoc acc cohen D_04_Jun_2026.csv',\n",
        "  '5_5D_Early RS Error ensemble time-based classification of Early IA Error v Early RS Error_posthoc acc cohen D_07_Apr_2026.csv',\n",
        "  '5_5D_Early RS Error ensemble time-based classification of Early IA Error v Early RS Error_posthoc acc cohen D_09_Jun_2026.csv',\n",
@@ -1939,7 +1843,6 @@
        "  '5_5D_Early RS Error ensemble time-based classification of Early IA Error v Early RS Error_posthoc acc cohen D_26_May_2026.csv',\n",
        "  '5_5D_Early RS Error ensemble time-based classification of Early IA Error v Early RS Error_posthoc acc cohen D_27_Mar_2026.csv',\n",
        "  '5_5D_Early RS Error ensemble time-based classification of Early IA Error v Early RS Error_posthoc acc cohen D_28_Mar_2026.csv',\n",
-       "  '5_5D_Early RS Error ensemble time-based classification of Early IA Error v Early RS Error_posthoc acc cohen D_29_Jun_2026.csv',\n",
        "  '5_5D_Early RS Error ensemble time-based classification of Early IA Error v Early RS Error_posthoc acc cohen D_29_Mar_2026.csv',\n",
        "  '5_5D_Early RS Error ensemble time-based classification of Early IA Error v Early RS Error_posthoc acc cohen D_30_Mar_2026.csv',\n",
        "  '5_5D_Early RS Error ensemble time-based classification of Early IA Error v Early RS Error_posthoc acc cohen D_31_Mar_2026.csv',\n",
@@ -1956,9 +1859,7 @@
        "  '5_5_H_Autoencoder Early_IA_Error_v_Early_RS_Error DB index by ensembles_posthoc cohen d_25_Feb_2026.csv',\n",
        "  '5_5_H_Autoencoder Early_IA_Error_v_Early_RS_Error DB index by ensembles_posthoc cohen d_26_May_2026.csv',\n",
        "  '5_5_H_Autoencoder Early_IA_Error_v_Early_RS_Error DB index by ensembles_posthoc cohen d_28_Mar_2026.csv'],\n",
-       " 6: ['6_6C_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_01_Jul_2026.csv',\n",
-       "  '6_6C_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_03_Jul_2026.csv',\n",
-       "  '6_6C_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_03_Mar_2026.csv',\n",
+       " 6: ['6_6C_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_03_Mar_2026.csv',\n",
        "  '6_6C_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_04_Jun_2026.csv',\n",
        "  '6_6C_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_04_Mar_2026.csv',\n",
        "  '6_6C_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_05_Mar_2026.csv',\n",
@@ -1987,13 +1888,10 @@
        "  '6_6C_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_27_Mar_2026.csv',\n",
        "  '6_6C_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_28_Mar_2026.csv',\n",
        "  '6_6C_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_29_Jan_2026.csv',\n",
-       "  '6_6C_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_29_Jun_2026.csv',\n",
        "  '6_6C_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_29_Mar_2026.csv',\n",
        "  '6_6C_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_30_Mar_2026.csv',\n",
        "  '6_6C_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_31_Jan_2026.csv',\n",
        "  '6_6C_SVM classifier accuracy Early_IA_Correct_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_31_Mar_2026.csv',\n",
-       "  '6_6D_Early RS Correct ensemble time-based classification of Early IA Correct v Early RS Correct_posthoc acc cohen D_01_Jul_2026.csv',\n",
-       "  '6_6D_Early RS Correct ensemble time-based classification of Early IA Correct v Early RS Correct_posthoc acc cohen D_03_Jul_2026.csv',\n",
        "  '6_6D_Early RS Correct ensemble time-based classification of Early IA Correct v Early RS Correct_posthoc acc cohen D_03_Mar_2026.csv',\n",
        "  '6_6D_Early RS Correct ensemble time-based classification of Early IA Correct v Early RS Correct_posthoc acc cohen D_04_Jun_2026.csv',\n",
        "  '6_6D_Early RS Correct ensemble time-based classification of Early IA Correct v Early RS Correct_posthoc acc cohen D_04_Mar_2026.csv',\n",
@@ -2022,7 +1920,6 @@
        "  '6_6D_Early RS Correct ensemble time-based classification of Early IA Correct v Early RS Correct_posthoc acc cohen D_27_Mar_2026.csv',\n",
        "  '6_6D_Early RS Correct ensemble time-based classification of Early IA Correct v Early RS Correct_posthoc acc cohen D_28_Mar_2026.csv',\n",
        "  '6_6D_Early RS Correct ensemble time-based classification of Early IA Correct v Early RS Correct_posthoc acc cohen D_29_Jan_2026.csv',\n",
-       "  '6_6D_Early RS Correct ensemble time-based classification of Early IA Correct v Early RS Correct_posthoc acc cohen D_29_Jun_2026.csv',\n",
        "  '6_6D_Early RS Correct ensemble time-based classification of Early IA Correct v Early RS Correct_posthoc acc cohen D_29_Mar_2026.csv',\n",
        "  '6_6D_Early RS Correct ensemble time-based classification of Early IA Correct v Early RS Correct_posthoc acc cohen D_30_Mar_2026.csv',\n",
        "  '6_6D_Early RS Correct ensemble time-based classification of Early IA Correct v Early RS Correct_posthoc acc cohen D_31_Jan_2026.csv',\n",
@@ -2039,9 +1936,7 @@
        "  '6_6_G_Autoencoder Early_IA_Correct_v_Early_RS_Correct DB index by ensembles_posthoc cohen d_25_Feb_2026.csv',\n",
        "  '6_6_G_Autoencoder Early_IA_Correct_v_Early_RS_Correct DB index by ensembles_posthoc cohen d_26_May_2026.csv',\n",
        "  '6_6_G_Autoencoder Early_IA_Correct_v_Early_RS_Correct DB index by ensembles_posthoc cohen d_28_Mar_2026.csv'],\n",
-       " 7: ['7_7_C_SVM classifier accuracy Early_IA_Correct_v_Late_IA by ensemble_posthoc decode acc cohen D_01_Jul_2026.csv',\n",
-       "  '7_7_C_SVM classifier accuracy Early_IA_Correct_v_Late_IA by ensemble_posthoc decode acc cohen D_03_Jul_2026.csv',\n",
-       "  '7_7_C_SVM classifier accuracy Early_IA_Correct_v_Late_IA by ensemble_posthoc decode acc cohen D_03_Mar_2026.csv',\n",
+       " 7: ['7_7_C_SVM classifier accuracy Early_IA_Correct_v_Late_IA by ensemble_posthoc decode acc cohen D_03_Mar_2026.csv',\n",
        "  '7_7_C_SVM classifier accuracy Early_IA_Correct_v_Late_IA by ensemble_posthoc decode acc cohen D_04_Jun_2026.csv',\n",
        "  '7_7_C_SVM classifier accuracy Early_IA_Correct_v_Late_IA by ensemble_posthoc decode acc cohen D_04_Mar_2026.csv',\n",
        "  '7_7_C_SVM classifier accuracy Early_IA_Correct_v_Late_IA by ensemble_posthoc decode acc cohen D_05_Mar_2026.csv',\n",
@@ -2069,7 +1964,6 @@
        "  '7_7_C_SVM classifier accuracy Early_IA_Correct_v_Late_IA by ensemble_posthoc decode acc cohen D_27_Mar_2026.csv',\n",
        "  '7_7_C_SVM classifier accuracy Early_IA_Correct_v_Late_IA by ensemble_posthoc decode acc cohen D_28_Mar_2026.csv',\n",
        "  '7_7_C_SVM classifier accuracy Early_IA_Correct_v_Late_IA by ensemble_posthoc decode acc cohen D_29_Jan_2026.csv',\n",
-       "  '7_7_C_SVM classifier accuracy Early_IA_Correct_v_Late_IA by ensemble_posthoc decode acc cohen D_29_Jun_2026.csv',\n",
        "  '7_7_C_SVM classifier accuracy Early_IA_Correct_v_Late_IA by ensemble_posthoc decode acc cohen D_29_Mar_2026.csv',\n",
        "  '7_7_C_SVM classifier accuracy Early_IA_Correct_v_Late_IA by ensemble_posthoc decode acc cohen D_30_Mar_2026.csv',\n",
        "  '7_7_C_SVM classifier accuracy Early_IA_Correct_v_Late_IA by ensemble_posthoc decode acc cohen D_31_Jan_2026.csv',\n",
@@ -2080,8 +1974,6 @@
        "  '7_7_D_Autoencoder Early_IA_Correct_v_Late_IA DB index by ensembles_posthoc cohen d_25_Feb_2026.csv',\n",
        "  '7_7_D_Autoencoder Early_IA_Correct_v_Late_IA DB index by ensembles_posthoc cohen d_26_May_2026.csv',\n",
        "  '7_7_D_Autoencoder Early_IA_Correct_v_Late_IA DB index by ensembles_posthoc cohen d_28_Mar_2026.csv',\n",
-       "  '7_7_G_SVM classifier accuracy Late_IA_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_01_Jul_2026.csv',\n",
-       "  '7_7_G_SVM classifier accuracy Late_IA_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_03_Jul_2026.csv',\n",
        "  '7_7_G_SVM classifier accuracy Late_IA_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_03_Mar_2026.csv',\n",
        "  '7_7_G_SVM classifier accuracy Late_IA_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_04_Jun_2026.csv',\n",
        "  '7_7_G_SVM classifier accuracy Late_IA_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_04_Mar_2026.csv',\n",
@@ -2109,7 +2001,6 @@
        "  '7_7_G_SVM classifier accuracy Late_IA_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_27_Mar_2026.csv',\n",
        "  '7_7_G_SVM classifier accuracy Late_IA_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_28_Mar_2026.csv',\n",
        "  '7_7_G_SVM classifier accuracy Late_IA_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_29_Jan_2026.csv',\n",
-       "  '7_7_G_SVM classifier accuracy Late_IA_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_29_Jun_2026.csv',\n",
        "  '7_7_G_SVM classifier accuracy Late_IA_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_29_Mar_2026.csv',\n",
        "  '7_7_G_SVM classifier accuracy Late_IA_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_30_Mar_2026.csv',\n",
        "  '7_7_G_SVM classifier accuracy Late_IA_v_Early_RS_Correct by ensemble_posthoc decode acc cohen D_31_Jan_2026.csv',\n",
@@ -2122,7 +2013,7 @@
        "  '7_7_H_Autoencoder Late_IA_v_Early_RS_Correct DB index by ensembles_posthoc cohen d_28_Mar_2026.csv']}"
       ]
      },
-     "execution_count": 12,
+     "execution_count": 44,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2142,7 +2033,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 13,
+   "execution_count": 45,
    "id": "5177e35c",
    "metadata": {},
    "outputs": [
@@ -2152,7 +2043,7 @@
        "WindowsPath('c:/Users/13car/Dropbox/local_github_repos_personal/dlx56_mPFC_1p_SohalLab/results')"
       ]
      },
-     "execution_count": 13,
+     "execution_count": 45,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2163,7 +2054,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 14,
+   "execution_count": 46,
    "id": "647ea430-7d3e-4405-b37b-f3624b2160ea",
    "metadata": {},
    "outputs": [
@@ -2198,7 +2089,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 15,
+   "execution_count": 47,
    "id": "3e82aa88-2bb1-42d1-91f9-e71681cb64c3",
    "metadata": {},
    "outputs": [],
@@ -2252,7 +2143,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 16,
+   "execution_count": 48,
    "id": "ccf93b1b-00fc-4ffa-b134-59143d03e50f",
    "metadata": {},
    "outputs": [],
@@ -2276,7 +2167,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 17,
+   "execution_count": 49,
    "id": "0221f2c5-b003-4530-94af-0f4e1c75882e",
    "metadata": {},
    "outputs": [
@@ -2293,7 +2184,7 @@
        "(datetime.datetime(2026, 6, 18, 0, 0), '18_Jun_2026')"
       ]
      },
-     "execution_count": 17,
+     "execution_count": 49,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2304,7 +2195,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 18,
+   "execution_count": 50,
    "id": "58605b27-8338-4d87-abaf-8e67255bb140",
    "metadata": {},
    "outputs": [
@@ -2517,10 +2408,10 @@
        "      <td>0.0149</td>\n",
        "      <td>robust_cohen_d</td>\n",
        "      <td>...</td>\n",
-       "      <td>03_Jul_2026</td>\n",
+       "      <td>09_Jun_2026</td>\n",
        "      <td>null_CCGP- Train on IA trials, Test on RS tria...</td>\n",
        "      <td>3</td>\n",
-       "      <td>03 Jul 2026</td>\n",
+       "      <td>09 Jun 2026</td>\n",
        "      <td>3_null_CCGP- Train on IA trials, Test on RS tr...</td>\n",
        "      <td>0.409668</td>\n",
        "      <td>0.589844</td>\n",
@@ -2541,10 +2432,10 @@
        "      <td>0.0181</td>\n",
        "      <td>robust_cohen_d</td>\n",
        "      <td>...</td>\n",
-       "      <td>03_Jul_2026</td>\n",
+       "      <td>09_Jun_2026</td>\n",
        "      <td>null_CCGP- Train on IA trials, Test on RS tria...</td>\n",
        "      <td>3</td>\n",
-       "      <td>03 Jul 2026</td>\n",
+       "      <td>09 Jun 2026</td>\n",
        "      <td>3_null_CCGP- Train on IA trials, Test on RS tr...</td>\n",
        "      <td>0.409668</td>\n",
        "      <td>0.589844</td>\n",
@@ -2565,10 +2456,10 @@
        "      <td>0.0158</td>\n",
        "      <td>robust_cohen_d</td>\n",
        "      <td>...</td>\n",
-       "      <td>03_Jul_2026</td>\n",
+       "      <td>09_Jun_2026</td>\n",
        "      <td>null_CCGP- Train on IA trials, Test on RS tria...</td>\n",
        "      <td>3</td>\n",
-       "      <td>03 Jul 2026</td>\n",
+       "      <td>09 Jun 2026</td>\n",
        "      <td>3_null_CCGP- Train on IA trials, Test on RS tr...</td>\n",
        "      <td>0.388184</td>\n",
        "      <td>0.610352</td>\n",
@@ -2589,10 +2480,10 @@
        "      <td>0.0168</td>\n",
        "      <td>robust_cohen_d</td>\n",
        "      <td>...</td>\n",
-       "      <td>03_Jul_2026</td>\n",
+       "      <td>09_Jun_2026</td>\n",
        "      <td>null_CCGP- Train on IA trials, Test on RS tria...</td>\n",
        "      <td>3</td>\n",
-       "      <td>03 Jul 2026</td>\n",
+       "      <td>09 Jun 2026</td>\n",
        "      <td>3_null_CCGP- Train on IA trials, Test on RS tr...</td>\n",
        "      <td>0.410645</td>\n",
        "      <td>0.587891</td>\n",
@@ -2613,10 +2504,10 @@
        "      <td>0.0190</td>\n",
        "      <td>robust_cohen_d</td>\n",
        "      <td>...</td>\n",
-       "      <td>03_Jul_2026</td>\n",
+       "      <td>09_Jun_2026</td>\n",
        "      <td>null_CCGP- Train on IA trials, Test on RS tria...</td>\n",
        "      <td>3</td>\n",
-       "      <td>03 Jul 2026</td>\n",
+       "      <td>09 Jun 2026</td>\n",
        "      <td>3_null_CCGP- Train on IA trials, Test on RS tr...</td>\n",
        "      <td>0.410645</td>\n",
        "      <td>0.587891</td>\n",
@@ -2663,11 +2554,11 @@
        "3            robust_cohen_d  ...             27_Mar_2026   \n",
        "4            robust_cohen_d  ...             27_Mar_2026   \n",
        "..                      ...  ...                     ...   \n",
-       "7            robust_cohen_d  ...             03_Jul_2026   \n",
-       "8            robust_cohen_d  ...             03_Jul_2026   \n",
-       "9            robust_cohen_d  ...             03_Jul_2026   \n",
-       "10           robust_cohen_d  ...             03_Jul_2026   \n",
-       "11           robust_cohen_d  ...             03_Jul_2026   \n",
+       "7            robust_cohen_d  ...             09_Jun_2026   \n",
+       "8            robust_cohen_d  ...             09_Jun_2026   \n",
+       "9            robust_cohen_d  ...             09_Jun_2026   \n",
+       "10           robust_cohen_d  ...             09_Jun_2026   \n",
+       "11           robust_cohen_d  ...             09_Jun_2026   \n",
        "\n",
        "                             filename of source table Figure number  \\\n",
        "0   CCG single class pred- Train IA test RS - Earl...             3   \n",
@@ -2689,11 +2580,11 @@
        "3   27 Mar 2026  3_CCG single class pred- Train IA test RS - Ea...   \n",
        "4   27 Mar 2026  3_CCG single class pred- Train IA test RS - Ea...   \n",
        "..          ...                                                ...   \n",
-       "7   03 Jul 2026  3_null_CCGP- Train on IA trials, Test on RS tr...   \n",
-       "8   03 Jul 2026  3_null_CCGP- Train on IA trials, Test on RS tr...   \n",
-       "9   03 Jul 2026  3_null_CCGP- Train on IA trials, Test on RS tr...   \n",
-       "10  03 Jul 2026  3_null_CCGP- Train on IA trials, Test on RS tr...   \n",
-       "11  03 Jul 2026  3_null_CCGP- Train on IA trials, Test on RS tr...   \n",
+       "7   09 Jun 2026  3_null_CCGP- Train on IA trials, Test on RS tr...   \n",
+       "8   09 Jun 2026  3_null_CCGP- Train on IA trials, Test on RS tr...   \n",
+       "9   09 Jun 2026  3_null_CCGP- Train on IA trials, Test on RS tr...   \n",
+       "10  09 Jun 2026  3_null_CCGP- Train on IA trials, Test on RS tr...   \n",
+       "11  09 Jun 2026  3_null_CCGP- Train on IA trials, Test on RS tr...   \n",
        "\n",
        "   group_1_null_low group_1_null_high group_2_null_low  group_2_null_high  \\\n",
        "0               NaN               NaN              NaN                NaN   \n",
@@ -2724,7 +2615,7 @@
        "[312 rows x 26 columns]"
       ]
      },
-     "execution_count": 18,
+     "execution_count": 50,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2765,7 +2656,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 19,
+   "execution_count": 51,
    "id": "7dff7785-02a3-4e71-ae0f-ce421aafa99c",
    "metadata": {},
    "outputs": [],
@@ -2784,7 +2675,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 20,
+   "execution_count": 52,
    "id": "eab635be-40f2-4bdf-adbc-18f2d3546ea6",
    "metadata": {},
    "outputs": [
@@ -2796,7 +2687,7 @@
       "fig 1: 7 table(s) selected (latest per table)\n",
       "fig 2: 12 table(s) selected (latest per table)\n",
       "fig 3: 28 table(s) selected (latest per table)\n",
-      "fig 4: 16 table(s) selected (latest per table)\n",
+      "fig 4: 15 table(s) selected (latest per table)\n",
       "fig 5: 5 table(s) selected (latest per table)\n",
       "fig 6: 4 table(s) selected (latest per table)\n",
       "fig 7: 4 table(s) selected (latest per table)\n"
@@ -2846,7 +2737,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 21,
+   "execution_count": 53,
    "id": "ac90da3f",
    "metadata": {},
    "outputs": [
@@ -3161,7 +3052,7 @@
        "    </tr>\n",
        "  </tbody>\n",
        "</table>\n",
-       "<p>797 rows × 34 columns</p>\n",
+       "<p>785 rows × 34 columns</p>\n",
        "</div>"
       ],
       "text/plain": [
@@ -3230,10 +3121,10 @@
        "4   Late_IA_v_Early_RS_Correct  \n",
        "5   Late_IA_v_Early_RS_Correct  \n",
        "\n",
-       "[797 rows x 34 columns]"
+       "[785 rows x 34 columns]"
       ]
      },
-     "execution_count": 21,
+     "execution_count": 53,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -3244,7 +3135,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 22,
+   "execution_count": 54,
    "id": "2c07fbb1",
    "metadata": {},
    "outputs": [
@@ -3450,7 +3341,7 @@
        "[5 rows x 34 columns]"
       ]
      },
-     "execution_count": 22,
+     "execution_count": 54,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -3464,7 +3355,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 23,
+   "execution_count": 55,
    "id": "46f2fe15",
    "metadata": {},
    "outputs": [
@@ -3779,7 +3670,7 @@
        "    </tr>\n",
        "  </tbody>\n",
        "</table>\n",
-       "<p>792 rows × 27 columns</p>\n",
+       "<p>780 rows × 27 columns</p>\n",
        "</div>"
       ],
       "text/plain": [
@@ -3874,10 +3765,10 @@
        "4           NaN  Late_IA_v_Early_RS_Correct  \n",
        "5           NaN  Late_IA_v_Early_RS_Correct  \n",
        "\n",
-       "[792 rows x 27 columns]"
+       "[780 rows x 27 columns]"
       ]
      },
-     "execution_count": 23,
+     "execution_count": 55,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -3889,7 +3780,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 24,
+   "execution_count": null,
    "id": "36315d23-0f42-46f9-8819-a4c01b892066",
    "metadata": {},
    "outputs": [
@@ -3927,7 +3818,7 @@
        " 'null_CCG uni-class pred- Train Correct test Error- Early_RS_Error ensemble': '4F'}"
       ]
      },
-     "execution_count": 24,
+     "execution_count": 56,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -3992,7 +3883,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 25,
+   "execution_count": 57,
    "id": "4d6fc710-bd92-4b04-97ba-a9f387269729",
    "metadata": {},
    "outputs": [],
@@ -4026,7 +3917,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 26,
+   "execution_count": 58,
    "id": "b3391d36",
    "metadata": {},
    "outputs": [
@@ -4048,9 +3939,9 @@
       "supp_Proportion frames active per trial                 48         None\n",
       "supp_wtclnz_pointplot_Mean event rate by phase          48         None\n",
       "\n",
-      "[69 rows x 2 columns]\n",
+      "[68 rows x 2 columns]\n",
       "\n",
-      "Total rows: 792\n",
+      "Total rows: 780\n",
       "Rows with panel: 102\n"
      ]
     }
@@ -4070,7 +3961,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 27,
+   "execution_count": 59,
    "id": "59545a02-1d56-4945-8f52-9aa1c74711e5",
    "metadata": {},
    "outputs": [
@@ -4505,7 +4396,7 @@
        "[369 rows x 28 columns]"
       ]
      },
-     "execution_count": 27,
+     "execution_count": 59,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -4542,7 +4433,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 28,
+   "execution_count": 60,
    "id": "e06772c1",
    "metadata": {},
    "outputs": [
@@ -4550,37 +4441,31 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "C:\\Users\\13car\\AppData\\Local\\Temp\\ipykernel_41380\\1635421295.py:14: SettingWithCopyWarning: \n",
+      "C:\\Users\\13car\\AppData\\Local\\Temp\\ipykernel_139660\\3483444435.py:14: SettingWithCopyWarning: \n",
       "A value is trying to be set on a copy of a slice from a DataFrame.\n",
       "Try using .loc[row_indexer,col_indexer] = value instead\n",
       "\n",
       "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
       "  full_fig_table['Variable Compared between Groups'] = full_fig_table['Variable Compared between Groups'].map(variable_map)\n",
-      "C:\\Users\\13car\\AppData\\Local\\Temp\\ipykernel_41380\\1635421295.py:28: SettingWithCopyWarning: \n",
-      "A value is trying to be set on a copy of a slice from a DataFrame.\n",
-      "Try using .loc[row_indexer,col_indexer] = value instead\n",
-      "\n",
-      "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
-      "  full_fig_table['Permutation Test p-value'] = \"\"\n",
-      "C:\\Users\\13car\\AppData\\Local\\Temp\\ipykernel_41380\\1635421295.py:38: SettingWithCopyWarning: \n",
+      "C:\\Users\\13car\\AppData\\Local\\Temp\\ipykernel_139660\\3483444435.py:32: SettingWithCopyWarning: \n",
       "A value is trying to be set on a copy of a slice from a DataFrame.\n",
       "Try using .loc[row_indexer,col_indexer] = value instead\n",
       "\n",
       "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
       "  full_fig_table['Name of Statistical Test'] = full_fig_table['Name of Statistical Test'].map(test_name_clean) #replace var name with rea lnames\n",
-      "C:\\Users\\13car\\AppData\\Local\\Temp\\ipykernel_41380\\1635421295.py:47: SettingWithCopyWarning: \n",
+      "C:\\Users\\13car\\AppData\\Local\\Temp\\ipykernel_139660\\3483444435.py:41: SettingWithCopyWarning: \n",
       "A value is trying to be set on a copy of a slice from a DataFrame.\n",
       "Try using .loc[row_indexer,col_indexer] = value instead\n",
       "\n",
       "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
       "  full_fig_table['Test Statistic Variable'] = full_fig_table['Name of Statistical Test'].map({\"Robust Cohen's d\": \"Robust Cohen's d\",\n",
-      "C:\\Users\\13car\\AppData\\Local\\Temp\\ipykernel_41380\\1635421295.py:51: SettingWithCopyWarning: \n",
+      "C:\\Users\\13car\\AppData\\Local\\Temp\\ipykernel_139660\\3483444435.py:45: SettingWithCopyWarning: \n",
       "A value is trying to be set on a copy of a slice from a DataFrame.\n",
       "Try using .loc[row_indexer,col_indexer] = value instead\n",
       "\n",
       "See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy\n",
       "  full_fig_table['Test Statistic Value'] = full_fig_table['Test Result'].apply(lambda x: x[0])\n",
-      "C:\\Users\\13car\\AppData\\Local\\Temp\\ipykernel_41380\\1635421295.py:52: SettingWithCopyWarning: \n",
+      "C:\\Users\\13car\\AppData\\Local\\Temp\\ipykernel_139660\\3483444435.py:46: SettingWithCopyWarning: \n",
       "A value is trying to be set on a copy of a slice from a DataFrame.\n",
       "Try using .loc[row_indexer,col_indexer] = value instead\n",
       "\n",
@@ -4620,6 +4505,7 @@
        "      <th>Group 2 SEM</th>\n",
        "      <th>Name of Statistical Test</th>\n",
        "      <th>...</th>\n",
+       "      <th>csv_filename</th>\n",
        "      <th>group_1_null_low</th>\n",
        "      <th>group_1_null_high</th>\n",
        "      <th>group_2_null_low</th>\n",
@@ -4627,7 +4513,6 @@
        "      <th>exceeds_null</th>\n",
        "      <th>comparison</th>\n",
        "      <th>Figure Panel</th>\n",
-       "      <th>Permutation Test p-value</th>\n",
        "      <th>Test Statistic Variable</th>\n",
        "      <th>Test Statistic Value</th>\n",
        "    </tr>\n",
@@ -4646,6 +4531,7 @@
        "      <td>0.1143</td>\n",
        "      <td>Robust Cohen's d</td>\n",
        "      <td>...</td>\n",
+       "      <td>7_7_H_Autoencoder Late_IA_v_Early_RS_Correct D...</td>\n",
        "      <td>NaN</td>\n",
        "      <td>NaN</td>\n",
        "      <td>NaN</td>\n",
@@ -4653,7 +4539,6 @@
        "      <td>NaN</td>\n",
        "      <td>Late_IA_v_Early_RS_Correct</td>\n",
        "      <td>7H</td>\n",
-       "      <td>0.0002</td>\n",
        "      <td>Robust Cohen's d</td>\n",
        "      <td>1.56200</td>\n",
        "    </tr>\n",
@@ -4670,6 +4555,7 @@
        "      <td>0.1479</td>\n",
        "      <td>Robust Cohen's d</td>\n",
        "      <td>...</td>\n",
+       "      <td>7_7_H_Autoencoder Late_IA_v_Early_RS_Correct D...</td>\n",
        "      <td>NaN</td>\n",
        "      <td>NaN</td>\n",
        "      <td>NaN</td>\n",
@@ -4677,7 +4563,6 @@
        "      <td>NaN</td>\n",
        "      <td>Late_IA_v_Early_RS_Correct</td>\n",
        "      <td>7H</td>\n",
-       "      <td>0.0002</td>\n",
        "      <td>Robust Cohen's d</td>\n",
        "      <td>0.76298</td>\n",
        "    </tr>\n",
@@ -4694,6 +4579,7 @@
        "      <td>0.1412</td>\n",
        "      <td>Robust Cohen's d</td>\n",
        "      <td>...</td>\n",
+       "      <td>7_7_H_Autoencoder Late_IA_v_Early_RS_Correct D...</td>\n",
        "      <td>NaN</td>\n",
        "      <td>NaN</td>\n",
        "      <td>NaN</td>\n",
@@ -4701,7 +4587,6 @@
        "      <td>NaN</td>\n",
        "      <td>Late_IA_v_Early_RS_Correct</td>\n",
        "      <td>7H</td>\n",
-       "      <td>0.0002</td>\n",
        "      <td>Robust Cohen's d</td>\n",
        "      <td>1.15339</td>\n",
        "    </tr>\n",
@@ -4718,6 +4603,7 @@
        "      <td>0.1254</td>\n",
        "      <td>Robust Cohen's d</td>\n",
        "      <td>...</td>\n",
+       "      <td>7_7_H_Autoencoder Late_IA_v_Early_RS_Correct D...</td>\n",
        "      <td>NaN</td>\n",
        "      <td>NaN</td>\n",
        "      <td>NaN</td>\n",
@@ -4725,7 +4611,6 @@
        "      <td>NaN</td>\n",
        "      <td>Late_IA_v_Early_RS_Correct</td>\n",
        "      <td>7H</td>\n",
-       "      <td>0.0002</td>\n",
        "      <td>Robust Cohen's d</td>\n",
        "      <td>1.08773</td>\n",
        "    </tr>\n",
@@ -4742,6 +4627,7 @@
        "      <td>0.1297</td>\n",
        "      <td>Robust Cohen's d</td>\n",
        "      <td>...</td>\n",
+       "      <td>7_7_H_Autoencoder Late_IA_v_Early_RS_Correct D...</td>\n",
        "      <td>NaN</td>\n",
        "      <td>NaN</td>\n",
        "      <td>NaN</td>\n",
@@ -4749,13 +4635,12 @@
        "      <td>NaN</td>\n",
        "      <td>Late_IA_v_Early_RS_Correct</td>\n",
        "      <td>7H</td>\n",
-       "      <td>0.0002</td>\n",
        "      <td>Robust Cohen's d</td>\n",
        "      <td>1.31770</td>\n",
        "    </tr>\n",
        "  </tbody>\n",
        "</table>\n",
-       "<p>5 rows × 31 columns</p>\n",
+       "<p>5 rows × 30 columns</p>\n",
        "</div>"
       ],
       "text/plain": [
@@ -4773,26 +4658,33 @@
        "4        1.1455       0.1412        1.0002       0.1254   \n",
        "5        1.1455       0.1412        0.9668       0.1297   \n",
        "\n",
-       "  Name of Statistical Test  ... group_1_null_low group_1_null_high  \\\n",
-       "1         Robust Cohen's d  ...              NaN               NaN   \n",
-       "2         Robust Cohen's d  ...              NaN               NaN   \n",
-       "3         Robust Cohen's d  ...              NaN               NaN   \n",
-       "4         Robust Cohen's d  ...              NaN               NaN   \n",
-       "5         Robust Cohen's d  ...              NaN               NaN   \n",
+       "  Name of Statistical Test  ...  \\\n",
+       "1         Robust Cohen's d  ...   \n",
+       "2         Robust Cohen's d  ...   \n",
+       "3         Robust Cohen's d  ...   \n",
+       "4         Robust Cohen's d  ...   \n",
+       "5         Robust Cohen's d  ...   \n",
        "\n",
-       "  group_2_null_low group_2_null_high exceeds_null                  comparison  \\\n",
-       "1              NaN               NaN          NaN  Late_IA_v_Early_RS_Correct   \n",
-       "2              NaN               NaN          NaN  Late_IA_v_Early_RS_Correct   \n",
-       "3              NaN               NaN          NaN  Late_IA_v_Early_RS_Correct   \n",
-       "4              NaN               NaN          NaN  Late_IA_v_Early_RS_Correct   \n",
-       "5              NaN               NaN          NaN  Late_IA_v_Early_RS_Correct   \n",
+       "                                        csv_filename group_1_null_low  \\\n",
+       "1  7_7_H_Autoencoder Late_IA_v_Early_RS_Correct D...              NaN   \n",
+       "2  7_7_H_Autoencoder Late_IA_v_Early_RS_Correct D...              NaN   \n",
+       "3  7_7_H_Autoencoder Late_IA_v_Early_RS_Correct D...              NaN   \n",
+       "4  7_7_H_Autoencoder Late_IA_v_Early_RS_Correct D...              NaN   \n",
+       "5  7_7_H_Autoencoder Late_IA_v_Early_RS_Correct D...              NaN   \n",
        "\n",
-       "  Figure Panel Permutation Test p-value Test Statistic Variable  \\\n",
-       "1           7H                   0.0002        Robust Cohen's d   \n",
-       "2           7H                   0.0002        Robust Cohen's d   \n",
-       "3           7H                   0.0002        Robust Cohen's d   \n",
-       "4           7H                   0.0002        Robust Cohen's d   \n",
-       "5           7H                   0.0002        Robust Cohen's d   \n",
+       "  group_1_null_high group_2_null_low group_2_null_high exceeds_null  \\\n",
+       "1               NaN              NaN               NaN          NaN   \n",
+       "2               NaN              NaN               NaN          NaN   \n",
+       "3               NaN              NaN               NaN          NaN   \n",
+       "4               NaN              NaN               NaN          NaN   \n",
+       "5               NaN              NaN               NaN          NaN   \n",
+       "\n",
+       "                   comparison Figure Panel Test Statistic Variable  \\\n",
+       "1  Late_IA_v_Early_RS_Correct           7H        Robust Cohen's d   \n",
+       "2  Late_IA_v_Early_RS_Correct           7H        Robust Cohen's d   \n",
+       "3  Late_IA_v_Early_RS_Correct           7H        Robust Cohen's d   \n",
+       "4  Late_IA_v_Early_RS_Correct           7H        Robust Cohen's d   \n",
+       "5  Late_IA_v_Early_RS_Correct           7H        Robust Cohen's d   \n",
        "\n",
        "  Test Statistic Value  \n",
        "1              1.56200  \n",
@@ -4801,10 +4693,10 @@
        "4              1.08773  \n",
        "5              1.31770  \n",
        "\n",
-       "[5 rows x 31 columns]"
+       "[5 rows x 30 columns]"
       ]
      },
-     "execution_count": 28,
+     "execution_count": 60,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -4837,12 +4729,6 @@
     "cohen_d_mask =  full_fig_table['Name of Statistical Test'] == 'robust_cohen_d'\n",
     "\n",
     "full_fig_table.loc[cohen_d_mask, 'Test Result'] = full_fig_table.loc[cohen_d_mask, 'Test Result'].apply(_parse_array_str) #apply to cohen's d testing\n",
-    "## recover the Cohen's d permutation-test p-value: 3rd element of the parsed 'Test Result' array (only cohen d rows carry it)\n",
-    "full_fig_table['Permutation Test p-value'] = \"\"\n",
-    "full_fig_table.loc[cohen_d_mask, 'Permutation Test p-value'] = (\n",
-    "    full_fig_table.loc[cohen_d_mask, 'Test Result']\n",
-    "    .apply(lambda x: clean_pvalue_string(x[2]) if isinstance(x, (list, tuple)) and len(x) > 2 else \"\")\n",
-    ")\n",
     "#clean/redo testing \n",
     "test_name_clean = {'robust_cohen_d': \"Robust Cohen's d\",\n",
     "                   \"permutation_test\": \"Permutation Test\",\n",
@@ -4872,7 +4758,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 29,
+   "execution_count": 61,
    "id": "f419704c",
    "metadata": {},
    "outputs": [
@@ -5187,7 +5073,7 @@
        "    </tr>\n",
        "  </tbody>\n",
        "</table>\n",
-       "<p>369 rows × 24 columns</p>\n",
+       "<p>369 rows × 23 columns</p>\n",
        "</div>"
       ],
       "text/plain": [
@@ -5256,31 +5142,31 @@
        "4                               ensemble   \n",
        "5                               ensemble   \n",
        "\n",
-       "                             filename of source table  group_1_null_low  \\\n",
-       "0                              # Perseverative Errors               NaN   \n",
-       "1                              # Perseverative Errors               NaN   \n",
-       "2                              # Perseverative Errors               NaN   \n",
-       "3                              # Perseverative Errors               NaN   \n",
-       "4                              # Perseverative Errors               NaN   \n",
-       "..                                                ...               ...   \n",
-       "1   7_H_Autoencoder Late_IA_v_Early_RS_Correct DB ...               NaN   \n",
-       "2   7_H_Autoencoder Late_IA_v_Early_RS_Correct DB ...               NaN   \n",
-       "3   7_H_Autoencoder Late_IA_v_Early_RS_Correct DB ...               NaN   \n",
-       "4   7_H_Autoencoder Late_IA_v_Early_RS_Correct DB ...               NaN   \n",
-       "5   7_H_Autoencoder Late_IA_v_Early_RS_Correct DB ...               NaN   \n",
+       "                             filename of source table group_1_null_low  \\\n",
+       "0                              # Perseverative Errors              NaN   \n",
+       "1                              # Perseverative Errors              NaN   \n",
+       "2                              # Perseverative Errors              NaN   \n",
+       "3                              # Perseverative Errors              NaN   \n",
+       "4                              # Perseverative Errors              NaN   \n",
+       "..                                                ...              ...   \n",
+       "1   7_H_Autoencoder Late_IA_v_Early_RS_Correct DB ...              NaN   \n",
+       "2   7_H_Autoencoder Late_IA_v_Early_RS_Correct DB ...              NaN   \n",
+       "3   7_H_Autoencoder Late_IA_v_Early_RS_Correct DB ...              NaN   \n",
+       "4   7_H_Autoencoder Late_IA_v_Early_RS_Correct DB ...              NaN   \n",
+       "5   7_H_Autoencoder Late_IA_v_Early_RS_Correct DB ...              NaN   \n",
        "\n",
-       "   group_1_null_high group_2_null_low group_2_null_high  shorthand test name  \\\n",
-       "0                NaN              NaN               NaN                    U   \n",
-       "1                NaN              NaN               NaN                    U   \n",
-       "2                NaN              NaN               NaN                    U   \n",
-       "3                NaN              NaN               NaN                    U   \n",
-       "4                NaN              NaN               NaN                    U   \n",
-       "..               ...              ...               ...                  ...   \n",
-       "1                NaN              NaN               NaN                    d   \n",
-       "2                NaN              NaN               NaN                    d   \n",
-       "3                NaN              NaN               NaN                    d   \n",
-       "4                NaN              NaN               NaN                    d   \n",
-       "5                NaN              NaN               NaN                    d   \n",
+       "   group_1_null_high group_2_null_low  group_2_null_high  shorthand test name  \\\n",
+       "0                NaN              NaN                NaN                    U   \n",
+       "1                NaN              NaN                NaN                    U   \n",
+       "2                NaN              NaN                NaN                    U   \n",
+       "3                NaN              NaN                NaN                    U   \n",
+       "4                NaN              NaN                NaN                    U   \n",
+       "..               ...              ...                ...                  ...   \n",
+       "1                NaN              NaN                NaN                    d   \n",
+       "2                NaN              NaN                NaN                    d   \n",
+       "3                NaN              NaN                NaN                    d   \n",
+       "4                NaN              NaN                NaN                    d   \n",
+       "5                NaN              NaN                NaN                    d   \n",
        "\n",
        "    Test stat., Name, Value  \n",
        "0                     U=6.0  \n",
@@ -5295,10 +5181,10 @@
        "4                   d=1.088  \n",
        "5                   d=1.318  \n",
        "\n",
-       "[369 rows x 24 columns]"
+       "[369 rows x 23 columns]"
       ]
      },
-     "execution_count": 29,
+     "execution_count": 61,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -5308,7 +5194,7 @@
     "#reorder then drop figs\n",
     "new_col_order = ['Figure Panel', 'Group of posthoc comparison', 'Group 1', 'Group 2','Variable Compared between Groups',\n",
     "                 'Group 1 N', 'Group 2 N', 'Group 1 Mean', 'Group 1 SEM', 'Group 2 Mean', 'Group 2 SEM',\n",
-    "                 'Name of Statistical Test', 'Test p-value','Permutation Test p-value','Test Statistic Variable','Test Statistic Value',\n",
+    "                 'Name of Statistical Test', 'Test p-value','Test Statistic Variable','Test Statistic Value',\n",
     "                 'Variable labeling post-hoc group',\n",
     "                 'Categorical variable of plot (x-axis)', \n",
     "                 'filename of source table',\n",
@@ -5336,7 +5222,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 30,
+   "execution_count": 62,
    "id": "8de2e737",
    "metadata": {},
    "outputs": [],
@@ -5350,7 +5236,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 31,
+   "execution_count": 63,
    "id": "1ae41113",
    "metadata": {},
    "outputs": [
@@ -5521,7 +5407,7 @@
        "    </tr>\n",
        "  </tbody>\n",
        "</table>\n",
-       "<p>5 rows × 29 columns</p>\n",
+       "<p>5 rows × 28 columns</p>\n",
        "</div>"
       ],
       "text/plain": [
@@ -5546,19 +5432,19 @@
        "3        5.1429       0.7997  ...               NaN              NaN   \n",
        "4        5.2857       1.0169  ...               NaN              NaN   \n",
        "\n",
-       "  group_2_null_high shorthand test name  Test stat., Name, Value  \\\n",
-       "0               NaN                   U                    U=6.0   \n",
-       "1               NaN                   U                   U=13.0   \n",
-       "2               NaN                   U                    U=5.0   \n",
-       "3               NaN                   U                   U=41.0   \n",
-       "4               NaN                   U                   U=38.5   \n",
+       "  group_2_null_high  shorthand test name Test stat., Name, Value  \\\n",
+       "0               NaN                    U                   U=6.0   \n",
+       "1               NaN                    U                  U=13.0   \n",
+       "2               NaN                    U                   U=5.0   \n",
+       "3               NaN                    U                  U=41.0   \n",
+       "4               NaN                    U                  U=38.5   \n",
        "\n",
-       "  N- Group 1 & 2  Group 1 Mean +/- SEM Group 2 Mean +/- SEM  \\\n",
-       "0            8, 7      3.000 +/- 1.052      8.143 +/- 0.884   \n",
-       "1            8, 8      3.000 +/- 1.052      4.500 +/- 0.534   \n",
-       "2            8, 7      4.500 +/- 0.534      8.143 +/- 0.884   \n",
-       "3            7, 7      8.143 +/- 0.884      5.143 +/- 0.800   \n",
-       "4            7, 7      8.143 +/- 0.884      5.286 +/- 1.017   \n",
+       "  N- Group 1 & 2  Group 1 Mean +/- SEM  Group 2 Mean +/- SEM  \\\n",
+       "0            8, 7      3.000 +/- 1.052       8.143 +/- 0.884   \n",
+       "1            8, 8      3.000 +/- 1.052       4.500 +/- 0.534   \n",
+       "2            8, 7      4.500 +/- 0.534       8.143 +/- 0.884   \n",
+       "3            7, 7      8.143 +/- 0.884       5.143 +/- 0.800   \n",
+       "4            7, 7      8.143 +/- 0.884       5.286 +/- 1.017   \n",
        "\n",
        "   Group 1 Null Band (5-95%)  Group 2 Null Band (5-95%)  \n",
        "0                                                        \n",
@@ -5567,10 +5453,10 @@
        "3                                                        \n",
        "4                                                        \n",
        "\n",
-       "[5 rows x 29 columns]"
+       "[5 rows x 28 columns]"
       ]
      },
-     "execution_count": 31,
+     "execution_count": 63,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -5605,7 +5491,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 32,
+   "execution_count": 64,
    "id": "5d367d09",
    "metadata": {},
    "outputs": [
@@ -5643,7 +5529,6 @@
        "      <th>Dependent Variable</th>\n",
        "      <th>Statistical Test</th>\n",
        "      <th>p-value</th>\n",
-       "      <th>Permutation Test p-value</th>\n",
        "      <th>filename of source table</th>\n",
        "      <th>Test stat., Name, Value</th>\n",
        "      <th>N- Group 1 &amp; 2</th>\n",
@@ -5662,7 +5547,6 @@
        "      <td># perseverative errors</td>\n",
        "      <td>Mann-Whitney U</td>\n",
        "      <td>0.0117</td>\n",
-       "      <td></td>\n",
        "      <td># Perseverative Errors</td>\n",
        "      <td>U=6.0</td>\n",
        "      <td>8, 7</td>\n",
@@ -5679,7 +5563,6 @@
        "      <td># perseverative errors</td>\n",
        "      <td>Mann-Whitney U</td>\n",
        "      <td>0.0471</td>\n",
-       "      <td></td>\n",
        "      <td># Perseverative Errors</td>\n",
        "      <td>U=13.0</td>\n",
        "      <td>8, 8</td>\n",
@@ -5696,7 +5579,6 @@
        "      <td># perseverative errors</td>\n",
        "      <td>Mann-Whitney U</td>\n",
        "      <td>0.0082</td>\n",
-       "      <td></td>\n",
        "      <td># Perseverative Errors</td>\n",
        "      <td>U=5.0</td>\n",
        "      <td>8, 7</td>\n",
@@ -5713,7 +5595,6 @@
        "      <td># perseverative errors</td>\n",
        "      <td>Mann-Whitney U</td>\n",
        "      <td>0.0387</td>\n",
-       "      <td></td>\n",
        "      <td># Perseverative Errors</td>\n",
        "      <td>U=41.0</td>\n",
        "      <td>7, 7</td>\n",
@@ -5730,7 +5611,6 @@
        "      <td># perseverative errors</td>\n",
        "      <td>Mann-Whitney U</td>\n",
        "      <td>0.0784</td>\n",
-       "      <td></td>\n",
        "      <td># Perseverative Errors</td>\n",
        "      <td>U=38.5</td>\n",
        "      <td>7, 7</td>\n",
@@ -5754,7 +5634,6 @@
        "      <td>...</td>\n",
        "      <td>...</td>\n",
        "      <td>...</td>\n",
-       "      <td>...</td>\n",
        "    </tr>\n",
        "    <tr>\n",
        "      <th>1</th>\n",
@@ -5764,7 +5643,6 @@
        "      <td>Davies-Bouldin Index of Latent Space activity</td>\n",
        "      <td>Robust Cohen's d</td>\n",
        "      <td>0.0591</td>\n",
-       "      <td>0.0002</td>\n",
        "      <td>7_H_Autoencoder Late_IA_v_Early_RS_Correct DB ...</td>\n",
        "      <td>d=1.562</td>\n",
        "      <td>1000, 1000</td>\n",
@@ -5781,7 +5659,6 @@
        "      <td>Davies-Bouldin Index of Latent Space activity</td>\n",
        "      <td>Robust Cohen's d</td>\n",
        "      <td>0.2227</td>\n",
-       "      <td>0.0002</td>\n",
        "      <td>7_H_Autoencoder Late_IA_v_Early_RS_Correct DB ...</td>\n",
        "      <td>d=0.763</td>\n",
        "      <td>1000, 1000</td>\n",
@@ -5798,7 +5675,6 @@
        "      <td>Davies-Bouldin Index of Latent Space activity</td>\n",
        "      <td>Robust Cohen's d</td>\n",
        "      <td>0.1244</td>\n",
-       "      <td>0.0002</td>\n",
        "      <td>7_H_Autoencoder Late_IA_v_Early_RS_Correct DB ...</td>\n",
        "      <td>d=1.153</td>\n",
        "      <td>1000, 1000</td>\n",
@@ -5815,7 +5691,6 @@
        "      <td>Davies-Bouldin Index of Latent Space activity</td>\n",
        "      <td>Robust Cohen's d</td>\n",
        "      <td>0.1384</td>\n",
-       "      <td>0.0002</td>\n",
        "      <td>7_H_Autoencoder Late_IA_v_Early_RS_Correct DB ...</td>\n",
        "      <td>d=1.088</td>\n",
        "      <td>1000, 1000</td>\n",
@@ -5832,7 +5707,6 @@
        "      <td>Davies-Bouldin Index of Latent Space activity</td>\n",
        "      <td>Robust Cohen's d</td>\n",
        "      <td>0.0938</td>\n",
-       "      <td>0.0002</td>\n",
        "      <td>7_H_Autoencoder Late_IA_v_Early_RS_Correct DB ...</td>\n",
        "      <td>d=1.318</td>\n",
        "      <td>1000, 1000</td>\n",
@@ -5843,7 +5717,7 @@
        "    </tr>\n",
        "  </tbody>\n",
        "</table>\n",
-       "<p>369 rows × 14 columns</p>\n",
+       "<p>369 rows × 13 columns</p>\n",
        "</div>"
       ],
       "text/plain": [
@@ -5872,19 +5746,6 @@
        "3   Davies-Bouldin Index of Latent Space activity  Robust Cohen's d  0.1244   \n",
        "4   Davies-Bouldin Index of Latent Space activity  Robust Cohen's d  0.1384   \n",
        "5   Davies-Bouldin Index of Latent Space activity  Robust Cohen's d  0.0938   \n",
-       "\n",
-       "   Permutation Test p-value  \\\n",
-       "0                             \n",
-       "1                             \n",
-       "2                             \n",
-       "3                             \n",
-       "4                             \n",
-       "..                      ...   \n",
-       "1                    0.0002   \n",
-       "2                    0.0002   \n",
-       "3                    0.0002   \n",
-       "4                    0.0002   \n",
-       "5                    0.0002   \n",
        "\n",
        "                             filename of source table Test stat., Name, Value  \\\n",
        "0                              # Perseverative Errors                   U=6.0   \n",
@@ -5925,10 +5786,10 @@
        "4                                                       \n",
        "5                                                       \n",
        "\n",
-       "[369 rows x 14 columns]"
+       "[369 rows x 13 columns]"
       ]
      },
-     "execution_count": 32,
+     "execution_count": 64,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -5955,9 +5816,6 @@
     "                     'group_2_null_low', 'group_2_null_high'] ## drop any columns in this list that are still present in the table before saving, to avoid saving extraneous info\n",
     "\n",
     "full_fig_table = full_fig_table.drop([c for c in cols_drop_in_save if c in full_fig_table.columns],axis = 1)\n",
-    "## place the permutation test p-value column at the far right end of the table\n",
-    "if 'Permutation Test p-value' in full_fig_table.columns:\n",
-    "    full_fig_table = full_fig_table[[c for c in full_fig_table.columns if c != 'Permutation Test p-value'] + ['Permutation Test p-value']]\n",
     "csv_name = f\"all_figure_concat_results.csv\"\n",
     "full_fig_table.set_index(\"Figure Panel\").to_csv( csv_store_folder/csv_name)\n",
     "\n",
@@ -6038,7 +5896,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 33,
+   "execution_count": 65,
    "id": "c593b9d1",
    "metadata": {},
    "outputs": [
@@ -6075,7 +5933,7 @@
        "Name: count, dtype: int64"
       ]
      },
-     "execution_count": 33,
+     "execution_count": 65,
      "metadata": {},
      "output_type": "execute_result"
     }
